@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Mindful Marketing Agency">
+  <path d="M100 0 L200 0 L200 100 A100 100 0 0 1 100 200 A100 100 0 0 1 0 100 A100 100 0 0 1 100 0 Z" fill="#3D3B39"/>
+  <text x="100" y="86" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="34" fill="#F6EFDF">Mindful</text>
+  <text x="100" y="124" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="30" fill="#F6EFDF">Marketing</text>
+  <text x="100" y="160" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="34" fill="#F6EFDF">Agency</text>
+</svg>
