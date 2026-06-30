@@ -320,14 +320,14 @@ img { max-width: 100%; display: block; }
 }
 .brands-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1.8rem, 6vw, 4rem);
+  gap: clamp(1.6rem, 3vw, 2.4rem);
 }
 .brands-logos img {
-  height: 48px;
+  height: 80px;
   width: auto;
+  max-width: 320px;
   opacity: .7;
   filter: grayscale(1);
   transition: opacity .2s ease, filter .2s ease;
