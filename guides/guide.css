@@ -179,8 +179,11 @@
   padding: .75rem 1rem;
   margin-top: .8rem !important;
 }
+@media (max-width: 760px) {
+  .ps-analytics { grid-template-columns: repeat(3, 1fr) !important; }
+}
 @media (max-width: 580px) {
-  .ps-analytics { grid-template-columns: repeat(2, 1fr); }
+  .ps-analytics { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* ===== Research checklist card ===== */
