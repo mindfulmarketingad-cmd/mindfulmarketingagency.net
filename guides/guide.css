@@ -49,8 +49,12 @@
   gap: .3rem;
   font-size: .85rem;
 }
-.toc-list a { color: var(--charcoal-soft); }
+.toc-list a { color: var(--charcoal-soft); transition: color .15s ease; }
 .toc-list a:hover { color: var(--accent); }
+.toc-list a.toc-active {
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* ===== Article body ===== */
 .guide-article h2 {
@@ -310,15 +314,17 @@
 @media (max-width: 860px) {
   .guide-layout { grid-template-columns: 1fr; }
   .toc { display: none; }
-  .platform-grid, .follow-grid, .mistakes-grid { grid-template-columns: 1fr; }
+  .platform-grid, .follow-grid { grid-template-columns: repeat(2, 1fr); }
+  .mistakes-grid { grid-template-columns: 1fr; }
   .three-cols, .criteria-grid, .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .guide-article { min-width: 0; }
 }
-@media (max-width: 580px) {
+@media (max-width: 600px) {
+  .platform-grid, .follow-grid { grid-template-columns: 1fr; }
   .step { grid-template-columns: 42px 1fr; }
   .three-cols, .criteria-grid, .benefits-grid { grid-template-columns: 1fr; }
   .metric-bar { flex-direction: column; align-items: flex-start; gap: .3rem; }
   .metric-label { min-width: unset; }
-}
-@media (max-width: 580px) {
-  .step { grid-template-columns: 42px 1fr; }
+  .sales-table { font-size: .88rem; }
+  .sales-table th, .sales-table td { padding: .55rem .7rem; }
 }
