@@ -135,6 +135,54 @@
 .ps-price { font-weight: 700; color: var(--accent); font-size: 1rem; }
 .personal-sale p { font-size: .96rem; color: var(--muted); margin: 0; }
 
+/* Real / verified sale card */
+.real-sale { border-color: var(--accent); border-left: 3px solid var(--accent); }
+.ps-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; }
+.ps-badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: .25rem .65rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-top: .2rem;
+}
+.ps-via { font-size: .78rem; color: var(--muted); font-weight: 400; }
+.ps-analytics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .8rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: .9rem 0;
+}
+.ps-stat { text-align: center; }
+.ps-stat-num {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.1;
+}
+.ps-stat-label { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+.ps-stat-label small { display: block; font-size: .73rem; }
+.ps-lesson {
+  font-size: .93rem !important;
+  color: var(--charcoal-soft) !important;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  margin-top: .8rem !important;
+}
+@media (max-width: 580px) {
+  .ps-analytics { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ===== Research checklist card ===== */
 .checklist-card {
   background: var(--charcoal);
