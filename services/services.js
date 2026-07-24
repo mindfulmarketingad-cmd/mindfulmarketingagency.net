@@ -3,6 +3,16 @@
   const SUPABASE_URL = 'https://tbqigevoksabizjogvtm.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a';
 
+  // Pricing tier buttons — preselect the tier dropdown and jump to the form
+  document.querySelectorAll('[data-tier-select]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tierSelect = document.getElementById('tier');
+      if (tierSelect) tierSelect.value = btn.dataset.tierSelect;
+      const target = document.getElementById('apply');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   const form = document.querySelector('.lead-form');
   if (!form) return;
 
@@ -16,7 +26,9 @@
 
     const formData = new FormData(form);
     const payload = {
+      site: 'mindfulmarketingagency.net',
       service: form.dataset.service || '',
+      tier: formData.get('tier') || null,
       name: formData.get('name') || '',
       email: formData.get('email') || '',
       phone: formData.get('phone') || '',

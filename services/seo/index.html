@@ -57,6 +57,52 @@
     <div class="service-body">
 
       <section class="service-section">
+        <h2>Pricing — pick your tier</h2>
+        <p style="color:var(--muted);margin-top:-.4rem;">One-time fee, no contracts. Every tier includes a free 1-hour consultation.</p>
+        <div class="pricing-grid">
+
+          <div class="pricing-card" data-tier="Tier 1 — Foundation ($49.99)">
+            <p class="pricing-tier-label">Tier 1 · Foundation</p>
+            <h3>Get set up right</h3>
+            <p class="pricing-price">$49.99 <small>one-time</small></p>
+            <p class="pricing-note">Best if you just need the technical basics in place.</p>
+            <ul class="pricing-list">
+              <li>Google Search Console setup</li>
+              <li>Google Analytics 4 setup</li>
+              <li>Free 1-hour consultation</li>
+            </ul>
+            <button type="button" class="pricing-cta" data-tier-select="Tier 1 — Foundation ($49.99)">Get Tier 1</button>
+          </div>
+
+          <div class="pricing-card featured" data-tier="Tier 2 — Foundation + Content ($99.99)">
+            <span class="pricing-badge">Most popular</span>
+            <p class="pricing-tier-label">Tier 2 · Foundation + Content</p>
+            <h3>Set up and start ranking</h3>
+            <p class="pricing-price">$99.99 <small>one-time</small></p>
+            <p class="pricing-note">Best for sites that need real content to target keywords.</p>
+            <ul class="pricing-list">
+              <li>Everything in Tier 1</li>
+              <li>10 keyword-rich pages written &amp; optimized for your target terms</li>
+            </ul>
+            <button type="button" class="pricing-cta" data-tier-select="Tier 2 — Foundation + Content ($99.99)">Get Tier 2</button>
+          </div>
+
+          <div class="pricing-card" data-tier="Tier 3 — Full Buildout ($199.99)">
+            <p class="pricing-tier-label">Tier 3 · Full Buildout</p>
+            <h3>Maximize your keyword footprint</h3>
+            <p class="pricing-price">$199.99 <small>one-time</small></p>
+            <p class="pricing-note">Best for businesses that serve many services, areas, or products.</p>
+            <ul class="pricing-list">
+              <li>Everything in Tier 2</li>
+              <li>+15 more keyword-rich pages (25 total)</li>
+            </ul>
+            <button type="button" class="pricing-cta" data-tier-select="Tier 3 — Full Buildout ($199.99)">Get Tier 3</button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="service-section">
         <h2>What's included</h2>
         <div class="includes-grid">
           <div class="include-card">
@@ -74,10 +120,10 @@
             </div>
           </div>
           <div class="include-card">
-            <span class="include-icon">📘</span>
+            <span class="include-icon">📝</span>
             <div>
-              <h4>Custom SEO playbook</h4>
-              <p>A prioritized, written roadmap — keyword targets, on-page fixes, content gaps, and technical issues, ranked by impact.</p>
+              <h4>Keyword-rich pages (Tier 2 &amp; 3)</h4>
+              <p>Individually written, optimized pages targeting real search terms — services, locations, or product pages built to rank.</p>
             </div>
           </div>
           <div class="include-card">
@@ -161,11 +207,21 @@
 
       <!-- ===== Contact form ===== -->
       <section class="form-section" id="apply">
-        <h2>Request your free SEO consultation</h2>
-        <p class="form-sub">Tell me a bit about your business and I'll follow up to schedule your free 1-hour call.</p>
+        <h2>Get started with SEO</h2>
+        <p class="form-sub">Pick a tier above (or select one below) and tell me a bit about your business — I'll follow up within two business days.</p>
 
         <form class="lead-form" data-service="SEO">
           <div class="form-grid">
+            <div class="form-group full">
+              <label for="tier">Which tier are you interested in? <span class="req">*</span></label>
+              <select id="tier" name="tier" required>
+                <option value="">Select a tier</option>
+                <option value="Tier 1 — Foundation ($49.99)">Tier 1 — Foundation ($49.99)</option>
+                <option value="Tier 2 — Foundation + Content ($99.99)">Tier 2 — Foundation + Content ($99.99)</option>
+                <option value="Tier 3 — Full Buildout ($199.99)">Tier 3 — Full Buildout ($199.99)</option>
+                <option value="Not sure yet">Not sure yet — help me choose</option>
+              </select>
+            </div>
             <div class="form-group">
               <label for="name">Full name <span class="req">*</span></label>
               <input type="text" id="name" name="name" required autocomplete="name" />
