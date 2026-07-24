@@ -260,6 +260,22 @@
 .pricing-card.featured .pricing-cta:hover { box-shadow: var(--shadow); }
 .pricing-card:not(.featured) .pricing-cta:hover { background: var(--charcoal); color: var(--cream); }
 
+/* Free consultation callout */
+.consult-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--cream);
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+.consult-banner h4 { font-size: 1.02rem; margin: 0 0 .3rem; color: var(--charcoal); }
+.consult-banner p { font-size: .92rem; color: var(--muted); margin: 0; max-width: 480px; }
+.consult-banner .btn { flex-shrink: 0; white-space: nowrap; }
+
 /* ===== Services hub ===== */
 .services-hub-grid {
   display: grid;
@@ -300,4 +316,6 @@
   .form-grid .full { grid-column: 1; }
   .process-step { grid-template-columns: 40px 1fr; gap: .8rem; }
   .why-grid { grid-template-columns: 1fr; }
+  .consult-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+  .consult-banner .btn { width: 100%; text-align: center; }
 }
