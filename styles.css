@@ -241,6 +241,7 @@ img { max-width: 100%; display: block; }
   gap: 1.2rem;
 }
 .card {
+  display: block;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
