@@ -161,6 +161,52 @@
   margin-top: .8rem;
 }
 
+/* ===== Portfolio gallery (website management) ===== */
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.2rem;
+}
+.portfolio-item {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .22s ease, border-color .2s ease;
+}
+.portfolio-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--accent); }
+.portfolio-thumb {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-soft) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+.portfolio-thumb span {
+  font-family: "Fraunces", serif;
+  color: var(--cream);
+  font-size: 1.5rem;
+  letter-spacing: .02em;
+}
+.portfolio-item-body { padding: 1.2rem 1.4rem 1.4rem; }
+.portfolio-item-tag {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: .4rem;
+}
+.portfolio-item h4 { font-size: 1.05rem; margin: 0 0 .35rem; color: var(--charcoal); overflow-wrap: break-word; word-break: break-word; }
+.portfolio-item p { font-size: .9rem; color: var(--muted); margin: 0; }
+.portfolio-item-tag { overflow-wrap: break-word; word-break: break-word; }
+.portfolio-item .visit-link { font-weight: 600; color: var(--charcoal); font-size: .88rem; margin-top: .6rem; display: inline-block; }
+.portfolio-item:hover .visit-link { color: var(--accent); }
+
 /* ===== Pricing tiers ===== */
 .pricing-grid {
   display: grid;
@@ -303,6 +349,7 @@
   .includes-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .services-hub-grid { grid-template-columns: 1fr; }
+  .portfolio-gallery { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
   .pricing-card.featured { order: -1; }
 }
