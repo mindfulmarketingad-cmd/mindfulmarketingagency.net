@@ -183,9 +183,10 @@ img { max-width: 100%; display: block; }
 /* Plain hyperlinked-text list (e.g. the /cities/ hub) */
 .text-link-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: .6rem 1rem;
+  flex-direction: column;
+  gap: .7rem;
   font-size: 1.05rem;
+  max-width: 420px;
 }
 .text-link-list a {
   color: var(--blue);
@@ -195,13 +196,6 @@ img { max-width: 100%; display: block; }
   text-decoration-color: var(--blue-line);
 }
 .text-link-list a:hover { color: var(--blue-dark); text-decoration-color: var(--blue-dark); }
-.text-link-list a:not(:last-child)::after {
-  content: "·";
-  margin-left: 1rem;
-  color: var(--line);
-  text-decoration: none;
-  font-weight: 400;
-}
 
 /* ===== FAQ ===== */
 .faq-list { display: grid; gap: .8rem; max-width: 820px; margin: 0 auto; }
