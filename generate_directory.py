@@ -44,6 +44,18 @@ CATEGORY_KEYWORDS = [
 ]
 DEFAULT_CATEGORY = ("full-service-digital-marketing-agencies", "Full-Service Digital Marketing Agencies")
 
+# The three main service branches live at the site root; the rest stay
+# nested under /services/. Keep in sync with directory.js's CATEGORIES list.
+CATEGORY_PATHS = {
+    "seo-agencies": "/seo/",
+    "social-media-marketing-agencies": "/social-media-marketing/",
+    "full-service-digital-marketing-agencies": "/digital-marketing/",
+}
+
+
+def category_path(slug):
+    return CATEGORY_PATHS.get(slug, f"/services/{slug}/")
+
 KNOWN_CITIES = {
     "atlanta": "Atlanta", "savannah": "Savannah", "augusta": "Augusta",
     "columbus": "Columbus", "macon": "Macon", "athens": "Athens",
@@ -388,8 +400,8 @@ def build_sitemap(agencies, extra_cities):
     for slug in extra_cities:
         static_urls.append((f"/{slug}/", "0.8", "weekly"))
     for slug, _, _ in CATEGORY_KEYWORDS:
-        static_urls.append((f"/services/{slug}/", "0.8", "weekly"))
-    static_urls.append((f"/services/{DEFAULT_CATEGORY[0]}/", "0.8", "weekly"))
+        static_urls.append((category_path(slug), "0.8", "weekly"))
+    static_urls.append((category_path(DEFAULT_CATEGORY[0]), "0.8", "weekly"))
 
     import datetime
     today = datetime.date.today().isoformat()

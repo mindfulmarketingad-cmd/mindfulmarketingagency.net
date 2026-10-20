@@ -17,15 +17,18 @@
     { slug: 'warner-robins', name: 'Warner Robins' },
   ];
 
+  // path is the canonical URL for each category. The three main branches
+  // (SEO, Digital Marketing, Social Media Marketing) live at the site root;
+  // the rest stay nested under /services/.
   const CATEGORIES = [
-    { slug: 'seo-agencies', name: 'SEO Agencies' },
-    { slug: 'ppc-paid-media-agencies', name: 'PPC & Paid Media Agencies' },
-    { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies' },
-    { slug: 'web-design-agencies', name: 'Web Design Agencies' },
-    { slug: 'branding-graphic-design-agencies', name: 'Branding & Graphic Design Agencies' },
-    { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies' },
-    { slug: 'email-marketing-agencies', name: 'Email Marketing Agencies' },
-    { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies' },
+    { slug: 'seo-agencies', name: 'SEO Agencies', path: '/seo/', branch: true },
+    { slug: 'ppc-paid-media-agencies', name: 'PPC & Paid Media Agencies', path: '/services/ppc-paid-media-agencies/' },
+    { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies', path: '/social-media-marketing/', branch: true },
+    { slug: 'web-design-agencies', name: 'Web Design Agencies', path: '/services/web-design-agencies/' },
+    { slug: 'branding-graphic-design-agencies', name: 'Branding & Graphic Design Agencies', path: '/services/branding-graphic-design-agencies/' },
+    { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies', path: '/services/content-marketing-agencies/' },
+    { slug: 'email-marketing-agencies', name: 'Email Marketing Agencies', path: '/services/email-marketing-agencies/' },
+    { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies', path: '/digital-marketing/', branch: true },
   ];
 
   let agenciesCache = null;
@@ -129,8 +132,10 @@
       const category = categorySelect ? categorySelect.value : '';
       if (city && category) window.location.href = `/${city}/?category=${category}`;
       else if (city) window.location.href = `/${city}/`;
-      else if (category) window.location.href = `/services/${category}/`;
-      else window.location.href = '/cities/';
+      else if (category) {
+        const catObj = CATEGORIES.find(c => c.slug === category);
+        window.location.href = catObj ? catObj.path : `/services/${category}/`;
+      } else window.location.href = '/cities/';
     });
   }
 
@@ -146,7 +151,15 @@
     const serviceHub = document.querySelector('[data-service-hub]');
     if (serviceHub) {
       serviceHub.innerHTML = CATEGORIES.map(c => `
-        <a class="hub-card" href="/services/${c.slug}/">
+        <a class="hub-card" href="${c.path}">
+          <h3>${c.name}</h3>
+          <span class="count">Find ${c.name.toLowerCase()} in Georgia</span>
+        </a>`).join('');
+    }
+    const branchHub = document.querySelector('[data-branch-hub]');
+    if (branchHub) {
+      branchHub.innerHTML = CATEGORIES.filter(c => c.branch).map(c => `
+        <a class="hub-card" href="${c.path}">
           <h3>${c.name}</h3>
           <span class="count">Find ${c.name.toLowerCase()} in Georgia</span>
         </a>`).join('');
