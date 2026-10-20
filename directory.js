@@ -1,0 +1,162 @@
+// Georgia Marketing Agencies directory — static-data listing engine.
+// Listing data lives in /data/agencies.json (regenerated whenever new
+// Outscraper data is imported — see generate_directory.py).
+(function () {
+  const DATA_URL = '/data/agencies.json';
+
+  const CITIES = [
+    { slug: 'atlanta', name: 'Atlanta' },
+    { slug: 'savannah', name: 'Savannah' },
+    { slug: 'augusta', name: 'Augusta' },
+    { slug: 'columbus', name: 'Columbus' },
+    { slug: 'macon', name: 'Macon' },
+    { slug: 'athens', name: 'Athens' },
+    { slug: 'sandy-springs', name: 'Sandy Springs' },
+    { slug: 'roswell', name: 'Roswell' },
+    { slug: 'albany', name: 'Albany' },
+    { slug: 'warner-robins', name: 'Warner Robins' },
+  ];
+
+  const CATEGORIES = [
+    { slug: 'seo-agencies', name: 'SEO Agencies' },
+    { slug: 'ppc-paid-media-agencies', name: 'PPC & Paid Media Agencies' },
+    { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies' },
+    { slug: 'web-design-agencies', name: 'Web Design Agencies' },
+    { slug: 'branding-graphic-design-agencies', name: 'Branding & Graphic Design Agencies' },
+    { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies' },
+    { slug: 'email-marketing-agencies', name: 'Email Marketing Agencies' },
+    { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies' },
+  ];
+
+  let agenciesCache = null;
+
+  async function loadAgencies() {
+    if (agenciesCache) return agenciesCache;
+    try {
+      const res = await fetch(DATA_URL);
+      agenciesCache = res.ok ? await res.json() : [];
+    } catch (e) {
+      agenciesCache = [];
+    }
+    return agenciesCache;
+  }
+
+  function renderStars(rating) {
+    if (!rating) return '';
+    const full = Math.round(rating);
+    return '★'.repeat(full) + '☆'.repeat(5 - full);
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+
+  function listingCardHtml(a) {
+    const href = `/cities/${a.city_slug}/${a.slug}/`;
+    const rating = a.rating ? `
+      <div class="listing-rating">
+        <span class="stars">${renderStars(a.rating)}</span>
+        <span class="rating-num">${Number(a.rating).toFixed(1)}</span>
+        ${a.reviews_count ? `<span class="review-count">(${a.reviews_count} reviews)</span>` : ''}
+      </div>` : '';
+    return `
+      <a class="listing-card" href="${href}">
+        <div class="listing-top">
+          <h3>${escapeHtml(a.name)}</h3>
+          ${a.featured ? '<span class="listing-featured-tag">Featured</span>' : ''}
+        </div>
+        ${rating}
+        <div class="listing-meta">
+          ${a.category ? `<span class="tag">${escapeHtml(a.category)}</span>` : ''}
+          ${a.city ? `<span>${escapeHtml(a.city)}, GA</span>` : ''}
+        </div>
+        ${a.description ? `<p class="desc">${escapeHtml(a.description)}</p>` : ''}
+      </a>`;
+  }
+
+  function emptyStateHtml({ city, category } = {}) {
+    let where = 'this directory';
+    if (city && category) where = `${category} in ${city}`;
+    else if (city) where = city;
+    else if (category) where = category;
+    return `
+      <div class="empty-state">
+        <span class="icon">—</span>
+        <h3>No listings yet for ${escapeHtml(where)}</h3>
+        <p>We're actively adding agencies to the directory. Check back soon, or if you run an agency, be the first to list it.</p>
+        <p style="margin-top:1.2rem;"><a class="btn btn-primary" href="/submit/">Add your agency</a></p>
+      </div>`;
+  }
+
+  async function renderListings(targetSelector, { city, category, search, limit, featured } = {}) {
+    const el = document.querySelector(targetSelector);
+    if (!el) return;
+    const all = await loadAgencies();
+    let filtered = all.slice();
+    if (city) filtered = filtered.filter(a => (a.city || '').toLowerCase() === city.toLowerCase());
+    if (category) filtered = filtered.filter(a => (a.category || '').toLowerCase() === category.toLowerCase());
+    if (featured) filtered = filtered.filter(a => a.featured);
+    if (search) {
+      const q = search.toLowerCase();
+      filtered = filtered.filter(a => (a.name || '').toLowerCase().includes(q));
+    }
+    filtered.sort((a, b) => (b.featured - a.featured) || ((b.rating || 0) - (a.rating || 0)));
+    if (limit) filtered = filtered.slice(0, limit);
+
+    const countEl = document.querySelector('[data-result-count]');
+    if (countEl) countEl.innerHTML = `<strong>${filtered.length}</strong> agenc${filtered.length === 1 ? 'y' : 'ies'} found`;
+
+    if (!filtered.length) {
+      el.innerHTML = emptyStateHtml({ city, category });
+      return;
+    }
+    el.innerHTML = `<div class="listing-grid">${filtered.map(listingCardHtml).join('')}</div>`;
+  }
+
+  function initHeroSearch() {
+    const form = document.querySelector('[data-hero-search]');
+    if (!form) return;
+    const citySelect = form.querySelector('[name="city"]');
+    const categorySelect = form.querySelector('[name="category"]');
+    if (citySelect) citySelect.innerHTML = '<option value="">Any city</option>' + CITIES.map(c => `<option value="${c.slug}">${c.name}</option>`).join('');
+    if (categorySelect) categorySelect.innerHTML = '<option value="">Any service</option>' + CATEGORIES.map(c => `<option value="${c.slug}">${c.name}</option>`).join('');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const city = citySelect ? citySelect.value : '';
+      const category = categorySelect ? categorySelect.value : '';
+      if (city && category) window.location.href = `/cities/${city}/?category=${category}`;
+      else if (city) window.location.href = `/cities/${city}/`;
+      else if (category) window.location.href = `/services/${category}/`;
+      else window.location.href = '/cities/';
+    });
+  }
+
+  function populateHubGrids() {
+    const cityHub = document.querySelector('[data-city-hub]');
+    if (cityHub) {
+      cityHub.innerHTML = CITIES.map(c => `
+        <a class="hub-card" href="/cities/${c.slug}/">
+          <h3>${c.name}</h3>
+          <span class="count">Marketing agencies in ${c.name}</span>
+        </a>`).join('');
+    }
+    const serviceHub = document.querySelector('[data-service-hub]');
+    if (serviceHub) {
+      serviceHub.innerHTML = CATEGORIES.map(c => `
+        <a class="hub-card" href="/services/${c.slug}/">
+          <h3>${c.name}</h3>
+          <span class="count">Find ${c.name.toLowerCase()} in Georgia</span>
+        </a>`).join('');
+    }
+  }
+
+  window.GAMDirectory = { CITIES, CATEGORIES, loadAgencies, renderListings };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initHeroSearch();
+    populateHubGrids();
+  });
+})();

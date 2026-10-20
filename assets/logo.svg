@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Mindful Marketing Agency">
-  <path d="M100 0 L200 0 L200 100 A100 100 0 0 1 100 200 A100 100 0 0 1 0 100 A100 100 0 0 1 100 0 Z" fill="#3D3B39"/>
-  <text x="100" y="86" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="34" fill="#F6EFDF">Mindful</text>
-  <text x="100" y="124" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="30" fill="#F6EFDF">Marketing</text>
-  <text x="100" y="160" text-anchor="middle" font-family="'Poppins','Nunito Sans',Arial,sans-serif" font-weight="700" font-size="34" fill="#F6EFDF">Agency</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64">
+  <rect width="64" height="64" rx="16" fill="#2563EB"/>
+  <path d="M32 12c-8.28 0-15 6.72-15 15 0 11.25 15 25 15 25s15-13.75 15-25c0-8.28-6.72-15-15-15z" fill="#FFFFFF"/>
+  <circle cx="32" cy="27" r="7.5" fill="#2563EB"/>
+  <circle cx="29.5" cy="24.5" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+  <line x1="32.3" y1="27.3" x2="35.5" y2="30.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="78" y="30" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#0F172A">Georgia Marketing</text>
+  <text x="78" y="52" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#2563EB">Agencies</text>
 </svg>
