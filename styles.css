@@ -110,12 +110,15 @@ img { max-width: 100%; display: block; }
 
 /* ===== Hero + Search ===== */
 .hero {
-  background: linear-gradient(180deg, var(--blue-light) 0%, var(--white) 100%);
+  background:
+    linear-gradient(180deg, rgba(15,31,74,.86) 0%, rgba(30,58,138,.82) 55%, rgba(37,99,235,.80) 100%),
+    url("/assets/photos/hero-office.jpg") center 25% / cover no-repeat;
   border-bottom: 1px solid var(--line);
 }
 .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 4.5rem); text-align: center; }
-.hero h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); margin-bottom: .6rem; }
-.hero .lead { font-size: clamp(1.05rem, 2.1vw, 1.2rem); color: var(--ink-soft); max-width: 680px; margin: 0 auto 2rem; }
+.hero .eyebrow { color: var(--blue-line); }
+.hero h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); margin-bottom: .6rem; color: var(--white); }
+.hero .lead { font-size: clamp(1.05rem, 2.1vw, 1.2rem); color: var(--blue-line); max-width: 680px; margin: 0 auto 2rem; }
 
 .search-bar {
   max-width: 820px;
@@ -153,8 +156,8 @@ img { max-width: 100%; display: block; }
 
 .hero-stats { display: flex; justify-content: center; gap: clamp(1.5rem, 5vw, 3.5rem); margin-top: 2.2rem; flex-wrap: wrap; }
 .hero-stats li { list-style: none; text-align: center; }
-.hero-stats strong { display: block; font-family: "Fraunces", serif; font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--blue); }
-.hero-stats span { color: var(--muted); font-size: .88rem; }
+.hero-stats strong { display: block; font-family: "Fraunces", serif; font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--white); }
+.hero-stats span { color: var(--blue-line); font-size: .88rem; }
 
 /* ===== Hub grids (cities / services) ===== */
 .hub-grid {
