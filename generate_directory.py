@@ -173,6 +173,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
       <ul id="nav-menu" class="nav-menu">
         <li><a href="/cities/">Cities</a></li>
         <li><a href="/services/">Services</a></li>
+        <li><a href="/lists/">Lists</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/submit/" class="nav-cta">Add your agency</a></li>
       </ul>
@@ -190,6 +191,7 @@ FOOTER = '''  <footer class="site-footer">
         <a href="/">Home</a>
         <a href="/cities/">Cities</a>
         <a href="/services/">Services</a>
+        <a href="/lists/">Lists</a>
         <a href="/about/">About</a>
         <a href="/submit/">Add your agency</a>
       </nav>
@@ -392,9 +394,12 @@ def build_sitemap(agencies, extra_cities):
         ("/", "1.0", "weekly"),
         ("/cities/", "0.9", "weekly"),
         ("/services/", "0.9", "weekly"),
+        ("/lists/", "0.8", "weekly"),
         ("/about/", "0.6", "monthly"),
         ("/submit/", "0.6", "monthly"),
     ]
+    # /seo/, /digital-marketing/, /social-media-marketing/ are covered below
+    # via category_path(), since those slugs now resolve to root URLs.
     for slug, _ in KNOWN_CITIES_LIST:
         static_urls.append((f"/{slug}/", "0.8", "weekly"))
     for slug in extra_cities:

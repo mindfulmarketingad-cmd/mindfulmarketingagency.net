@@ -20,15 +20,19 @@
   // path is the canonical URL for each category. The three main branches
   // (SEO, Digital Marketing, Social Media Marketing) live at the site root;
   // the rest stay nested under /services/.
+  // branchLabel/branchDesc are used only for the "Main Service Branches"
+  // cards, since those 3 pages are our own services (drop-serviced), not
+  // directory listings of other agencies — so their copy reads differently
+  // from the directory-browse category cards.
   const CATEGORIES = [
-    { slug: 'seo-agencies', name: 'SEO Agencies', path: '/seo/', branch: true },
+    { slug: 'seo-agencies', name: 'SEO Agencies', path: '/seo/', branch: true, branchLabel: 'SEO', branchDesc: 'Done-for-you SEO, from technical setup to keyword-rich content.' },
     { slug: 'ppc-paid-media-agencies', name: 'PPC & Paid Media Agencies', path: '/services/ppc-paid-media-agencies/' },
-    { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies', path: '/social-media-marketing/', branch: true },
+    { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies', path: '/social-media-marketing/', branch: true, branchLabel: 'Social Media Marketing', branchDesc: 'Content, scheduling, and community management, handled for you.' },
     { slug: 'web-design-agencies', name: 'Web Design Agencies', path: '/services/web-design-agencies/' },
     { slug: 'branding-graphic-design-agencies', name: 'Branding & Graphic Design Agencies', path: '/services/branding-graphic-design-agencies/' },
     { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies', path: '/services/content-marketing-agencies/' },
     { slug: 'email-marketing-agencies', name: 'Email Marketing Agencies', path: '/services/email-marketing-agencies/' },
-    { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies', path: '/digital-marketing/', branch: true },
+    { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies', path: '/digital-marketing/', branch: true, branchLabel: 'Digital Marketing', branchDesc: 'Strategy, SEO, social, and paid media working together under one roof.' },
   ];
 
   let agenciesCache = null;
@@ -164,13 +168,42 @@
     if (branchHub) {
       branchHub.innerHTML = CATEGORIES.filter(c => c.branch).map(c => `
         <a class="hub-card" href="${c.path}">
-          <h3>${c.name}</h3>
-          <span class="count">Find ${c.name.toLowerCase()} in Georgia</span>
+          <h3>${c.branchLabel || c.name}</h3>
+          <span class="count">${c.branchDesc || ''}</span>
         </a>`).join('');
     }
   }
 
-  window.GAMDirectory = { CITIES, CATEGORIES, loadAgencies, renderListings };
+  async function loadLists() {
+    try {
+      const res = await fetch('/data/lists.json');
+      return res.ok ? await res.json() : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  async function renderLists(targetSelector) {
+    const el = document.querySelector(targetSelector);
+    if (!el) return;
+    const lists = await loadLists();
+    if (!lists.length) {
+      el.innerHTML = `
+        <div class="empty-state">
+          <span class="icon">—</span>
+          <h3>No lists published yet</h3>
+          <p>We're building out "best of" lists — top SEO agencies by city, top-rated social media agencies, and more. Check back soon.</p>
+        </div>`;
+      return;
+    }
+    el.innerHTML = `<div class="hub-grid">${lists.map(l => `
+      <a class="hub-card" href="/lists/${l.slug}/">
+        <h3>${l.title}</h3>
+        <span class="count">${l.description || ''}</span>
+      </a>`).join('')}</div>`;
+  }
+
+  window.GAMDirectory = { CITIES, CATEGORIES, loadAgencies, renderListings, loadLists, renderLists };
 
   document.addEventListener('DOMContentLoaded', () => {
     initHeroSearch();

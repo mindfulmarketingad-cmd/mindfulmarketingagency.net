@@ -442,6 +442,57 @@ img { max-width: 100%; display: block; }
   .filter-bar .result-count { margin-left: 0; width: 100%; }
 }
 
+/* ===== Owned-service sales pages (SEO, Digital Marketing, Social Media Marketing) ===== */
+.includes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.2rem; }
+.include-card { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 12px; padding: 1.2rem 1.3rem; }
+.include-card h4 { font-size: .98rem; margin: 0 0 .25rem; color: var(--ink); }
+.include-card p { font-size: .9rem; color: var(--muted); margin: 0; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1.2rem; align-items: stretch; }
+.pricing-card { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 1.8rem 1.6rem; display: flex; flex-direction: column; position: relative; transition: transform .18s ease, box-shadow .22s ease, border-color .2s ease; }
+.pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.pricing-card.featured { border: 2px solid var(--blue); }
+.pricing-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--blue); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .3rem .8rem; border-radius: 999px; white-space: nowrap; }
+.pricing-tier-label { text-transform: uppercase; letter-spacing: .12em; font-size: .74rem; font-weight: 700; color: var(--blue); margin-bottom: .4rem; }
+.pricing-card h3 { font-size: 1.25rem; margin-bottom: .5rem; }
+.pricing-price { font-family: "Fraunces", serif; font-size: 2.2rem; font-weight: 600; color: var(--ink); margin-bottom: .2rem; }
+.pricing-price small { font-family: "Poppins", sans-serif; font-size: .95rem; font-weight: 400; color: var(--muted); }
+.pricing-note { font-size: .85rem; color: var(--muted); margin-bottom: 1.3rem; }
+.pricing-list { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .6rem; flex: 1; }
+.pricing-list li { font-size: .92rem; color: var(--ink-soft); padding-left: 1.5rem; position: relative; }
+.pricing-list li::before { content: "✓"; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+.pricing-cta { display: block; text-align: center; width: 100%; padding: .8rem 1rem; border-radius: 999px; font-weight: 600; font-size: .95rem; cursor: pointer; border: 1.5px solid var(--blue); background: transparent; color: var(--blue); transition: background .2s ease, color .2s ease, transform .15s ease; }
+.pricing-cta:hover { transform: translateY(-2px); background: var(--blue); color: var(--white); }
+.pricing-card.featured .pricing-cta { background: var(--blue); color: var(--white); }
+
+.process-steps { display: grid; gap: 1rem; margin-top: 1.2rem; }
+.process-step { display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem 1.4rem; }
+.step-num { font-family: "Fraunces", serif; font-size: 1.7rem; font-weight: 600; color: var(--blue); line-height: 1; }
+.step-content h4 { font-size: 1rem; margin: 0 0 .25rem; color: var(--ink); }
+.step-content p { font-size: .93rem; color: var(--muted); margin: 0; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
+.why-card { background: var(--blue-deep); border-radius: 14px; border-top: 3px solid var(--blue); padding: 1.4rem 1.3rem; }
+.why-card h4 { font-size: 1rem; color: var(--white); margin: 0 0 .35rem; }
+.why-card p { font-size: .88rem; color: var(--blue-line); margin: 0; }
+
+.consult-banner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; background: var(--blue-light); border: 1px dashed var(--blue-line); border-radius: 16px; padding: 1.4rem 1.6rem; margin-top: 1.4rem; flex-wrap: wrap; }
+.consult-banner h4 { font-size: 1.02rem; margin: 0 0 .3rem; color: var(--ink); }
+.consult-banner p { font-size: .92rem; color: var(--muted); margin: 0; max-width: 480px; }
+.consult-banner .btn { flex-shrink: 0; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .includes-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .pricing-card.featured { order: -1; }
+}
+@media (max-width: 580px) {
+  .process-step { grid-template-columns: 40px 1fr; gap: .8rem; }
+  .consult-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+  .consult-banner .btn { width: 100%; text-align: center; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto; transition: none !important; }
 }

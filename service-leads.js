@@ -1,0 +1,74 @@
+// Lead-capture form handler for the owner's own drop-serviced pages
+// (/seo/, /digital-marketing/, /social-media-marketing/) — posts to the
+// shared Supabase `leads` table, separate from the directory's own data.
+(function () {
+  const SUPABASE_URL = 'https://tbqigevoksabizjogvtm.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a';
+
+  // Pricing tier buttons — preselect the tier dropdown and jump to the form
+  document.querySelectorAll('[data-tier-select]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tierSelect = document.getElementById('tier');
+      if (tierSelect) tierSelect.value = btn.dataset.tierSelect;
+      const target = document.getElementById('apply');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const form = document.querySelector('.lead-form');
+  if (!form) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const errorEl = form.querySelector('.form-error');
+  const successEl = document.querySelector('.form-success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (errorEl) errorEl.style.display = 'none';
+
+    const formData = new FormData(form);
+    const payload = {
+      site: 'mindfulmarketingagency.net',
+      service: form.dataset.service || '',
+      tier: formData.get('tier') || null,
+      name: formData.get('name') || '',
+      email: formData.get('email') || '',
+      phone: formData.get('phone') || '',
+      description: formData.get('description') || '',
+      experience_level: formData.get('experience_level') || '',
+      reason: formData.get('reason') || '',
+      budget: formData.get('budget') || null,
+      website: formData.get('website') || null,
+      platforms: formData.get('platforms') || null,
+      created_at: new Date().toISOString(),
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
+      form.style.display = 'none';
+      if (successEl) successEl.style.display = 'block';
+    } catch (err) {
+      if (errorEl) {
+        errorEl.textContent = 'Something went wrong sending your request — please email David@mindfulmarketingagency.net directly.';
+        errorEl.style.display = 'block';
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send my request';
+    }
+  });
+})();
