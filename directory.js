@@ -54,7 +54,7 @@
   }
 
   function listingCardHtml(a) {
-    const href = `/cities/${a.city_slug}/${a.slug}/`;
+    const href = `/${a.city_slug}/${a.slug}/`;
     const rating = a.rating ? `
       <div class="listing-rating">
         <span class="stars">${renderStars(a.rating)}</span>
@@ -127,8 +127,8 @@
       e.preventDefault();
       const city = citySelect ? citySelect.value : '';
       const category = categorySelect ? categorySelect.value : '';
-      if (city && category) window.location.href = `/cities/${city}/?category=${category}`;
-      else if (city) window.location.href = `/cities/${city}/`;
+      if (city && category) window.location.href = `/${city}/?category=${category}`;
+      else if (city) window.location.href = `/${city}/`;
       else if (category) window.location.href = `/services/${category}/`;
       else window.location.href = '/cities/';
     });
@@ -138,7 +138,7 @@
     const cityHub = document.querySelector('[data-city-hub]');
     if (cityHub) {
       cityHub.innerHTML = CITIES.map(c => `
-        <a class="hub-card" href="/cities/${c.slug}/">
+        <a class="hub-card" href="/${c.slug}/">
           <h3>${c.name}</h3>
           <span class="count">Marketing agencies in ${c.name}</span>
         </a>`).join('');

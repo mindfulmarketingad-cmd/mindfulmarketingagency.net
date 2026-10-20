@@ -4,10 +4,14 @@ Georgia Marketing Agencies — directory build script.
 
 Run this whenever you import new Outscraper Google Maps data. It:
   1. Reads listings (CSV or JSON) and normalizes them into data/agencies.json
-  2. Writes a real static page for every listing at /cities/<city>/<listing>/
-  3. Auto-creates a /cities/<city>/ hub page for any new city it discovers
+  2. Writes a real static page for every listing at /<city>/<listing>/
+  3. Auto-creates a /<city>/ hub page for any new city it discovers
   4. Regenerates /cities/index.html and /services/index.html hub grids
   5. Regenerates sitemap.xml with every URL
+
+City pages live at the site root (/<city>/, not /cities/<city>/) — only the
+cities directory listing itself stays at /cities/. Every city and listing
+page links back to /cities/ as the "Cities" breadcrumb/nav entry.
 
 Usage:
   python3 generate_directory.py path/to/outscraper_export.csv
@@ -192,7 +196,7 @@ def esc(s):
 
 
 def listing_page_html(a):
-    url = f"https://mindfulmarketingagency.net/cities/{a['city_slug']}/{a['slug']}/"
+    url = f"https://mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
     title = f"{a['name']} | {a['city']} Marketing Agency"
     desc = a.get("description") or f"{a['name']} is a {a['category']} based in {a['city']}, GA."
 
@@ -246,8 +250,9 @@ def listing_page_html(a):
     "@type": "BreadcrumbList",
     "itemListElement": [
       {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "{esc(a['city'])}", "item": "https://mindfulmarketingagency.net/cities/{a['city_slug']}/" }},
-      {{ "@type": "ListItem", "position": 3, "name": "{esc(a['name'])}", "item": "{url}" }}
+      {{ "@type": "ListItem", "position": 2, "name": "Cities", "item": "https://mindfulmarketingagency.net/cities/" }},
+      {{ "@type": "ListItem", "position": 3, "name": "{esc(a['city'])}", "item": "https://mindfulmarketingagency.net/{a['city_slug']}/" }},
+      {{ "@type": "ListItem", "position": 4, "name": "{esc(a['name'])}", "item": "{url}" }}
     ]
   }}
   </script>
@@ -257,7 +262,7 @@ def listing_page_html(a):
   <main>
     <section class="section">
       <div class="listing-detail">
-        <p class="crumbs"><a href="/">Home</a> / <a href="/cities/">Cities</a> / <a href="/cities/{a['city_slug']}/">{esc(a['city'])}</a> / {esc(a['name'])}</p>
+        <p class="crumbs"><a href="/">Home</a> / <a href="/cities/">Cities</a> / <a href="/{a['city_slug']}/">{esc(a['city'])}</a> / {esc(a['name'])}</p>
         <div class="listing-detail-head">
           <div>
             <h1>{esc(a['name'])}</h1>
@@ -296,7 +301,7 @@ def listing_page_html(a):
 
 def city_hub_card_grid(cities):
     cards = "\n".join(
-        f'<a class="hub-card" href="/cities/{slug}/"><h3>{name}</h3><span class="count">Marketing agencies in {name}</span></a>'
+        f'<a class="hub-card" href="/{slug}/"><h3>{name}</h3><span class="count">Marketing agencies in {name}</span></a>'
         for slug, name in cities
     )
     return cards
@@ -304,11 +309,11 @@ def city_hub_card_grid(cities):
 
 def write_city_shell(city_slug, city_name):
     """Write the city hub (browse) page if it doesn't already exist."""
-    path = os.path.join(BASE, "cities", city_slug, "index.html")
+    path = os.path.join(BASE, city_slug, "index.html")
     if os.path.exists(path):
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    url = f"https://mindfulmarketingagency.net/cities/{city_slug}/"
+    url = f"https://mindfulmarketingagency.net/{city_slug}/"
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -379,9 +384,9 @@ def build_sitemap(agencies, extra_cities):
         ("/submit/", "0.6", "monthly"),
     ]
     for slug, _ in KNOWN_CITIES_LIST:
-        static_urls.append((f"/cities/{slug}/", "0.8", "weekly"))
+        static_urls.append((f"/{slug}/", "0.8", "weekly"))
     for slug in extra_cities:
-        static_urls.append((f"/cities/{slug}/", "0.8", "weekly"))
+        static_urls.append((f"/{slug}/", "0.8", "weekly"))
     for slug, _, _ in CATEGORY_KEYWORDS:
         static_urls.append((f"/services/{slug}/", "0.8", "weekly"))
     static_urls.append((f"/services/{DEFAULT_CATEGORY[0]}/", "0.8", "weekly"))
@@ -393,7 +398,7 @@ def build_sitemap(agencies, extra_cities):
     for path, priority, freq in static_urls:
         entries.append(f"  <url>\n    <loc>https://mindfulmarketingagency.net{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{priority}</priority>\n  </url>")
     for a in agencies:
-        loc = f"https://mindfulmarketingagency.net/cities/{a['city_slug']}/{a['slug']}/"
+        loc = f"https://mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
         entries.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>")
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(entries) + "\n</urlset>\n"
@@ -445,7 +450,7 @@ def main():
         write_city_shell(slug, name)
 
     for a in agencies:
-        page_dir = os.path.join(BASE, "cities", a["city_slug"], a["slug"])
+        page_dir = os.path.join(BASE, a["city_slug"], a["slug"])
         os.makedirs(page_dir, exist_ok=True)
         with open(os.path.join(page_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(listing_page_html(a))
