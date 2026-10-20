@@ -156,6 +156,10 @@
           <span class="count">Find ${c.name.toLowerCase()} in Georgia</span>
         </a>`).join('');
     }
+    const cityList = document.querySelector('[data-city-list]');
+    if (cityList) {
+      cityList.innerHTML = CITIES.map(c => `<a href="/${c.slug}/">${c.name}, GA</a>`).join('');
+    }
     const branchHub = document.querySelector('[data-branch-hub]');
     if (branchHub) {
       branchHub.innerHTML = CATEGORIES.filter(c => c.branch).map(c => `

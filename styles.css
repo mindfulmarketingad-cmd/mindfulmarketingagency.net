@@ -180,6 +180,61 @@ img { max-width: 100%; display: block; }
 .hub-card .count { font-size: .85rem; color: var(--muted); }
 .hub-card .count strong { color: var(--blue); font-weight: 700; }
 
+/* Plain hyperlinked-text list (e.g. the /cities/ hub) */
+.text-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+  font-size: 1.05rem;
+}
+.text-link-list a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--blue-line);
+}
+.text-link-list a:hover { color: var(--blue-dark); text-decoration-color: var(--blue-dark); }
+.text-link-list a:not(:last-child)::after {
+  content: "·";
+  margin-left: 1rem;
+  color: var(--line);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* ===== FAQ ===== */
+.faq-list { display: grid; gap: .8rem; max-width: 820px; margin: 0 auto; }
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  color: var(--blue);
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item .faq-answer { padding: 0 1.4rem 1.2rem; color: var(--ink-soft); font-size: .97rem; line-height: 1.65; }
+
 /* ===== Listing grid / cards ===== */
 .filter-bar {
   display: flex;
