@@ -124,6 +124,35 @@
       </p>
     </section>
 
+    <!-- ===== SEO intro content ===== -->
+    <section class="section" style="max-width:860px;">
+      <div class="section-head">
+        <p class="eyebrow">About This Directory</p>
+        <h2>Georgia's directory of marketing agencies</h2>
+      </div>
+      <p>
+        Georgia Marketing Agencies is a free, searchable directory of marketing agencies based in or
+        serving Georgia — built from real Google Business listings, including each agency's rating,
+        review count, hours, address, phone number, and website. Instead of guessing which agency to
+        call first, you can browse every SEO, PPC, social media, web design, branding, content, and
+        email marketing agency in the state in one place.
+      </p>
+      <p>
+        Use the search bar above, or the city and service pages, to <strong>filter and sort</strong>
+        agencies until you land on the exact fit — narrow results down to a specific <a href="/cities/">city</a>
+        like Atlanta or Savannah, a specific <a href="/services/">service</a> like SEO or PPC, or a
+        specific industry niche like <a href="/lists/">ecommerce or restaurant marketing</a>. Every
+        listing links out to a full profile with contact info, so you can reach out directly — no
+        lead forms or gatekeeping in between.
+      </p>
+      <p>
+        Beyond the directory, <strong>we also offer our own marketing services</strong> — done-for-you
+        <a href="/seo/">SEO</a>, <a href="/digital-marketing/">digital marketing</a>, and
+        <a href="/social-media-marketing/">social media marketing</a>, if you'd rather work with us
+        directly instead of browsing listings.
+      </p>
+    </section>
+
     <!-- ===== Claim / submit banner ===== -->
     <section class="section">
       <div class="claim-banner">
@@ -168,7 +197,7 @@
   <script src="/directory.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      GAMDirectory.renderListings('[data-featured-listings]', { featured: true, limit: 6 });
+      GAMDirectory.renderListings('[data-featured-listings]', { featured: true, limit: 3 });
       const agencies = await GAMDirectory.loadAgencies();
       const cities = await GAMDirectory.getCities();
       const agenciesEl = document.querySelector('[data-stat-agencies]');
