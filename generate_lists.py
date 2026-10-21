@@ -34,30 +34,67 @@ from generate_directory import HEADER_NAV, FOOTER, esc, slugify
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
+# kind = "vertical" (the niche is a type of client business, e.g. gyms,
+# restaurants — lead copy reads "help grow a {X} business") or "channel"
+# (the niche is a marketing specialty/channel, e.g. SEO, LinkedIn — lead
+# copy reads "that specialize in {niche}" instead, since "help grow a
+# linkedin business" doesn't make sense).
 NICHES = [
     (
         "ecommerce-marketing-agencies",
         "Ecommerce Marketing Agencies",
         "ecommerce marketing agency",
         ["ecommerce", "e-commerce", "shopify", "amazon", "online store", "dtc", "d2c"],
+        "vertical",
     ),
     (
         "restaurant-marketing-agencies",
         "Restaurant Marketing Agencies",
         "restaurant marketing agency",
         ["restaurant", "food", "hospitality", "cafe", "café", "catering", "brewery"],
+        "vertical",
     ),
     (
         "retail-marketing-agencies",
         "Retail Marketing Agencies",
         "retail marketing agency",
         ["retail", " store", "boutique", "shop"],
+        "vertical",
     ),
     (
         "gym-marketing-agencies",
         "Gym Marketing Agencies",
         "gym marketing agency",
         ["gym", "fitness", "health club", "wellness", "yoga", "crossfit"],
+        "vertical",
+    ),
+    (
+        "digital-marketing-agencies",
+        "Digital Marketing Agencies",
+        "digital marketing agency",
+        ["digital marketing"],
+        "channel",
+    ),
+    (
+        "youtube-marketing-agencies",
+        "YouTube Marketing Agencies",
+        "youtube marketing agency",
+        ["youtube", "video marketing", "video content marketing"],
+        "channel",
+    ),
+    (
+        "social-media-marketing-agencies",
+        "Social Media Marketing Agencies",
+        "social media marketing agency",
+        ["social media"],
+        "channel",
+    ),
+    (
+        "linkedin-marketing-agencies",
+        "LinkedIn Marketing Agencies",
+        "linkedin marketing agency",
+        ["linkedin", "b2b social media"],
+        "channel",
     ),
 ]
 
@@ -110,7 +147,7 @@ def list_card_html(a):
       </div>'''
 
 
-def niche_page_html(niche_slug, niche_name, niche_singular, genuine, others, city_slug, city_name, total_in_city):
+def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, others, city_slug, city_name, total_in_city):
     url = f"https://mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
     title = f"Best {niche_name} in {city_name}, Georgia | Contact Info & Services"
     has_genuine = len(genuine) > 0
@@ -225,8 +262,11 @@ def niche_page_html(niche_slug, niche_name, niche_singular, genuine, others, cit
         <p class="eyebrow">Best Of · {esc(city_name)}, GA</p>
         <h1>Best {esc(niche_name)} in {esc(city_name)}, Georgia</h1>
         <p class="lead">
-          Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA
-          that can help grow a {esc(niche_singular.replace(' marketing agency',''))} business.
+          {
+            f"Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA that can help grow a {esc(niche_singular.replace(' marketing agency',''))} business."
+            if kind == "vertical" else
+            f"Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA that specialize in {esc(niche_name.lower().replace(' agencies', ''))}."
+          }
         </p>
       </div>
     </section>
@@ -320,7 +360,7 @@ RELATED_LISTS_END = "<!-- related-lists:end -->"
 def related_lists_block(city_slug, city_name):
     links = "".join(
         f'<a href="/lists/{niche_slug}/{city_slug}/">Best {niche_name} in {esc(city_name)}</a>'
-        for niche_slug, niche_name, _, _ in NICHES
+        for niche_slug, niche_name, _, _, _ in NICHES
     )
     return f'''{RELATED_LISTS_START}
     <section class="section">
@@ -377,7 +417,7 @@ def main():
     list_entries = []
     new_urls = []
 
-    for niche_slug, niche_name, niche_singular, keywords in NICHES:
+    for niche_slug, niche_name, niche_singular, keywords, kind in NICHES:
         for city_slug, city_rows in by_city.items():
             city_name = city_rows[0]["city"]
             genuine = [a for a in city_rows if niche_match(a, keywords)]
@@ -388,7 +428,7 @@ def main():
 
             page_dir = os.path.join(BASE, "lists", niche_slug, city_slug)
             os.makedirs(page_dir, exist_ok=True)
-            html = niche_page_html(niche_slug, niche_name, niche_singular, genuine, others, city_slug, city_name, len(city_rows))
+            html = niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, others, city_slug, city_name, len(city_rows))
             with open(os.path.join(page_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(html)
             new_urls.append(f"/lists/{niche_slug}/{city_slug}/")
