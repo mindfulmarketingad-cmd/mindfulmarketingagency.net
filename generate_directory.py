@@ -249,6 +249,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
             <li><a href="/seo/">SEO</a></li>
             <li><a href="/digital-marketing/">Digital Marketing</a></li>
             <li><a href="/social-media-marketing/">Social Media Marketing</a></li>
+            <li><a href="/content-marketing/">Content Marketing</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a href="/services/">Browse All Services →</a></li>
           </ul>

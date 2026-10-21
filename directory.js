@@ -30,7 +30,7 @@
     { slug: 'social-media-marketing-agencies', name: 'Social Media Marketing Agencies', path: '/social-media-marketing/', branch: true, branchLabel: 'Social Media Marketing', branchDesc: 'Content, scheduling, and community management, handled for you.' },
     { slug: 'web-design-agencies', name: 'Web Design Agencies', path: '/services/web-design-agencies/' },
     { slug: 'branding-graphic-design-agencies', name: 'Branding & Graphic Design Agencies', path: '/services/branding-graphic-design-agencies/' },
-    { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies', path: '/services/content-marketing-agencies/' },
+    { slug: 'content-marketing-agencies', name: 'Content Marketing Agencies', path: '/content-marketing/', branch: true, branchLabel: 'Content Marketing', branchDesc: 'Blog posts, articles, and on-site content written and optimized to rank.' },
     { slug: 'email-marketing-agencies', name: 'Email Marketing Agencies', path: '/services/email-marketing-agencies/' },
     { slug: 'full-service-digital-marketing-agencies', name: 'Full-Service Digital Marketing Agencies', path: '/digital-marketing/', branch: true, branchLabel: 'Digital Marketing', branchDesc: 'Strategy, SEO, social, and paid media working together under one roof.' },
   ];
