@@ -98,6 +98,23 @@ img { max-width: 100%; display: block; }
 .nav-cta { background: var(--blue); color: var(--white) !important; padding: .55rem 1.1rem; border-radius: 999px; }
 .nav-cta:hover { color: var(--white) !important; background: var(--blue-dark); }
 
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: .3rem; }
+.nav-dropdown > a::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-top: -3px; }
+.dropdown-menu {
+  list-style: none; margin: 0; padding: .5rem;
+  position: absolute; top: 100%; left: -.5rem; min-width: 230px;
+  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
+  z-index: 60;
+}
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu li a { display: block; padding: .6rem .75rem; border-radius: 6px; font-size: .92rem; font-weight: 500; color: var(--ink-soft); }
+.dropdown-menu li a:hover { background: var(--blue-light); color: var(--blue-dark); }
+.dropdown-menu .dropdown-divider { border: 0; border-top: 1px solid var(--line); margin: .4rem .2rem; }
+
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
 .nav-toggle span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s ease, opacity .25s ease; }
 
@@ -439,6 +456,13 @@ img { max-width: 100%; display: block; }
   .nav-menu li { border-top: 1px solid var(--line); }
   .nav-menu a { display: block; padding: .9rem .25rem; }
   .nav-cta { text-align: center; margin-top: .6rem; }
+  .nav-dropdown > a::after { margin-top: 0; }
+  .dropdown-menu {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: none; background: none; padding: 0 0 .4rem .9rem;
+  }
+  .dropdown-menu li { border-top: none; }
+  .dropdown-menu li a { padding: .55rem .25rem; color: var(--muted); }
   .search-bar { grid-template-columns: 1fr; }
   .hub-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
@@ -479,6 +503,24 @@ img { max-width: 100%; display: block; }
 .why-card { background: var(--blue-deep); border-radius: 14px; border-top: 3px solid var(--blue); padding: 1.4rem 1.3rem; }
 .why-card h4 { font-size: 1rem; color: var(--white); margin: 0 0 .35rem; }
 .why-card p { font-size: .88rem; color: var(--blue-line); margin: 0; }
+
+.trust-bar {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.2rem;
+  max-width: var(--maxw); margin: 0 auto; padding: 1.1rem clamp(1rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.trust-item { font-size: .86rem; font-weight: 600; color: var(--ink-soft); white-space: nowrap; }
+
+.testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 1.2rem; }
+.testimonial-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 1.6rem 1.7rem; }
+.testimonial-card .stars { display: block; color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: .8rem; }
+.testimonial-card p.quote { font-size: .97rem; color: var(--ink-soft); line-height: 1.65; margin: 0 0 1rem; }
+.testimonial-card .attribution { font-size: .85rem; font-weight: 600; color: var(--ink); }
+
+.addon-banner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; background: var(--blue-deep); border-radius: 16px; padding: 1.5rem 1.8rem; margin-top: 2.4rem; flex-wrap: wrap; }
+.addon-banner h4 { font-size: 1.05rem; margin: 0 0 .3rem; color: var(--white); }
+.addon-banner p { font-size: .92rem; color: var(--blue-line); margin: 0; max-width: 500px; }
+.addon-banner .btn { flex-shrink: 0; white-space: nowrap; }
 
 .consult-banner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; background: var(--blue-light); border: 1px dashed var(--blue-line); border-radius: 16px; padding: 1.4rem 1.6rem; margin-top: 1.4rem; flex-wrap: wrap; }
 .consult-banner h4 { font-size: 1.02rem; margin: 0 0 .3rem; color: var(--ink); }
