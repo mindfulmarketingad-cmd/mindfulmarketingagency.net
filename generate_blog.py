@@ -811,6 +811,198 @@ BLOG_POSTS = [
             "label": "Browse the directory",
         },
     },
+    {
+        "slug": "what-are-local-seo-citations",
+        "title": "What Are Local SEO Citations and Why Do They Matter?",
+        "category": "SEO & PPC",
+        "read_minutes": 8,
+        "description": "Local SEO citations explained — what they are, structured vs. unstructured citations, data aggregators, NAP consistency, and why they influence local rankings.",
+        "excerpt": "Citations are one of the quieter local SEO ranking signals — but also one of the easiest to get wrong. Here's what they actually are and why they matter.",
+        "intro": """
+          <p>If you've researched local SEO at all, you've likely run into the term "citation" without a clear
+          explanation of what it actually means. Citations are one of the foundational — if less glamorous —
+          building blocks of local search visibility, and getting them right (or wrong) has a real effect on
+          whether your business shows up when nearby customers search.</p>
+        """,
+        "sections": [
+            ("What a Citation Actually Is", """
+              <p>A local SEO citation is any online mention of your business's Name, Address, and Phone number
+              (commonly shortened to <strong>NAP</strong>) — typically on a directory, app, or platform other
+              than your own website. Think Yelp, the Better Business Bureau, industry-specific directories,
+              data platforms that feed GPS apps, and hundreds of smaller local and niche directories.</p>
+              <p>Each citation is a small, independent confirmation that your business exists, is active, and
+              is located where you say it is.</p>
+            """),
+            ("Structured vs. Unstructured Citations", """
+              <ul>
+                <li><strong>Structured citations</strong> — your business info listed in a defined format on a
+                directory, like a Yelp or Yellow Pages profile with dedicated fields for name, address, phone,
+                category, and hours.</li>
+                <li><strong>Unstructured citations</strong> — mentions of your business in free-form text, like
+                a local news article or blog post that references your name, address, or phone number without a
+                dedicated listing format.</li>
+              </ul>
+              <p>Most citation-building work focuses on structured citations, since they're easier to build
+              deliberately and verify — but unstructured mentions still carry real value when they happen
+              naturally.</p>
+            """),
+            ("Why Citations Influence Local Rankings", """
+              <p>Search engines can't physically verify that a business is real and located where it claims to
+              be — so they rely on corroborating signals instead. When the same business name, address, and
+              phone number appear consistently across many independent, reputable sources, it reinforces
+              confidence that the listing is accurate and trustworthy. Scattered, inconsistent, or sparse
+              citations do the opposite — they introduce doubt into exactly the signal local rankings depend
+              on most.</p>
+            """),
+            ("NAP Consistency Is the Whole Game", """
+              <p>The single biggest factor in whether citations help or hurt is consistency. "123 Main Street
+              Suite 4" and "123 Main St. #4" might look identical to a person, but inconsistent formatting
+              across listings can muddy the signal search engines are trying to read. Before building new
+              citations, it's worth standardizing exactly how your business name, address, and phone number
+              should appear — then using that exact format everywhere, including your own website.</p>
+            """),
+            ("What Data Aggregators Do", """
+              <p>A small number of large data aggregators collect and redistribute business information to a
+              much wider network of directories, apps, and GPS systems automatically. Submitting accurate
+              information directly to these aggregators — rather than only to individual directories one at a
+              time — is one of the most efficient ways to correct or establish your business data across a huge
+              number of downstream sources at once.</p>
+            """),
+            ("How Many Citations Does a Business Actually Need?", """
+              <p>There's no single magic number — it depends heavily on competition in your market and
+              industry. A handful of accurate, high-authority citations outperforms a large volume of
+              low-quality, inconsistent ones. That said, most local businesses benefit from building out beyond
+              just the two or three best-known directories, since different platforms carry different weight in
+              different niches and regions.</p>
+            """),
+            ("Common Citation Mistakes", """
+              <ul>
+                <li><strong>Duplicate listings</strong> — multiple, slightly different listings for the same
+                business confuse rather than reinforce the signal, and can actively work against you.</li>
+                <li><strong>Inconsistent NAP</strong> — different formatting, an old address, or an outdated
+                phone number across listings undercuts the trust citations are supposed to build.</li>
+                <li><strong>Low-quality or irrelevant directories</strong> — citations on spammy, low-authority,
+                or completely unrelated sites add little value and occasionally raise red flags.</li>
+                <li><strong>Keyword-stuffing the business name</strong> — listing your business as "Acme
+                Plumbing Best Atlanta Plumber" instead of its real name violates most directories' guidelines
+                and can get listings removed or penalized.</li>
+              </ul>
+            """),
+            ("Where Citations Fit Into a Local SEO Strategy", """
+              <p>Citations are one piece of a broader local SEO approach — alongside a fully optimized Google
+              Business Profile, on-page local content, and reviews. See our
+              <a href="/blog/local-seo-checklist-for-georgia-small-businesses/">local SEO checklist</a> for how
+              citations fit alongside the rest. If you're ready to actually build yours out, see our
+              <a href="/seo/local-citations/">local SEO citation packages</a> — flat pricing, 50 to 300 high-DA
+              citations, delivered in 4-5 days.</p>
+            """),
+        ],
+        "faqs": [
+            ("Do citations still matter for local SEO in 2026?", "Yes — consistent, accurate business information across the web remains a foundational trust signal for local search, even as other ranking factors evolve."),
+            ("Can bad citations hurt my rankings?", "Inconsistent or duplicate citations don't typically cause a penalty, but they dilute the trust signal citations are meant to build, which can indirectly hold back local rankings."),
+            ("Should I build citations myself or hire it out?", "It's doable yourself with time and attention to detail — the main risk is inconsistency across dozens of listings. Many businesses outsource it specifically to guarantee accuracy at scale."),
+        ],
+        "cta": {
+            "heading": "Ready to build yours out?",
+            "text": "See our local SEO citation packages — 50 to 300 high-DA citations with accurate, consistent NAP, delivered in 4-5 days.",
+            "href": "/seo/local-citations/",
+            "label": "See citation packages",
+        },
+    },
+    {
+        "slug": "how-to-build-local-citations-the-right-way",
+        "title": "How to Build Local Citations the Right Way (Without Hurting Your Rankings)",
+        "category": "SEO & PPC",
+        "read_minutes": 8,
+        "description": "A step-by-step process for building local SEO citations correctly — auditing existing listings, standardizing NAP, prioritizing quality, and avoiding the mistakes that backfire.",
+        "excerpt": "Building citations badly can do more harm than not building them at all. Here's the right order of operations — audit first, then build, then maintain.",
+        "intro": """
+          <p>Citation building sounds simple — get your business listed in more places — but done carelessly,
+          it can actually work against you. Duplicate listings, inconsistent formatting, and low-quality
+          directories can dilute the exact trust signal citations are supposed to build. Here's the right order
+          of operations.</p>
+        """,
+        "sections": [
+            ("Step 1: Audit What Already Exists", """
+              <p>Before building anything new, find out what's already out there. Search your business name,
+              address, and phone number directly, and check major directories individually. You're looking
+              for:</p>
+              <ul>
+                <li>Duplicate listings for the same location</li>
+                <li>Outdated information — an old address, a disconnected phone number, a former business name</li>
+                <li>Inconsistent formatting of your name, address, or phone number across listings</li>
+              </ul>
+              <p>Skipping this step is the single most common reason citation building backfires — building 100
+              new, accurate citations doesn't fix 20 old, conflicting ones sitting alongside them.</p>
+            """),
+            ("Step 2: Standardize Your NAP Before Building Anything New", """
+              <p>Decide on one exact, canonical format for your business name, address, and phone number —
+              down to abbreviations ("Street" vs. "St.", "Suite" vs. "#") — and use that exact format
+              everywhere going forward, starting with your own website. Every new citation should match this
+              format precisely.</p>
+            """),
+            ("Step 3: Fix Existing Inconsistencies Before Adding New Listings", """
+              <p>Where possible, claim and correct existing listings you found in the audit before adding new
+              ones. Piling new, accurate citations on top of old, conflicting ones only adds more noise to clean
+              up later.</p>
+            """),
+            ("Step 4: Prioritize Quality and Relevance Over Raw Volume", """
+              <p>A smaller number of citations on high-authority, relevant directories is worth more than a
+              large volume of low-quality or unrelated ones. Prioritize well-known general directories, plus
+              directories specific to your industry or region — a citation on a directory your actual
+              customers might browse carries more value than an obscure, low-traffic listing site.</p>
+            """),
+            ("Step 5: Submit to Data Aggregators Early", """
+              <p>Since aggregators redistribute your information to a much wider network automatically,
+              getting accurate data into them early means many downstream listings inherit the correct
+              information from the start, rather than needing individual correction later.</p>
+            """),
+            ("Step 6: Monitor and Maintain Over Time", """
+              <p>Citations aren't a one-time task. Business moves, phone number changes, and even directories
+              themselves restructuring can all introduce drift over time. A periodic check — every few months
+              for an active business — catches small inconsistencies before they accumulate.</p>
+            """),
+            ("DIY vs. Hiring It Out", """
+              <p>Doing it yourself is entirely possible — the work itself isn't technically difficult, just
+              detail-heavy and repetitive across dozens of individual listings. The real risk is inconsistency
+              creeping in across that volume of manual work, which is exactly what undermines the strategy. For
+              that reason, many businesses — especially ones without the spare time to do it carefully — hire
+              it out specifically to guarantee accuracy at scale. See our
+              <a href="/seo/local-citations/">local SEO citation packages</a> if that's the route you'd rather
+              take.</p>
+            """),
+            ("Common Mistakes That Backfire", """
+              <ul>
+                <li><strong>Buying cheap, bulk citation packages from unknown sources</strong> — often built on
+                low-quality, spammy directories that add little value and occasionally carry real risk.</li>
+                <li><strong>Skipping the audit step</strong> — building new citations without first cleaning up
+                existing duplicates or inconsistencies.</li>
+                <li><strong>Inconsistent formatting between the new citations and your own website</strong> —
+                undercutting the very consistency citations are meant to establish.</li>
+                <li><strong>Treating it as "set and forget"</strong> — citations drift out of accuracy over
+                time without periodic review.</li>
+              </ul>
+            """),
+            ("How This Fits Into Your Broader Local SEO", """
+              <p>Citation building works best alongside the rest of your local SEO — see our
+              <a href="/blog/what-are-local-seo-citations/">guide to what citations actually are</a> if you want
+              the fundamentals first, or our
+              <a href="/blog/local-seo-checklist-for-georgia-small-businesses/">full local SEO checklist</a> for
+              everything else that should be in place alongside your citations.</p>
+            """),
+        ],
+        "faqs": [
+            ("How long does it take to see results from citation building?", "Citations tend to work as a cumulative trust signal rather than an immediate ranking trigger — many businesses see gradual improvement in local visibility over weeks to a couple of months as listings propagate and get indexed."),
+            ("Can I remove duplicate citations myself?", "Often yes, through each directory's claim and edit process, though it can be time-consuming across many listings — this is one of the more tedious parts of a proper citation audit."),
+            ("Is it better to build citations slowly or all at once?", "Either can work. A large, sudden batch is fine as long as every listing is accurate and consistent from the start — the risk isn't speed, it's inaccuracy."),
+        ],
+        "cta": {
+            "heading": "Want this done right the first time?",
+            "text": "Skip the manual audit and cleanup — see our local SEO citation packages, built with accurate, consistent NAP from the start.",
+            "href": "/seo/local-citations/",
+            "label": "See citation packages",
+        },
+    },
 ]
 
 
