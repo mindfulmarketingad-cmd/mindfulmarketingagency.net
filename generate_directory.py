@@ -245,6 +245,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
         <li><a href="/cities/">Cities</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/lists/">Lists</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/submit/" class="nav-cta">Add your agency</a></li>
       </ul>
@@ -263,6 +264,7 @@ FOOTER = '''  <footer class="site-footer">
         <a href="/cities/">Cities</a>
         <a href="/services/">Services</a>
         <a href="/lists/">Lists</a>
+        <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
         <a href="/submit/">Add your agency</a>
       </nav>

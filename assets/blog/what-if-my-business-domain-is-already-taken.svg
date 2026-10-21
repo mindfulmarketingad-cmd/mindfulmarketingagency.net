@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E3A8A"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M1000 630c0-140 80-260 200-320v320z" fill="#ffffff" opacity="0.06"/>
+  <path d="M1090 50c-55 0-100 45-100 100 0 75 100 170 100 170s100-95 100-170c0-55-45-100-100-100z"
+        fill="#ffffff" opacity="0.10"/>
+  <circle cx="1090" cy="150" r="50" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="12"/>
+  <rect x="80" y="70" width="150" height="38" rx="19" fill="#F5B400"/>
+  <text x="155" y="95" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="16"
+        font-weight="700" fill="#3a2c00" letter-spacing="0.5">DOMAINS</text>
+  <text font-family="Fraunces, Georgia, serif" font-size="56" font-weight="600" fill="#ffffff"><tspan x="80" y="251">What If My</tspan><tspan x="80" y="315">Business Domain</tspan><tspan x="80" y="379">Is Already Taken?</tspan></text>
+  <text x="80" y="580" font-family="Poppins, Arial, sans-serif" font-size="20" fill="#ffffff" opacity="0.85">
+    Georgia Marketing Agencies
+  </text>
+</svg>
