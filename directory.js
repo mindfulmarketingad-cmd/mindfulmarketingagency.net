@@ -152,7 +152,7 @@
       </div>`;
   }
 
-  async function renderListings(targetSelector, { city, category, search, limit, featured } = {}) {
+  async function renderListings(targetSelector, { city, category, search, limit, featured, vertical } = {}) {
     const el = document.querySelector(targetSelector);
     if (!el) return;
     const all = await loadAgencies();
@@ -174,7 +174,7 @@
       el.innerHTML = emptyStateHtml({ city, category });
       return;
     }
-    el.innerHTML = `<div class="listing-grid">${filtered.map(listingCardHtml).join('')}</div>`;
+    el.innerHTML = `<div class="listing-grid${vertical ? ' listing-grid-vertical' : ''}">${filtered.map(listingCardHtml).join('')}</div>`;
   }
 
   async function initHeroSearch() {

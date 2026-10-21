@@ -635,7 +635,7 @@ def write_city_shell(city_slug, city_name):
       }});
       function load() {{
         const catObj = (GAMDirectory.CATEGORIES || []).find(c => c.slug === categorySelect.value);
-        GAMDirectory.renderListings('[data-listings]', {{ city: '{city_name}', category: catObj ? catObj.name : undefined }});
+        GAMDirectory.renderListings('[data-listings]', {{ vertical: true, city: '{city_name}', category: catObj ? catObj.name : undefined }});
       }}
       categorySelect.addEventListener('change', load);
       load();

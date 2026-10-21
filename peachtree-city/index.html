@@ -104,7 +104,7 @@
       });
       function load() {
         const catObj = (GAMDirectory.CATEGORIES || []).find(c => c.slug === categorySelect.value);
-        GAMDirectory.renderListings('[data-listings]', { city: 'Peachtree City', category: catObj ? catObj.name : undefined });
+        GAMDirectory.renderListings('[data-listings]', { vertical: true, city: 'Peachtree City', category: catObj ? catObj.name : undefined });
       }
       categorySelect.addEventListener('change', load);
       load();

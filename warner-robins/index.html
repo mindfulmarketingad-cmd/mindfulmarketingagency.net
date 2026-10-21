@@ -145,7 +145,7 @@
       function load() {
         const catSlug = categorySelect.value;
         const catObj = (GAMDirectory.CATEGORIES || []).find(c => c.slug === catSlug);
-        GAMDirectory.renderListings('[data-listings]', {
+        GAMDirectory.renderListings('[data-listings]', { vertical: true,
           city: 'Warner Robins',
           category: catObj ? catObj.name : undefined,
         });
