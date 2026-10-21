@@ -29,8 +29,9 @@ Usage:
 import json
 import os
 import re
+from urllib.parse import quote
 
-from generate_directory import HEADER_NAV, FOOTER, esc, slugify
+from generate_directory import HEADER_NAV, FOOTER, esc, slugify, summarize_hours
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
@@ -123,14 +124,26 @@ def stars_html(a):
 
 def list_card_html(a):
     href = f"/{a['city_slug']}/{a['slug']}/"
+    hours_summary = summarize_hours(a.get("hours"))
+    directions_url = f"https://www.google.com/maps/dir/?api=1&destination={quote(a['address'])}" if a.get("address") else None
+
     bits = []
     if a.get("address"):
         bits.append(f'<li><strong>Address</strong>{esc(a["address"])}</li>')
+    if hours_summary:
+        bits.append(f'<li><strong>Hours</strong>{esc(hours_summary)}</li>')
     if a.get("phone"):
         bits.append(f'<li><strong>Phone</strong><a href="tel:{esc(a["phone"])}">{esc(a["phone"])}</a></li>')
-    if a.get("website"):
-        bits.append(f'<li><strong>Website</strong><a href="{esc(a["website"])}" target="_blank" rel="noopener">Visit site</a></li>')
     contact_html = f'<ul class="detail-list" style="margin-top:.8rem;">{"".join(bits)}</ul>' if bits else ""
+
+    actions = []
+    if directions_url:
+        actions.append(f'<a class="btn btn-ghost btn-sm" href="{directions_url}" target="_blank" rel="noopener">Directions</a>')
+    if a.get("website"):
+        actions.append(f'<a class="btn btn-ghost btn-sm" href="{esc(a["website"])}" target="_blank" rel="noopener">Visit site</a>')
+    actions.append(f'<a class="btn btn-ghost btn-sm" href="{href}">Full profile →</a>')
+    actions_html = f'<div class="listing-actions">{"".join(actions)}</div>'
+
     return f'''
       <div class="listing-card" style="cursor:default;">
         <div class="listing-top">
@@ -139,11 +152,11 @@ def list_card_html(a):
         {stars_html(a)}
         <div class="listing-meta">
           <span class="tag">{esc(a['category'])}</span>
-          <span>{esc(a['city'])}, GA</span>
+          <span>{esc(a['city'])}, {esc(a.get('state_code') or 'GA')}</span>
         </div>
         {f'<p class="desc">{esc(a["description"])}</p>' if a.get("description") else ''}
         {contact_html}
-        <p style="margin-top:.8rem;"><a class="btn btn-ghost btn-sm" href="{href}">Full profile →</a></p>
+        {actions_html}
       </div>'''
 
 

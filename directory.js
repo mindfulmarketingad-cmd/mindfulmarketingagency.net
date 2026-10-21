@@ -83,6 +83,24 @@
     return div.innerHTML;
   }
 
+  // Mirrors generate_directory.py's summarize_hours(): only returns a
+  // summary when Mon–Fri share one identical range (the common case),
+  // so we never show a misleading guess for irregular hours.
+  function summarizeHours(hours) {
+    if (!hours) return null;
+    const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const ranges = weekdays.map(d => hours[d]).filter(Boolean);
+    const open = ranges.filter(r => r && !r.toLowerCase().includes('closed'));
+    if (open.length >= 4 && new Set(open).size === 1) {
+      return `Monday–Friday, ${open[0]}`;
+    }
+    return null;
+  }
+
+  function directionsUrl(address) {
+    return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+  }
+
   function listingCardHtml(a) {
     const href = `/${a.city_slug}/${a.slug}/`;
     const rating = a.rating ? `
@@ -91,19 +109,33 @@
         <span class="rating-num">${Number(a.rating).toFixed(1)}</span>
         ${a.reviews_count ? `<span class="review-count">(${a.reviews_count} review${a.reviews_count === 1 ? '' : 's'})</span>` : ''}
       </div>` : '';
+    const hoursSummary = summarizeHours(a.hours);
+    const contactBits = [];
+    if (a.address) contactBits.push(`<li><strong>Address</strong>${escapeHtml(a.address)}</li>`);
+    if (hoursSummary) contactBits.push(`<li><strong>Hours</strong>${escapeHtml(hoursSummary)}</li>`);
+    if (a.phone) contactBits.push(`<li><strong>Phone</strong><a href="tel:${escapeHtml(a.phone)}">${escapeHtml(a.phone)}</a></li>`);
+    const contactHtml = contactBits.length ? `<ul class="detail-list" style="margin-top:.8rem;">${contactBits.join('')}</ul>` : '';
+
+    const actions = [];
+    if (a.address) actions.push(`<a class="btn btn-ghost btn-sm" href="${directionsUrl(a.address)}" target="_blank" rel="noopener">Directions</a>`);
+    if (a.website) actions.push(`<a class="btn btn-ghost btn-sm" href="${escapeHtml(a.website)}" target="_blank" rel="noopener">Visit site</a>`);
+    actions.push(`<a class="btn btn-ghost btn-sm" href="${href}">Full profile →</a>`);
+
     return `
-      <a class="listing-card" href="${href}">
+      <div class="listing-card" style="cursor:default;">
         <div class="listing-top">
-          <h3>${escapeHtml(a.name)}</h3>
+          <h3><a href="${href}">${escapeHtml(a.name)}</a></h3>
           ${a.featured ? '<span class="listing-featured-tag">Featured</span>' : ''}
         </div>
         ${rating}
         <div class="listing-meta">
           ${a.category ? `<span class="tag">${escapeHtml(a.category)}</span>` : ''}
-          ${a.city ? `<span>${escapeHtml(a.city)}, GA</span>` : ''}
+          ${a.city ? `<span>${escapeHtml(a.city)}, ${escapeHtml(a.state_code || 'GA')}</span>` : ''}
         </div>
         ${a.description ? `<p class="desc">${escapeHtml(a.description)}</p>` : ''}
-      </a>`;
+        ${contactHtml}
+        <div class="listing-actions">${actions.join('')}</div>
+      </div>`;
   }
 
   function emptyStateHtml({ city, category } = {}) {

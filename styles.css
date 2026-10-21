@@ -291,6 +291,8 @@ img { max-width: 100%; display: block; }
   font-size: .78rem;
 }
 .listing-card p.desc { font-size: .92rem; color: var(--ink-soft); margin: 0; }
+.listing-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem; }
+.listing-actions .btn { padding: .45rem .9rem; font-size: .82rem; }
 
 /* Empty state */
 .empty-state {
