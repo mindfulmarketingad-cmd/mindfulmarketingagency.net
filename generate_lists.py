@@ -100,6 +100,39 @@ NICHES = [
 ]
 
 
+# Exact-match niches: unlike NICHES above (which always publishes a page
+# per city, falling back to "other agencies" when there's no genuine
+# match), these only publish a page for a city when at least one real
+# agency genuinely matches — no page, no fallback section, nothing
+# fabricated. Per explicit instruction: only make pages for cities with
+# actual agencies offering this service.
+EXACT_MATCH_NICHES = [
+    (
+        "seo-content-marketing-agencies",
+        "SEO Content Marketing Agencies",
+        "SEO content marketing agency",
+        ["seo", "search engine optimization", "content marketing", "content writing", "copywriting"],
+    ),
+]
+
+
+def pluralize_agency(phrase):
+    """'gym marketing agency' -> 'gym marketing agencies' (not 'agencys')."""
+    if phrase.endswith("agency"):
+        return phrase[:-len("agency")] + "agencies"
+    return phrase + "s"
+
+
+def article_for(phrase):
+    """'a gym marketing agency' vs 'an SEO content marketing agency' —
+    based on the first word's leading sound, not just its spelling."""
+    first = phrase.split()[0]
+    vowel_sound_acronym = first.isupper() and first[:1] in "AEFHILMNORSX"
+    if vowel_sound_acronym or first[:1].lower() in "aeiou":
+        return "an"
+    return "a"
+
+
 def niche_match(agency, keywords):
     text = " ".join([
         agency.get("name", ""),
@@ -203,17 +236,17 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
 
     faqs = [
         (
-            f"Are there {niche_singular}s based in {city_name}, GA?",
+            f"Are there {pluralize_agency(niche_singular)} based in {city_name}, GA?",
             (f"Yes — {city_name} has {len(genuine)} agenc{'y' if len(genuine)==1 else 'ies'} in this directory with listed {niche_name.lower().replace(' agencies','')}-related experience."
              if has_genuine else
              f"We don't yet have an agency in {city_name} specifically verified for {niche_name.lower().replace(' agencies','')} — check the general marketing agencies below, or check back as the directory grows.")
         ),
         (
-            f"How much does a {niche_singular} cost?",
+            f"How much does {article_for(niche_singular)} {niche_singular} cost?",
             f"Pricing varies widely by agency, scope, and ongoing vs. one-time work — contact agencies directly for quotes based on your specific needs."
         ),
         (
-            f"What should I look for in a {niche_singular}?",
+            f"What should I look for in {article_for(niche_singular)} {niche_singular}?",
             f"Look for relevant experience, clear communication, transparent reporting, and client reviews. Ask for examples of past work in your industry before committing."
         ),
         (
@@ -276,7 +309,7 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
         <h1>Best {esc(niche_name)} in {esc(city_name)}, Georgia</h1>
         <p class="lead">
           {
-            f"Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA that can help grow a {esc(niche_singular.replace(' marketing agency',''))} business."
+            f"Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA that can help grow {article_for(niche_singular.replace(' marketing agency',''))} {esc(niche_singular.replace(' marketing agency',''))} business."
             if kind == "vertical" else
             f"Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA that specialize in {esc(niche_name.lower().replace(' agencies', ''))}."
           }
@@ -291,7 +324,7 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
     </section>
     <section class="section">
       <div class="claim-banner">
-        <h2>Run a {esc(niche_singular)} in {esc(city_name)}?</h2>
+        <h2>Run {article_for(niche_singular)} {esc(niche_singular)} in {esc(city_name)}?</h2>
         <p>Add your agency to the directory for free — it takes less than five minutes.</p>
         <a class="btn btn-primary btn-lg" href="/submit/">Add your agency</a>
       </div>
@@ -366,14 +399,127 @@ def niche_hub_html(niche_slug, niche_name, cities):
 '''
 
 
+def exact_niche_page_html(niche_slug, niche_name, niche_singular, agencies, city_slug, city_name):
+    """Page for an exact-match niche — only ever written when `agencies`
+    is non-empty, and shows only those genuine matches (no fallback
+    section of unrelated agencies)."""
+    url = f"https://mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
+    title = f"Best {niche_name} in {city_name}, Georgia | Contact Info & Services"
+    desc = f"Compare {niche_name.lower()} in {city_name}, GA with real SEO and content marketing experience — contact info, ratings, and services."
+    agencies_sorted = sorted(agencies, key=lambda a: -(a.get("rating") or 0))
+
+    faqs = [
+        (
+            f"Are there {pluralize_agency(niche_singular)} based in {city_name}, GA?",
+            f"Yes — {city_name} has {len(agencies_sorted)} agenc{'y' if len(agencies_sorted)==1 else 'ies'} in this directory with listed SEO and/or content marketing experience."
+        ),
+        (
+            f"How much does {article_for(niche_singular)} {niche_singular} cost?",
+            "Pricing varies by agency, scope, and ongoing vs. one-time work — contact agencies directly for quotes based on your specific needs."
+        ),
+        (
+            f"What should I look for in {article_for(niche_singular)} {niche_singular}?",
+            "Look for relevant experience, clear communication, transparent reporting, and client reviews. Ask for examples of past SEO or content work before committing."
+        ),
+        (
+            "How do I get my agency listed here?",
+            'Add your agency to the directory for free at <a href="/submit/">mindfulmarketingagency.net/submit/</a> — submissions are reviewed before going live.'
+        ),
+    ]
+    faq_html = "".join(
+        f'<details class="faq-item"><summary>{esc(q)}</summary><p class="faq-answer">{a}</p></details>'
+        for q, a in faqs
+    )
+    faq_schema = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}}
+            for q, a in faqs
+        ],
+    }
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(desc)}" />
+  <link rel="canonical" href="{url}" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <meta property="og:title" content="{esc(title)}" />
+  <meta property="og:description" content="{esc(desc)}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{url}" />
+  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">{json.dumps(faq_schema)}</script>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://mindfulmarketingagency.net/lists/" }},
+      {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "https://mindfulmarketingagency.net/lists/{niche_slug}/" }},
+      {{ "@type": "ListItem", "position": 4, "name": "{esc(city_name)}", "item": "{url}" }}
+    ]
+  }}
+  </script>
+</head>
+<body>
+{HEADER_NAV}
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="crumbs"><a href="/">Home</a> / <a href="/lists/">Lists</a> / <a href="/lists/{niche_slug}/">{esc(niche_name)}</a> / {esc(city_name)}</p>
+        <p class="eyebrow">Best Of · {esc(city_name)}, GA</p>
+        <h1>Best {esc(niche_name)} in {esc(city_name)}, Georgia</h1>
+        <p class="lead">
+          Contact info, services, and ratings for marketing agencies in {esc(city_name)}, GA with
+          real, listed SEO and content marketing experience.
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="listing-grid">{"".join(list_card_html(a) for a in agencies_sorted)}</div>
+    </section>
+    <section class="section" style="max-width:820px;">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">{faq_html}</div>
+    </section>
+    <section class="section">
+      <div class="claim-banner">
+        <h2>Run {article_for(niche_singular)} {esc(niche_singular)} in {esc(city_name)}?</h2>
+        <p>Add your agency to the directory for free — it takes less than five minutes.</p>
+        <a class="btn btn-primary btn-lg" href="/submit/">Add your agency</a>
+      </div>
+    </section>
+  </main>
+{FOOTER}
+  <script src="/script.js"></script>
+  <script src="/directory.js"></script>
+</body>
+</html>
+'''
+
+
 RELATED_LISTS_START = "<!-- related-lists:start -->"
 RELATED_LISTS_END = "<!-- related-lists:end -->"
 
 
-def related_lists_block(city_slug, city_name):
+def related_lists_block(city_slug, city_name, extra_niches=()):
     links = "".join(
         f'<a href="/lists/{niche_slug}/{city_slug}/">Best {niche_name} in {esc(city_name)}</a>'
         for niche_slug, niche_name, _, _, _ in NICHES
+    )
+    links += "".join(
+        f'<a href="/lists/{niche_slug}/{city_slug}/">Best {niche_name} in {esc(city_name)}</a>'
+        for niche_slug, niche_name in extra_niches
     )
     return f'''{RELATED_LISTS_START}
     <section class="section">
@@ -386,9 +532,13 @@ def related_lists_block(city_slug, city_name):
     {RELATED_LISTS_END}'''
 
 
-def inject_related_lists(by_city):
-    """Link every city page to its 4 niche 'best of' list pages — run after
-    the list pages exist so /atlanta/ links to /lists/*/atlanta/ etc."""
+def inject_related_lists(by_city, exact_city_niches=None):
+    """Link every city page to its niche 'best of' list pages — run after
+    the list pages exist so /atlanta/ links to /lists/*/atlanta/ etc.
+    exact_city_niches maps city_slug -> [(niche_slug, niche_name), ...]
+    for exact-match niches, only added for cities that actually have a
+    page (no dead links to cities with no genuine match)."""
+    exact_city_niches = exact_city_niches or {}
     updated = 0
     for city_slug, rows in by_city.items():
         path = os.path.join(BASE, city_slug, "index.html")
@@ -397,7 +547,7 @@ def inject_related_lists(by_city):
         city_name = rows[0]["city"]
         with open(path, encoding="utf-8") as f:
             content = f.read()
-        block = related_lists_block(city_slug, city_name)
+        block = related_lists_block(city_slug, city_name, exact_city_niches.get(city_slug, []))
         if RELATED_LISTS_START in content:
             content = re.sub(
                 re.escape(RELATED_LISTS_START) + r".*?" + re.escape(RELATED_LISTS_END),
@@ -458,6 +608,41 @@ def main():
             "description": f"Browse {niche_name.lower()} by city — contact info, services, and ratings.",
         })
 
+    # Exact-match niches: only write a page for a city when at least one
+    # agency genuinely matches — no fallback section, no page at all
+    # otherwise.
+    exact_city_niches = {}
+    for niche_slug, niche_name, niche_singular, keywords in EXACT_MATCH_NICHES:
+        qualifying_cities = []
+        for city_slug, city_rows in by_city.items():
+            city_name = city_rows[0]["city"]
+            matches = [a for a in city_rows if niche_match(a, keywords)]
+            if not matches:
+                continue
+            qualifying_cities.append((city_slug, city_name))
+            exact_city_niches.setdefault(city_slug, []).append((niche_slug, niche_name))
+
+            page_dir = os.path.join(BASE, "lists", niche_slug, city_slug)
+            os.makedirs(page_dir, exist_ok=True)
+            html = exact_niche_page_html(niche_slug, niche_name, niche_singular, matches, city_slug, city_name)
+            with open(os.path.join(page_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(html)
+            new_urls.append(f"/lists/{niche_slug}/{city_slug}/")
+
+        qualifying_cities.sort(key=lambda c: c[1])
+        hub_dir = os.path.join(BASE, "lists", niche_slug)
+        os.makedirs(hub_dir, exist_ok=True)
+        with open(os.path.join(hub_dir, "index.html"), "w", encoding="utf-8") as f:
+            f.write(niche_hub_html(niche_slug, niche_name, qualifying_cities))
+        new_urls.append(f"/lists/{niche_slug}/")
+
+        list_entries.append({
+            "slug": niche_slug,
+            "title": f"Best {niche_name} in Georgia",
+            "description": f"Browse {niche_name.lower()} by city — contact info, services, and ratings. {len(qualifying_cities)} Georgia cities covered.",
+        })
+        print(f"{niche_slug}: {len(qualifying_cities)} qualifying cities")
+
     with open(os.path.join(BASE, "data", "lists.json"), "w", encoding="utf-8") as f:
         json.dump(list_entries, f, indent=2)
 
@@ -473,7 +658,7 @@ def main():
     added = 0
     for path in new_urls:
         loc = f"https://mindfulmarketingagency.net{path}"
-        if loc in sitemap:
+        if f"<loc>{loc}</loc>" in sitemap:
             continue
         entry = f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n"
         sitemap = sitemap.replace("</urlset>", entry + "</urlset>")
@@ -482,7 +667,7 @@ def main():
         f.write(sitemap)
     print(f"added {added} new URLs to sitemap.xml")
 
-    inject_related_lists(by_city)
+    inject_related_lists(by_city, exact_city_niches)
 
 
 if __name__ == "__main__":

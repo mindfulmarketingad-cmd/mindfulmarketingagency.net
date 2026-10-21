@@ -1281,7 +1281,7 @@ def main():
     added = 0
     for path in new_urls:
         loc = f"{SITE}{path}"
-        if loc in sitemap:
+        if f"<loc>{loc}</loc>" in sitemap:
             continue
         entry = f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n"
         sitemap = sitemap.replace("</urlset>", entry + "</urlset>")
