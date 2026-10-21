@@ -118,11 +118,12 @@
   <script src="/script.js"></script>
   <script src="/directory.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       const categoryName = 'Content Marketing Agencies';
       const params = new URLSearchParams(window.location.search);
       const cityFilter = document.getElementById('city-filter');
-      (GAMDirectory.CITIES || []).forEach(c => {
+      const __cities = (await GAMDirectory.getCities()).slice().sort((a, b) => a.name.localeCompare(b.name));
+      __cities.forEach(c => {
         const opt = document.createElement('option');
         opt.value = c.slug;
         opt.textContent = c.name;
@@ -133,7 +134,7 @@
 
       function load() {
         const citySlug = cityFilter.value;
-        const cityObj = (GAMDirectory.CITIES || []).find(c => c.slug === citySlug);
+        const cityObj = __cities.find(c => c.slug === citySlug);
         GAMDirectory.renderListings('[data-listings]', {
           category: categoryName,
           city: cityObj ? cityObj.name : undefined,

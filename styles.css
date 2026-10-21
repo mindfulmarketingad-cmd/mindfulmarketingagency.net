@@ -307,7 +307,9 @@ img { max-width: 100%; display: block; }
 /* ===== Listing detail page ===== */
 .listing-detail { max-width: 900px; margin: 0 auto; }
 .listing-detail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.listing-detail-head h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: .4rem; }
+.listing-detail-head h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: .4rem; display: inline; }
+.listing-logo { border-radius: 10px; border: 1px solid var(--line); object-fit: cover; flex-shrink: 0; background: var(--white); }
+.listing-cover { width: 100%; max-height: 360px; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
 .detail-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items: start; }
 .detail-card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.6rem; }
 .detail-card h4 { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); margin-bottom: 1rem; }

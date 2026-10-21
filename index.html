@@ -79,9 +79,9 @@
         </form>
 
         <ul class="hero-stats" aria-label="Directory stats">
-          <li><strong>10</strong><span>Georgia cities</span></li>
+          <li><strong data-stat-agencies>Growing</strong><span>Agencies listed</span></li>
+          <li><strong data-stat-cities>10</strong><span>Georgia cities</span></li>
           <li><strong>8</strong><span>Service categories</span></li>
-          <li><strong>Growing</strong><span>New agencies added regularly</span></li>
         </ul>
       </div>
     </section>
@@ -167,8 +167,14 @@
   <script src="/script.js"></script>
   <script src="/directory.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       GAMDirectory.renderListings('[data-featured-listings]', { featured: true, limit: 6 });
+      const agencies = await GAMDirectory.loadAgencies();
+      const cities = await GAMDirectory.getCities();
+      const agenciesEl = document.querySelector('[data-stat-agencies]');
+      const citiesEl = document.querySelector('[data-stat-cities]');
+      if (agenciesEl && agencies.length) agenciesEl.textContent = `${agencies.length}+`;
+      if (citiesEl && cities.length) citiesEl.textContent = cities.length;
     });
   </script>
 </body>

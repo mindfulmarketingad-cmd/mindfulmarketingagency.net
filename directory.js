@@ -48,6 +48,29 @@
     return agenciesCache;
   }
 
+  // Cities are derived from the actual data (there can be 100+ once real
+  // Outscraper data is imported) — the hardcoded CITIES list above is only
+  // a fallback for when data/agencies.json is still empty.
+  let citiesCache = null;
+
+  async function getCities() {
+    if (citiesCache) return citiesCache;
+    const agencies = await loadAgencies();
+    if (!agencies.length) {
+      citiesCache = CITIES.map(c => ({ ...c, count: 0 }));
+      return citiesCache;
+    }
+    const byCity = new Map();
+    agencies.forEach(a => {
+      if (!a.city_slug || !a.city) return;
+      const existing = byCity.get(a.city_slug);
+      if (existing) existing.count += 1;
+      else byCity.set(a.city_slug, { slug: a.city_slug, name: a.city, count: 1 });
+    });
+    citiesCache = Array.from(byCity.values());
+    return citiesCache;
+  }
+
   function renderStars(rating) {
     if (!rating) return '';
     const full = Math.round(rating);
@@ -66,7 +89,7 @@
       <div class="listing-rating">
         <span class="stars">${renderStars(a.rating)}</span>
         <span class="rating-num">${Number(a.rating).toFixed(1)}</span>
-        ${a.reviews_count ? `<span class="review-count">(${a.reviews_count} reviews)</span>` : ''}
+        ${a.reviews_count ? `<span class="review-count">(${a.reviews_count} review${a.reviews_count === 1 ? '' : 's'})</span>` : ''}
       </div>` : '';
     return `
       <a class="listing-card" href="${href}">
@@ -122,12 +145,15 @@
     el.innerHTML = `<div class="listing-grid">${filtered.map(listingCardHtml).join('')}</div>`;
   }
 
-  function initHeroSearch() {
+  async function initHeroSearch() {
     const form = document.querySelector('[data-hero-search]');
     if (!form) return;
     const citySelect = form.querySelector('[name="city"]');
     const categorySelect = form.querySelector('[name="category"]');
-    if (citySelect) citySelect.innerHTML = '<option value="">Any city</option>' + CITIES.map(c => `<option value="${c.slug}">${c.name}</option>`).join('');
+    if (citySelect) {
+      const cities = (await getCities()).slice().sort((a, b) => a.name.localeCompare(b.name));
+      citySelect.innerHTML = '<option value="">Any city</option>' + cities.map(c => `<option value="${c.slug}">${c.name}</option>`).join('');
+    }
     if (categorySelect) categorySelect.innerHTML = '<option value="">Any service</option>' + CATEGORIES.map(c => `<option value="${c.slug}">${c.name}</option>`).join('');
 
     form.addEventListener('submit', (e) => {
@@ -143,13 +169,17 @@
     });
   }
 
-  function populateHubGrids() {
+  async function populateHubGrids() {
+    const cities = await getCities();
+
     const cityHub = document.querySelector('[data-city-hub]');
     if (cityHub) {
-      cityHub.innerHTML = CITIES.map(c => `
+      // Homepage preview: top cities by listing count (most useful first).
+      const top = cities.slice().sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)).slice(0, 12);
+      cityHub.innerHTML = top.map(c => `
         <a class="hub-card" href="/${c.slug}/">
           <h3>${c.name}</h3>
-          <span class="count">Marketing agencies in ${c.name}</span>
+          <span class="count">${c.count ? `${c.count} agenc${c.count === 1 ? 'y' : 'ies'}` : `Marketing agencies in ${c.name}`}</span>
         </a>`).join('');
     }
     const serviceHub = document.querySelector('[data-service-hub]');
@@ -162,7 +192,9 @@
     }
     const cityList = document.querySelector('[data-city-list]');
     if (cityList) {
-      cityList.innerHTML = CITIES.map(c => `<a href="/${c.slug}/">${c.name}, GA</a>`).join('');
+      // Full list, alphabetical.
+      const all = cities.slice().sort((a, b) => a.name.localeCompare(b.name));
+      cityList.innerHTML = all.map(c => `<a href="/${c.slug}/">${c.name}, GA${c.count ? ` (${c.count})` : ''}</a>`).join('');
     }
     const branchHub = document.querySelector('[data-branch-hub]');
     if (branchHub) {
@@ -203,10 +235,10 @@
       </a>`).join('')}</div>`;
   }
 
-  window.GAMDirectory = { CITIES, CATEGORIES, loadAgencies, renderListings, loadLists, renderLists };
+  window.GAMDirectory = { CITIES, CATEGORIES, loadAgencies, getCities, renderListings, loadLists, renderLists };
 
   document.addEventListener('DOMContentLoaded', () => {
     initHeroSearch();
     populateHubGrids();
-  });
+  }); // both async; fire-and-forget is fine since nothing else depends on completion order
 })();
