@@ -12,8 +12,8 @@ What it adds:
   and a block of relevant Mindful Marketing services.
 * City pages (/<city>/): nearby cities (by distance, data/city-coords.json) + categories.
 * Category pages (/services/<category>/): every listing grouped by city + top cities.
-  Also (re)creates /services/full-service-digital-marketing-agencies/ from the web-design
-  page template, because that category has no other crawlable directory page.
+  Category URLs that 301 to our own service pages in vercel.json (SEO, social media,
+  full-service) are linked at their destination instead.
 * /cities/ and /services/: static, crawlable lists of every city / category page.
 """
 import json, os, re, html, math
@@ -30,7 +30,12 @@ CATS = {  # slug -> (name, directory path)
     "content-marketing-agencies": "Content Marketing Agencies",
     "email-marketing-agencies": "Email Marketing Agencies",
 }
-def cat_url(slug): return f"/services/{slug}/"
+# Some category URLs 301 to our own service pages (vercel.json, brand-first). Link to the
+# destination directly so internal links never hit a redirect.
+REDIRECTS = {r["source"]: r["destination"] for r in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "vercel.json"))).get("redirects", [])}
+def cat_url(slug):
+    u = f"/services/{slug}/"
+    return REDIRECTS.get(u, u)
 BRAND = {  # category -> relevant owned services
     "ppc-paid-media-agencies": [("/google-ads-management/", "Google Ads management"), ("/facebook-ads/", "Facebook & Instagram ads"), ("/website-design/", "Landing page design"), ("/seo/", "SEO packages")],
     "web-design-agencies": [("/website-design/", "Website design"), ("/seo/", "SEO packages"), ("/google-business-profile/", "Google Business Profile"), ("/free-logo-maker/", "Free logo maker")],
@@ -134,16 +139,7 @@ for a in agencies:
     if s2 is None: print("no anchor", p); continue
     write(p, s2); n_list += 1
 
-# ---------- full-service category page (cloned from web design template) ----------
-fs_dir = os.path.join(BASE, "services", "full-service-digital-marketing-agencies")
-tpl = open(os.path.join(BASE, "services", "web-design-agencies", "index.html"), encoding="utf-8").read()
-tpl = re.sub(r"\n?[ \t]*<!-- il:\w+:start -->.*?<!-- il:\w+:end -->", "", tpl, flags=re.S)
-fs = (tpl.replace("web-design-agencies", "full-service-digital-marketing-agencies")
-         .replace("Web Design Agencies", "Full-Service Digital Marketing Agencies")
-         .replace("web design agencies", "full-service digital marketing agencies"))
-os.makedirs(fs_dir, exist_ok=True)
-if not os.path.isfile(os.path.join(fs_dir, "index.html")):
-    write(os.path.join(fs_dir, "index.html"), fs)
+# (Category URLs that redirect in vercel.json get no directory page; see cat_url.)
 
 # ---------- category pages ----------
 n_cat = 0

@@ -63,7 +63,8 @@ All of these are idempotent (they replace their own `<!-- name:start/end -->` bl
    - every city page: nearby cities (by distance, from `data/city-coords.json`, built from the
      2023 Census Gazetteer; add a lat/lng entry when a new city is added) and top categories;
    - every category page (`/services/<category>/`): a static list of its agencies grouped by city,
-     plus top cities and other categories (creates `/services/full-service-digital-marketing-agencies/`);
+     plus top cities and other categories. Category URLs that 301 to our own pages in `vercel.json`
+     (SEO, social media, full-service) are linked at their destination, never at the redirect;
    - `/cities/`, `/services/` and `/blog/` hubs: static, crawlable link lists (cities, categories, guides).
 4. `python3 enhance_city_pages.py`
 5. `python3 brand_cta.py`
