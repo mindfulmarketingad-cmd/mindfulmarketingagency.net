@@ -12,7 +12,7 @@ SKIP = {".git", "__pycache__", "data", "assets"}
 PRIORITY = {"/": "1.0", "/seo/": "0.9", "/digital-marketing/": "0.9", "/social-media-marketing/": "0.9",
             "/seo/seo-buildout/": "0.9", "/seo/local-citations/": "0.9", "/content-marketing/": "0.8",
             "/digital-marketing/buckhead/": "0.8", "/digital-marketing/stone-mountain/": "0.8",
-            "/cities/": "0.7", "/services/": "0.7", "/blog/": "0.7", "/lists/": "0.6"}
+            "/free-logo-maker/": "0.8", "/cities/": "0.7", "/services/": "0.7", "/blog/": "0.7", "/lists/": "0.6"}
 today = datetime.date.today().isoformat()
 def lastmod(path):
     try:
