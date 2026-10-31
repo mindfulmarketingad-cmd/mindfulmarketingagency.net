@@ -805,6 +805,8 @@ def main():
     # Related listings, nearby cities, category/city link blocks (see internal_links.py)
     import subprocess, sys
     subprocess.run([sys.executable, os.path.join(BASE, "internal_links.py")], check=True)
+    # Cache-busting ?v= on CSS/JS + explicit SVG icon sizes (see harden_assets.py)
+    subprocess.run([sys.executable, os.path.join(BASE, "harden_assets.py")], check=True)
     print("Done. New cities discovered:", list(extra_cities.values()) or "none")
 
 
