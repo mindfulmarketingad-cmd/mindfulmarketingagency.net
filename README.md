@@ -21,7 +21,7 @@ free directory of Georgia marketing agencies.
 ## Selling a package (Stripe "Pay now" buttons)
 
 All fixed-price packages live in **`data/packages.json`** (name, price, Stripe
-product/price IDs, Payment Link URL, optional `fiverr_cost`). Buttons are
+product/price IDs, Payment Link URL). Buttons are
 generated from it by **`python3 pay_buttons.py`**, which fills these markers
 in any HTML page:
 
@@ -30,16 +30,23 @@ in any HTML page:
 
 It also writes `pay-links.js`, which `/thank-you/` uses to show what was bought.
 
-**To add a new (e.g. white-labeled Fiverr) service:**
-1. Pick a key (`logo_design_basic`) and price. Rule of thumb: Fiverr price × 1.2, then round to a
-   clean price (e.g. $40 gig → $48 or $49).
+**To add a new (e.g. white-labeled) service:**
+1. Pick a key (`logo_design_basic`) and price. Rule of thumb: fulfillment cost × 1.2, then round to a
+   clean price (e.g. $40 cost → $48 or $49).
 2. In Stripe: create a Product + one-time Price, then a Payment Link with name +
    phone collection, `payment_intent_data.statement_descriptor_suffix = "MINDFUL MKTG"`,
    metadata `site=mindfulmarketingagency.net, package=<key>`, and after-completion redirect
    `https://www.mindfulmarketingagency.net/thank-you/?package=<key>&session_id={CHECKOUT_SESSION_ID}`.
-3. Add the entry to `data/packages.json` (set `intake` and `fiverr_cost`).
-4. Put a `<!-- pay:<key> --><!-- /pay -->` marker on the service page (keep a "request via form"
-   button next to it), run `python3 pay_buttons.py`, then `python3 generate_sitemap.py`.
+3. Add the entry to `data/packages.json` (set `intake`). Keep fulfillment sources and costs in the private fulfillment map, never in this repo.
+4. Give the service its own Atlanta landing page (see `/backlinks/`, `/google-ads-management/` for the
+   pattern: pricing cards, FAQ + Service schema, request form) and link it from the nav, `/services/`,
+   the homepage package grid, and the footer.
+5. Put a `<!-- pay:<key> --><!-- /pay -->` marker on the service page (keep a "request via form"
+   button next to it), then run, in order: `python3 pay_buttons.py`, `python3 enhance_city_pages.py`,
+   `python3 brand_cta.py`, `python3 generate_sitemap.py`.
+
+Directory pages (listings, city hubs, categories, lists) carry a "Work with Mindful Marketing" CTA
+added by `brand_cta.py` / `enhance_city_pages.py` — re-run both after regenerating the directory.
 
 After payment, buyers land on `/thank-you/` (noindex) and fill the intake form,
 which is saved to the Supabase `leads` table with `service = "Paid Order Intake"`,
