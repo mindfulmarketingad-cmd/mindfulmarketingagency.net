@@ -258,7 +258,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
             <li><a href="/services/">All Services &amp; Pricing →</a></li>
           </ul>
         </li>
-        <li><a href="/#packages">Pricing</a></li>
+        <li><a href="/services/">Pricing</a></li>
         <li><a href="/digital-marketing/">Atlanta</a></li>
         <li class="nav-dropdown">
           <a href="/cities/">Agency Directory</a>
@@ -272,19 +272,26 @@ HEADER_NAV = '''  <header class="site-header" id="top">
         <li><a href="/blog/">Blog</a></li>
         <li class="nav-free-tools"><a href="/free-logo-maker/">Free Tools</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/#packages" class="nav-cta">Get Started</a></li>
+        <li><a href="/services/" class="nav-cta">Get Started</a></li>
       </ul>
     </nav>
   </header>'''
 
 FOOTER = '''  <footer class="site-footer">
     <div class="footer-inner">
-      <a class="brand small" href="/">
-        <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
-      </a>
-      <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses. Questions? <a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></p>
+      <div class="footer-brand">
+        <a class="brand small" href="/">
+          <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
+        </a>
+        <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses.</p>
+        <ul class="footer-contact">
+          <li><a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></li>
+          <li>Atlanta, Georgia</li>
+        </ul>
+        <a class="btn btn-primary" href="/services/">Explore services <span class="arr" aria-hidden="true">→</span></a>
+      </div>
       <nav class="footer-nav" aria-label="Our services">
-        <a href="/services/">Our Services</a>
+        <p class="footer-title">Services</p>
         <a href="/seo/">SEO Packages</a>
         <a href="/seo/local-citations/">Local Citations</a>
         <a href="/google-business-profile/">Google Business Profile</a>
@@ -294,18 +301,27 @@ FOOTER = '''  <footer class="site-footer">
         <a href="/facebook-ads/">Facebook &amp; Instagram Ads</a>
         <a href="/website-design/">Website Design</a>
         <a href="/youtube-thumbnails/">YouTube Thumbnails</a>
-        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
       </nav>
-      <nav class="footer-nav" aria-label="Footer">
+      <nav class="footer-nav" aria-label="Company">
+        <p class="footer-title">Company</p>
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/services/">Our Services</a>
+        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
         <a href="/blog/">Blog</a>
-        <a href="/cities/">Agency Directory</a>
-        <a href="/lists/">Lists</a>
-        <a href="/submit/">Add your agency</a>
         <a href="/free-logo-maker/">Free Logo Maker</a>
       </nav>
+      <nav class="footer-nav" aria-label="Directory">
+        <p class="footer-title">Agency Directory</p>
+        <a href="/cities/">Browse by City</a>
+        <a href="/services/#directory">Browse by Category</a>
+        <a href="/lists/">Top Agency Lists</a>
+        <a href="/submit/">Add your agency</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
       <p class="copyright">© <span id="year"></span> Mindful Marketing Agency · Atlanta, GA. All rights reserved.</p>
+      <p>Flat pricing · No long-term contracts · Secure checkout by Stripe</p>
     </div>
   </footer>'''
 
@@ -529,7 +545,7 @@ def listing_page_html(a):
   {f'<meta property="og:image" content="{esc(a["photo"])}" />' if a.get("photo") else ''}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">{json.dumps(schema)}</script>
   <script type="application/ld+json">{json.dumps(faq_schema)}</script>
@@ -539,7 +555,7 @@ def listing_page_html(a):
     "@type": "BreadcrumbList",
     "itemListElement": [
       {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "Cities", "item": "https://www.mindfulmarketingagency.net/cities/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Directory", "item": "https://www.mindfulmarketingagency.net/cities/" }},
       {{ "@type": "ListItem", "position": 3, "name": "{esc(a['city'])}", "item": "https://www.mindfulmarketingagency.net/{a['city_slug']}/" }},
       {{ "@type": "ListItem", "position": 4, "name": "{esc(a['name'])}", "item": "{url}" }}
     ]
@@ -552,7 +568,7 @@ def listing_page_html(a):
     {photo_html}
     <section class="section">
       <div class="listing-detail">
-        <p class="crumbs"><a href="/">Home</a> / <a href="/cities/">Cities</a> / <a href="/{a['city_slug']}/">{esc(a['city'])}</a> / {esc(a['name'])}</p>
+        <p class="crumbs"><a href="/">Home</a> / <a href="/cities/">Directory</a> / <a href="/{a['city_slug']}/">{esc(a['city'])}</a> / {esc(a['name'])}</p>
         <div class="listing-detail-head">
           <div style="display:flex;gap:1rem;align-items:flex-start;">
             {logo_html}
@@ -629,7 +645,7 @@ def write_city_shell(city_slug, city_name):
   <meta name="theme-color" content="#1E3A8A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -786,6 +802,9 @@ def main():
 
     build_sitemap(agencies, extra_cities.keys())
     print("sitemap.xml updated")
+    # Related listings, nearby cities, category/city link blocks (see internal_links.py)
+    import subprocess, sys
+    subprocess.run([sys.executable, os.path.join(BASE, "internal_links.py")], check=True)
     print("Done. New cities discovered:", list(extra_cities.values()) or "none")
 
 
