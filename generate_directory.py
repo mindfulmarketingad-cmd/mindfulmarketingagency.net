@@ -233,9 +233,8 @@ def dedupe_slugs(agencies):
 
 
 HEADER_NAV = '''  <header class="site-header" id="top">
-    <a class="brand" href="/" aria-label="Georgia Marketing Agencies home">
-      <img src="/assets/favicon.svg" alt="Georgia Marketing Agencies" width="40" height="40" />
-      <span class="brand-name">Georgia Marketing <span class="accent">Agencies</span></span>
+    <a class="brand" href="/" aria-label="Mindful Marketing Agency home">
+      <img class="brand-logo" src="/assets/logo.svg" alt="Mindful Marketing Agency – Atlanta, GA" width="215" height="38" />
     </a>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
@@ -257,7 +256,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
         <li><a href="/lists/">Lists</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/submit/" class="nav-cta">Add your agency</a></li>
+        <li><a href="/#packages" class="nav-cta">Get Started</a></li>
       </ul>
     </nav>
   </header>'''
@@ -265,10 +264,9 @@ HEADER_NAV = '''  <header class="site-header" id="top">
 FOOTER = '''  <footer class="site-footer">
     <div class="footer-inner">
       <a class="brand small" href="/">
-        <img src="/assets/favicon.svg" alt="" width="36" height="36" />
-        <span>Georgia Marketing Agencies</span>
+        <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
       </a>
-      <p class="footer-note">A directory of marketing agencies across the state of Georgia.</p>
+      <p class="footer-note">Affordable digital marketing for Atlanta &amp; Georgia small businesses — plus a free directory of Georgia marketing agencies. Questions? <a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></p>
       <nav class="footer-nav" aria-label="Footer">
         <a href="/">Home</a>
         <a href="/cities/">Cities</a>
@@ -276,14 +274,12 @@ FOOTER = '''  <footer class="site-footer">
         <a href="/lists/">Lists</a>
         <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
+        <a href="/seo/">SEO Packages</a>
+        <a href="/social-media-marketing/">Social Media Management</a>
+        <a href="/digital-marketing/">Digital Marketing</a>
         <a href="/submit/">Add your agency</a>
       </nav>
-      <ul class="socials" aria-label="Social media">
-        <li><a href="#" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></li>
-        <li><a href="#" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
-        <li><a href="#" aria-label="X (Twitter)" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.2-5.5L6.6 21H3.5l7-8L2.9 3h6l3.8 5L17.5 3zm-1 16h1.6L8.1 4.7H6.4L16.5 19z"/></svg></a></li>
-      </ul>
-      <p class="copyright">© <span id="year"></span> Georgia Marketing Agencies. All rights reserved.</p>
+      <p class="copyright">© <span id="year"></span> Mindful Marketing Agency · Atlanta, GA. All rights reserved.</p>
     </div>
   </footer>'''
 
@@ -428,7 +424,7 @@ def faq_items(a):
 
 
 def listing_page_html(a):
-    url = f"https://mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
+    url = f"https://www.mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
     title = f"{a['name']} | {a['city']} Marketing Agency"
     about = a.get("description") or about_us_html(a)
     desc = about[:160]
@@ -495,12 +491,15 @@ def listing_page_html(a):
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   {f'<meta property="og:image" content="{esc(a["photo"])}" />' if a.get("photo") else ''}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -513,9 +512,9 @@ def listing_page_html(a):
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "Cities", "item": "https://mindfulmarketingagency.net/cities/" }},
-      {{ "@type": "ListItem", "position": 3, "name": "{esc(a['city'])}", "item": "https://mindfulmarketingagency.net/{a['city_slug']}/" }},
+      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mindfulmarketingagency.net/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Cities", "item": "https://www.mindfulmarketingagency.net/cities/" }},
+      {{ "@type": "ListItem", "position": 3, "name": "{esc(a['city'])}", "item": "https://www.mindfulmarketingagency.net/{a['city_slug']}/" }},
       {{ "@type": "ListItem", "position": 4, "name": "{esc(a['name'])}", "item": "{url}" }}
     ]
   }}
@@ -588,7 +587,7 @@ def write_city_shell(city_slug, city_name):
     if os.path.exists(path):
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    url = f"https://mindfulmarketingagency.net/{city_slug}/"
+    url = f"https://www.mindfulmarketingagency.net/{city_slug}/"
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -598,7 +597,10 @@ def write_city_shell(city_slug, city_name):
   <meta name="description" content="Browse top-rated marketing agencies in {city_name}, Georgia." />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -674,9 +676,9 @@ def build_sitemap(agencies, extra_cities):
 
     entries = []
     for path, priority, freq in static_urls:
-        entries.append(f"  <url>\n    <loc>https://mindfulmarketingagency.net{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{priority}</priority>\n  </url>")
+        entries.append(f"  <url>\n    <loc>https://www.mindfulmarketingagency.net{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{priority}</priority>\n  </url>")
     for a in agencies:
-        loc = f"https://mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
+        loc = f"https://www.mindfulmarketingagency.net/{a['city_slug']}/{a['slug']}/"
         entries.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>")
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(entries) + "\n</urlset>\n"

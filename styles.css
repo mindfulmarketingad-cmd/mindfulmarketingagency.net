@@ -613,3 +613,27 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto; transition: none !important; }
 }
+
+/* ===== Brand logo (Mindful Marketing Agency) ===== */
+.brand img.brand-logo { border-radius: 0; height: 38px; width: auto; display: block; }
+.site-footer .brand img.brand-logo { background: none; border-radius: 0; height: 36px; }
+.footer-note a { color: var(--white); text-decoration: underline; }
+@media (max-width: 420px) { .brand img.brand-logo { height: 32px; } }
+
+/* ===== Owned-service package cards (homepage + service pages) ===== */
+.pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.pkg-card .btn { white-space: nowrap; }
+.pkg-card { background: var(--white); border: 1px solid var(--blue-line); border-radius: 16px; padding: 1.4rem 1.3rem; display: flex; flex-direction: column; gap: .5rem; box-shadow: 0 6px 18px rgba(30,58,138,.06); }
+.pkg-card h3 { margin: 0; font-size: 1.15rem; }
+.pkg-card .pkg-price { font-size: 1.5rem; font-weight: 700; color: var(--blue-deep); margin: 0; }
+.pkg-card .pkg-price small { font-size: .85rem; font-weight: 500; color: var(--muted); }
+.pkg-card p { margin: 0; color: var(--ink-soft); }
+.pkg-card ul { margin: .2rem 0 .6rem; padding-left: 1.1rem; color: var(--ink-soft); }
+.pkg-card .btn { margin-top: auto; text-align: center; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin: 1.4rem 0 .4rem; }
+.area-list { columns: 3 180px; padding-left: 1.1rem; color: var(--ink-soft); }
+.own-cta { background: var(--blue-light); border: 1px solid var(--blue-line); border-radius: 16px; padding: 1.4rem 1.5rem; }
+.own-cta h2 { margin-top: 0; }
+.static-agency-list { columns: 2 260px; padding-left: 1.1rem; }
+.static-agency-list li { margin: .2rem 0; }
+.own-cta p a:not(.btn), .section > p a:not(.btn), .section section > p a:not(.btn), .section section li a:not(.btn), .faq-answer a, .area-list a, .static-agency-list a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }

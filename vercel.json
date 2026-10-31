@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/services/seo", "destination": "/seo/", "permanent": true },
+    { "source": "/services/social-media", "destination": "/social-media-marketing/", "permanent": true },
+    { "source": "/services/paid-ads", "destination": "/digital-marketing/", "permanent": true },
+    { "source": "/services/website-management", "destination": "/digital-marketing/", "permanent": true },
+    { "source": "/services/website-maintenance", "destination": "/digital-marketing/", "permanent": true },
+    { "source": "/services/seo-agencies", "destination": "/seo/", "permanent": true },
+    { "source": "/services/social-media-marketing-agencies", "destination": "/social-media-marketing/", "permanent": true },
+    { "source": "/services/full-service-digital-marketing-agencies", "destination": "/digital-marketing/", "permanent": true },
+    { "source": "/guides/domain-investing", "destination": "/blog/what-is-domain-investing/", "permanent": true },
+    { "source": "/guides", "destination": "/blog/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/(styles.css|script.js|directory.js|service-leads.js)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }]
+    }
+  ]
+}

@@ -22,7 +22,7 @@ import textwrap
 from generate_directory import HEADER_NAV, FOOTER, esc, slugify
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE = "https://mindfulmarketingagency.net"
+SITE = "https://www.mindfulmarketingagency.net"
 
 
 # ---------------------------------------------------------------- content --
@@ -1125,17 +1125,20 @@ def blog_post_html(post):
   <meta name="description" content="{esc(post["description"])}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(post["title"])}" />
   <meta property="og:description" content="{esc(post["description"])}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:image" content="{SITE}{img_url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:image" content="{SITE}/assets/og-image.png" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{esc(post["title"])}" />
   <meta name="twitter:description" content="{esc(post["description"])}" />
-  <meta name="twitter:image" content="{SITE}{img_url}" />
+  <meta name="twitter:image" content="{SITE}/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -1196,7 +1199,7 @@ def blog_card_html(post):
 
 def blog_hub_html(posts):
     url = f"{SITE}/blog/"
-    title = "Blog | Georgia Marketing Agencies"
+    title = "Marketing Blog for Georgia Businesses | Mindful Marketing Agency"
     desc = "Marketing strategy, SEO, domains, and budgeting guides for Georgia businesses and the agencies that serve them."
     cards = "".join(blog_card_html(p) for p in posts)
     return f'''<!DOCTYPE html>
@@ -1208,12 +1211,15 @@ def blog_hub_html(posts):
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
 
-Sitemap: https://mindfulmarketingagency.net/sitemap.xml
+Sitemap: https://www.mindfulmarketingagency.net/sitemap.xml
