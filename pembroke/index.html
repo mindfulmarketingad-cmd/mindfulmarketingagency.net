@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#1E3A8A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -43,7 +43,7 @@
             <li><a href="/services/">All Services &amp; Pricing →</a></li>
           </ul>
         </li>
-        <li><a href="/#packages">Pricing</a></li>
+        <li><a href="/services/">Pricing</a></li>
         <li><a href="/digital-marketing/">Atlanta</a></li>
         <li class="nav-dropdown">
           <a href="/cities/">Agency Directory</a>
@@ -57,7 +57,7 @@
         <li><a href="/blog/">Blog</a></li>
         <li class="nav-free-tools"><a href="/free-logo-maker/">Free Tools</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/#packages" class="nav-cta">Get Started</a></li>
+        <li><a href="/services/" class="nav-cta">Get Started</a></li>
       </ul>
     </nav>
   </header>
@@ -97,6 +97,14 @@
       <ul class="static-agency-list"><li><a href="/pembroke/ems-edify-marketing-services/">EMS Edify MARKETING SERVICES</a> — Web Design Agencies</li></ul>
     </section>
     <!-- city-static:end -->
+    <!-- il:nearby:start -->
+    <section class="section">
+      <div class="explore-grid">
+        <div class="explore-col"><h3>Marketing agencies in nearby cities</h3><ul class="link-chips"><li><a href="/claxton/">Claxton (1)</a></li><li><a href="/guyton/">Guyton (3)</a></li><li><a href="/statesboro/">Statesboro (7)</a></li><li><a href="/rincon/">Rincon (4)</a></li><li><a href="/savannah/">Savannah (8)</a></li><li><a href="/buckhead/">Buckhead (1)</a></li><li><a href="/metter/">Metter (1)</a></li><li><a href="/portal/">Portal (1)</a></li></ul></div>
+        <div class="explore-col"><h3>Top categories</h3><ul class="link-chips"><li><a href="/pembroke/?category=web-design-agencies">Web Design Agencies in Pembroke (1)</a></li><li><a href="/services/full-service-digital-marketing-agencies/">Full-Service Digital Marketing Agencies statewide</a></li><li><a href="/services/ppc-paid-media-agencies/">PPC &amp; Paid Media Agencies statewide</a></li><li><a href="/services/web-design-agencies/">Web Design Agencies statewide</a></li><li><a href="/services/branding-graphic-design-agencies/">Branding &amp; Graphic Design Agencies statewide</a></li></ul></div>
+      </div>
+    </section>
+    <!-- il:nearby:end -->
     <!-- related-lists:start -->
     <section class="section">
       <div class="section-head">
@@ -109,12 +117,19 @@
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
-      <a class="brand small" href="/">
-        <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
-      </a>
-      <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses. Questions? <a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></p>
+      <div class="footer-brand">
+        <a class="brand small" href="/">
+          <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
+        </a>
+        <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses.</p>
+        <ul class="footer-contact">
+          <li><a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></li>
+          <li>Atlanta, Georgia</li>
+        </ul>
+        <a class="btn btn-primary" href="/services/">Explore services <span class="arr" aria-hidden="true">→</span></a>
+      </div>
       <nav class="footer-nav" aria-label="Our services">
-        <a href="/services/">Our Services</a>
+        <p class="footer-title">Services</p>
         <a href="/seo/">SEO Packages</a>
         <a href="/seo/local-citations/">Local Citations</a>
         <a href="/google-business-profile/">Google Business Profile</a>
@@ -124,18 +139,27 @@
         <a href="/facebook-ads/">Facebook &amp; Instagram Ads</a>
         <a href="/website-design/">Website Design</a>
         <a href="/youtube-thumbnails/">YouTube Thumbnails</a>
-        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
       </nav>
-      <nav class="footer-nav" aria-label="Footer">
+      <nav class="footer-nav" aria-label="Company">
+        <p class="footer-title">Company</p>
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/services/">Our Services</a>
+        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
         <a href="/blog/">Blog</a>
-        <a href="/cities/">Agency Directory</a>
-        <a href="/lists/">Lists</a>
-        <a href="/submit/">Add your agency</a>
         <a href="/free-logo-maker/">Free Logo Maker</a>
       </nav>
+      <nav class="footer-nav" aria-label="Directory">
+        <p class="footer-title">Agency Directory</p>
+        <a href="/cities/">Browse by City</a>
+        <a href="/services/#directory">Browse by Category</a>
+        <a href="/lists/">Top Agency Lists</a>
+        <a href="/submit/">Add your agency</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
       <p class="copyright">© <span id="year"></span> Mindful Marketing Agency · Atlanta, GA. All rights reserved.</p>
+      <p>Flat pricing · No long-term contracts · Secure checkout by Stripe</p>
     </div>
   </footer>
   <script src="/script.js"></script>

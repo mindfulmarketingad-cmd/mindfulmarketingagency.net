@@ -40,10 +40,45 @@ It also writes `pay-links.js`, which `/thank-you/` uses to show what was bought.
 3. Add the entry to `data/packages.json` (set `intake`). Keep fulfillment sources and costs in the private fulfillment map, never in this repo.
 4. Give the service its own Atlanta landing page (see `/backlinks/`, `/google-ads-management/` for the
    pattern: pricing cards, FAQ + Service schema, request form) and link it from the nav, `/services/`,
-   the homepage package grid, and the footer.
+   a homepage service card (no price), and the footer.
 5. Put a `<!-- pay:<key> --><!-- /pay -->` marker on the service page (keep a "request via form"
-   button next to it), then run, in order: `python3 pay_buttons.py`, `python3 enhance_city_pages.py`,
-   `python3 brand_cta.py`, `python3 generate_sitemap.py`.
+   button next to it), then run the post-processing order below.
+
+**Homepage has no prices.** It shows services only as linked cards (name, benefit, icon,
+"Learn more"). Prices, Pay now buttons and Offer prices in schema live on each service page and
+`/services/` only. Keep it that way (no `$` amounts, `pay-btn`, or `priceRange` on `/`).
+
+## Post-processing order (run after any generator or page edit)
+
+All of these are idempotent (they replace their own `<!-- name:start/end -->` blocks):
+
+1. `python3 pay_buttons.py`: Stripe Pay now buttons from `data/packages.json`.
+2. `python3 trust_strip.py`: "Secure checkout by Stripe / Clear scope / A real person / …" strip
+   under the pricing grid of every page with Pay now buttons (`<!-- trust:start/end -->`).
+3. `python3 internal_links.py`: directory internal linking (also run automatically at the end of
+   `generate_directory.py`):
+   - every listing: breadcrumb Home > Directory > City > Listing, "Similar agencies" (8 cards:
+     same city + category, same city, same category in nearby cities, then nearby cities), links
+     to its city page, its category page, nearby cities, and matching Mindful Marketing services;
+   - every city page: nearby cities (by distance, from `data/city-coords.json`, built from the
+     2023 Census Gazetteer; add a lat/lng entry when a new city is added) and top categories;
+   - every category page (`/services/<category>/`): a static list of its agencies grouped by city,
+     plus top cities and other categories (creates `/services/full-service-digital-marketing-agencies/`);
+   - `/cities/`, `/services/` and `/blog/` hubs: static, crawlable link lists (cities, categories, guides).
+4. `python3 enhance_city_pages.py`
+5. `python3 brand_cta.py`
+6. `python3 generate_sitemap.py`
+
+Then check for broken internal links and orphans (every listing should be reachable from `/`).
+
+## Design system
+
+`styles.css` ends with the "Premium design system (v2)" layer: Plus Jakarta Sans (headings) +
+Inter (body), navy/blue palette from the logo with an amber accent, gradient buttons, cards, the
+dark homepage hero, and scroll-reveal animations (`.rv` → `.in`, added by `script.js`; disabled for
+`prefers-reduced-motion`). Hero/CTA image: `assets/atl-skyline.webp` (+ `-640` for mobile), an
+illustrative skyline, not a photo of our office or clients. Platforms on the homepage are listed as
+tools we use, never as partner badges.
 
 Directory pages (listings, city hubs, categories, lists) carry a "Work with Mindful Marketing" CTA
 added by `brand_cta.py` / `enhance_city_pages.py` — re-run both after regenerating the directory.
@@ -217,7 +252,9 @@ Review submissions in Supabase, then fold approved ones into
 ```
 --blue:       #2563EB   /* primary */
 --blue-dark:  #1D4ED8
---blue-deep:  #1E3A8A   /* footer / dark sections */
+--blue-deep:  #1E3A8A   /* logo navy */
+--navy-950:   #060E2B   /* hero / footer / CTA band */
+--accent:     #F59E0B   /* eyebrow dots, featured badge */
 --blue-light: #EFF6FF   /* soft backgrounds */
 ```
 

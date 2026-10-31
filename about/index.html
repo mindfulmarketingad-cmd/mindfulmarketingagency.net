@@ -20,7 +20,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -50,7 +50,7 @@
             <li><a href="/services/">All Services &amp; Pricing →</a></li>
           </ul>
         </li>
-        <li><a href="/#packages">Pricing</a></li>
+        <li><a href="/services/">Pricing</a></li>
         <li><a href="/digital-marketing/">Atlanta</a></li>
         <li class="nav-dropdown">
           <a href="/cities/">Agency Directory</a>
@@ -64,7 +64,7 @@
         <li><a href="/blog/">Blog</a></li>
         <li class="nav-free-tools"><a href="/free-logo-maker/">Free Tools</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/#packages" class="nav-cta">Get Started</a></li>
+        <li><a href="/services/" class="nav-cta">Get Started</a></li>
       </ul>
     </nav>
   </header>
@@ -73,13 +73,14 @@
     <section class="page-hero">
       <div class="page-hero-inner">
         <p class="crumbs"><a href="/">Home</a> / About</p>
-        <p class="eyebrow">About the Directory</p>
-        <h1>A directory built for Georgia businesses</h1>
+        <p class="eyebrow">About us</p>
+        <h1>An Atlanta marketing agency built for small businesses</h1>
         <p class="lead">
-          Finding the right marketing agency shouldn't mean sifting through pages of generic
-          search results. This directory organizes Georgia's marketing agencies by city and
-          by service, so you can compare real options fast.
+          We help Atlanta and Georgia businesses get found on Google, Maps, and social media with
+          clearly scoped, flat-priced services, and no long-term contracts. We also run a free directory
+          of Georgia marketing agencies, so you can compare real options.
         </p>
+        <div class="hero-ctas" style="justify-content:flex-start;"><a class="btn btn-primary btn-lg" href="/services/">Explore our services <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost btn-lg" href="/digital-marketing/#apply">Get a free proposal</a></div>
       </div>
     </section>
 
@@ -93,6 +94,14 @@
         <a href="/facebook-ads/">Facebook &amp; Instagram ads</a>, and <a href="/website-design/">website design</a> — with
         no long-term contracts and one point of contact for every project. <a href="/services/">See all services and pricing</a>.
       </p>
+      <!-- about-values:start -->
+      <div class="diff-grid" style="position:static;margin:1.6rem 0 2.4rem;">
+        <div class="diff"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Atlanta-based</h3><p>We know the metro and the local searches your customers run.</p></div>
+        <div class="diff"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span><h3>Flat, upfront pricing</h3><p>Every service has a published price and a clear scope.</p></div>
+        <div class="diff"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg></span><h3>No long-term contracts</h3><p>One-time projects or month-to-month. We earn every next order.</p></div>
+        <div class="diff"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><h3>One point of contact</h3><p>You work with the owner, from the first question to the final report.</p></div>
+      </div>
+      <!-- about-values:end -->
 
       <h2>What this directory is</h2>
       <p>
@@ -125,12 +134,19 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <a class="brand small" href="/">
-        <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
-      </a>
-      <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses. Questions? <a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></p>
+      <div class="footer-brand">
+        <a class="brand small" href="/">
+          <img class="brand-logo" src="/assets/logo-white.svg" alt="Mindful Marketing Agency" width="215" height="38" loading="lazy" />
+        </a>
+        <p class="footer-note">Mindful Marketing Agency is an Atlanta digital marketing agency offering flat-priced SEO, local citations, Google Business Profile optimization, ads management, social media, and website design for Georgia small businesses.</p>
+        <ul class="footer-contact">
+          <li><a href="mailto:David@mindfulmarketingagency.net">David@mindfulmarketingagency.net</a></li>
+          <li>Atlanta, Georgia</li>
+        </ul>
+        <a class="btn btn-primary" href="/services/">Explore services <span class="arr" aria-hidden="true">→</span></a>
+      </div>
       <nav class="footer-nav" aria-label="Our services">
-        <a href="/services/">Our Services</a>
+        <p class="footer-title">Services</p>
         <a href="/seo/">SEO Packages</a>
         <a href="/seo/local-citations/">Local Citations</a>
         <a href="/google-business-profile/">Google Business Profile</a>
@@ -140,18 +156,27 @@
         <a href="/facebook-ads/">Facebook &amp; Instagram Ads</a>
         <a href="/website-design/">Website Design</a>
         <a href="/youtube-thumbnails/">YouTube Thumbnails</a>
-        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
       </nav>
-      <nav class="footer-nav" aria-label="Footer">
+      <nav class="footer-nav" aria-label="Company">
+        <p class="footer-title">Company</p>
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/services/">Our Services</a>
+        <a href="/digital-marketing/">Atlanta Digital Marketing</a>
         <a href="/blog/">Blog</a>
-        <a href="/cities/">Agency Directory</a>
-        <a href="/lists/">Lists</a>
-        <a href="/submit/">Add your agency</a>
         <a href="/free-logo-maker/">Free Logo Maker</a>
       </nav>
+      <nav class="footer-nav" aria-label="Directory">
+        <p class="footer-title">Agency Directory</p>
+        <a href="/cities/">Browse by City</a>
+        <a href="/services/#directory">Browse by Category</a>
+        <a href="/lists/">Top Agency Lists</a>
+        <a href="/submit/">Add your agency</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
       <p class="copyright">© <span id="year"></span> Mindful Marketing Agency · Atlanta, GA. All rights reserved.</p>
+      <p>Flat pricing · No long-term contracts · Secure checkout by Stripe</p>
     </div>
   </footer>
 

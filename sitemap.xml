@@ -256,6 +256,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.mindfulmarketingagency.net/free-logo-maker/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.mindfulmarketingagency.net/gainesville/</loc>
     <lastmod>2026-10-31</lastmod>
     <priority>0.7</priority>
@@ -2828,6 +2833,11 @@
   <url>
     <loc>https://www.mindfulmarketingagency.net/services/email-marketing-agencies/</loc>
     <lastmod>2026-10-31</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.mindfulmarketingagency.net/services/full-service-digital-marketing-agencies/</loc>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -7154,10 +7164,5 @@
     <loc>https://www.mindfulmarketingagency.net/lists/youtube-marketing-agencies/zebulon/</loc>
     <lastmod>2026-10-31</lastmod>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.mindfulmarketingagency.net/free-logo-maker/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <priority>0.8</priority>
   </url>
 </urlset>

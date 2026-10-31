@@ -56,3 +56,40 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+// Header shadow once the page scrolls
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Gentle reveal-on-scroll. Skipped entirely for reduced-motion users and old browsers,
+// and never hides anything that is already on screen at load.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.section-head, .svc-card, .step4, .diff, .commit-item, .promise, .cta-band, .tool-card, .pricing-card, .include-card, .process-step, .why-card, .faq-item, .hub-card, .rel-card, .trust-strip, .own-cta, .split .prose';
+  const els = Array.from(document.querySelectorAll(sel));
+  const vh = window.innerHeight;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  const groups = new Map();
+  els.forEach((el) => {
+    if (el.getBoundingClientRect().top < vh) return; // already visible: leave as is
+    const parent = el.parentElement;
+    const i = groups.get(parent) || 0; groups.set(parent, i + 1);
+    el.style.setProperty('--d', Math.min(i, 5) * 0.07 + 's');
+    el.classList.add('rv');
+    io.observe(el);
+  });
+})();
+
+// Hide third-party listing photos/logos that fail to load (expired Google image URLs)
+document.querySelectorAll('img.listing-cover, img.listing-logo').forEach((img) => {
+  const drop = () => img.remove();
+  if (img.complete && img.naturalWidth === 0) drop(); else img.addEventListener('error', drop);
+});
