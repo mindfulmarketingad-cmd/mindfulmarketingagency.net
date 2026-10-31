@@ -1,4 +1,26 @@
-# Georgia Marketing Agencies
+# Mindful Marketing Agency (mindfulmarketingagency.net)
+
+Atlanta digital marketing agency site (owned, drop-serviced packages) plus a
+free directory of Georgia marketing agencies.
+
+## SEO maintenance checklist
+
+- Canonical host is **https://www.mindfulmarketingagency.net** (the apex 308-redirects to www).
+  All canonicals, OG URLs, JSON-LD and the sitemap use the www host.
+- After running any generator, run `python3 enhance_city_pages.py` (adds the
+  crawlable agency list + our services CTA to every city page) and then
+  `python3 generate_sitemap.py` (rebuilds `sitemap.xml` from every page —
+  `generate_directory.py`'s own sitemap misses blog/lists/guides/owned pages).
+- `vercel.json` holds 301s for the pre-rebuild URLs Google still has indexed
+  (`/services/seo/`, `/services/social-media/`, `/guides/...`) and enforces trailing slashes.
+- Brand assets: `assets/logo.svg` (header), `assets/logo-white.svg` (footer),
+  `assets/favicon.svg`, `/favicon.ico`, `/apple-touch-icon.png`,
+  `assets/icon-192.png`, `assets/icon-512.png`, `assets/og-image.png` (1200×630 social share image).
+- Don't add fake reviews, ratings, addresses, or stats.
+
+---
+
+# Directory notes
 
 A directory of marketing agencies across the state of Georgia — browse by
 city or by service, with real agency data imported from Outscraper Google
@@ -25,7 +47,7 @@ Maps exports.
 | `data/lists.json` | Source of truth for list articles (`[{slug, title, description}]`). Add an entry + create `lists/<slug>/index.html` to publish one. |
 | `submit/index.html` | "Add your agency" form — submits to Supabase for review. |
 | `about/index.html` | About the directory. |
-| `assets/logo.svg`, `assets/favicon.svg` | Blue/white location-pin mark. |
+| `assets/logo.svg`, `assets/favicon.svg` | Mindful Marketing Agency logo + icon (see checklist above). |
 
 ## Directory listings vs. our own services
 
@@ -125,8 +147,10 @@ featured section and sort to the top of its city/service pages.
 
 ## "Add your agency" submissions (Supabase)
 
-The `/submit/` form posts directly to Supabase (same project used elsewhere
-on this account). Create the table once with:
+The `/submit/` form currently posts to the existing Supabase `leads` table
+(service = "Directory Submission"), because `agency_submissions` was never
+created. To use a dedicated table instead, create it with the SQL below and
+point `submit/index.html` back at it:
 
 ```sql
 create table if not exists agency_submissions (

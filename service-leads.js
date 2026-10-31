@@ -15,6 +15,13 @@
     });
   });
 
+  // Preselect a tier from ?tier=... (used by links from hub pages / homepage)
+  const tierParam = new URLSearchParams(window.location.search).get('tier');
+  const tierSelectEl = document.getElementById('tier');
+  if (tierParam && tierSelectEl && Array.from(tierSelectEl.options).some((o) => o.value === tierParam)) {
+    tierSelectEl.value = tierParam;
+  }
+
   const form = document.querySelector('.lead-form');
   if (!form) return;
 

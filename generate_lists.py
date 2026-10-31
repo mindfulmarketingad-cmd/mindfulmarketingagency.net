@@ -194,7 +194,7 @@ def list_card_html(a):
 
 
 def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, others, city_slug, city_name, total_in_city):
-    url = f"https://mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
+    url = f"https://www.mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
     title = f"Best {niche_name} in {city_name}, Georgia | Contact Info & Services"
     has_genuine = len(genuine) > 0
     desc = (
@@ -275,12 +275,15 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -291,9 +294,9 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://mindfulmarketingagency.net/lists/" }},
-      {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "https://mindfulmarketingagency.net/lists/{niche_slug}/" }},
+      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mindfulmarketingagency.net/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://www.mindfulmarketingagency.net/lists/" }},
+      {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "https://www.mindfulmarketingagency.net/lists/{niche_slug}/" }},
       {{ "@type": "ListItem", "position": 4, "name": "{esc(city_name)}", "item": "{url}" }}
     ]
   }}
@@ -339,7 +342,7 @@ def niche_page_html(niche_slug, niche_name, niche_singular, kind, genuine, other
 
 
 def niche_hub_html(niche_slug, niche_name, cities):
-    url = f"https://mindfulmarketingagency.net/lists/{niche_slug}/"
+    url = f"https://www.mindfulmarketingagency.net/lists/{niche_slug}/"
     title = f"Best {niche_name} in Georgia by City"
     desc = f"Find {niche_name.lower()} across Georgia — browse by city for contact info, services, and ratings."
     city_links = "".join(
@@ -355,12 +358,15 @@ def niche_hub_html(niche_slug, niche_name, cities):
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -370,8 +376,8 @@ def niche_hub_html(niche_slug, niche_name, cities):
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://mindfulmarketingagency.net/lists/" }},
+      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mindfulmarketingagency.net/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://www.mindfulmarketingagency.net/lists/" }},
       {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "{url}" }}
     ]
   }}
@@ -403,7 +409,7 @@ def exact_niche_page_html(niche_slug, niche_name, niche_singular, agencies, city
     """Page for an exact-match niche — only ever written when `agencies`
     is non-empty, and shows only those genuine matches (no fallback
     section of unrelated agencies)."""
-    url = f"https://mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
+    url = f"https://www.mindfulmarketingagency.net/lists/{niche_slug}/{city_slug}/"
     title = f"Best {niche_name} in {city_name}, Georgia | Contact Info & Services"
     desc = f"Compare {niche_name.lower()} in {city_name}, GA with real SEO and content marketing experience — contact info, ratings, and services."
     agencies_sorted = sorted(agencies, key=lambda a: -(a.get("rating") or 0))
@@ -447,12 +453,15 @@ def exact_niche_page_html(niche_slug, niche_name, niche_singular, agencies, city
   <meta name="description" content="{esc(desc)}" />
   <link rel="canonical" href="{url}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1E3A8A" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:site_name" content="Georgia Marketing Agencies" />
+  <meta property="og:site_name" content="Mindful Marketing Agency" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -463,9 +472,9 @@ def exact_niche_page_html(niche_slug, niche_name, niche_singular, agencies, city
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindfulmarketingagency.net/" }},
-      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://mindfulmarketingagency.net/lists/" }},
-      {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "https://mindfulmarketingagency.net/lists/{niche_slug}/" }},
+      {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mindfulmarketingagency.net/" }},
+      {{ "@type": "ListItem", "position": 2, "name": "Lists", "item": "https://www.mindfulmarketingagency.net/lists/" }},
+      {{ "@type": "ListItem", "position": 3, "name": "{esc(niche_name)}", "item": "https://www.mindfulmarketingagency.net/lists/{niche_slug}/" }},
       {{ "@type": "ListItem", "position": 4, "name": "{esc(city_name)}", "item": "{url}" }}
     ]
   }}
@@ -657,7 +666,7 @@ def main():
     today = datetime.date.today().isoformat()
     added = 0
     for path in new_urls:
-        loc = f"https://mindfulmarketingagency.net{path}"
+        loc = f"https://www.mindfulmarketingagency.net{path}"
         if f"<loc>{loc}</loc>" in sitemap:
             continue
         entry = f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n"
