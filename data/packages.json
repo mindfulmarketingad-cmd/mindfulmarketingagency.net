@@ -1,0 +1,85 @@
+{
+  "_readme": "Single source of truth for every fixed-price package sold on the site. To add a service: add an entry here (key = short snake_case id), create its Stripe Product + Price + Payment Link (redirect to /thank-you/?package=<key>&session_id={CHECKOUT_SESSION_ID}), paste the IDs/URL below, drop <!-- pay:<key> --><!-- /pay --> (or <!-- payrow:key1,key2 --><!-- /payrow -->) where the button should go, then run `python3 pay_buttons.py`. See README > Selling a new package.",
+  "stripe_mode": "live",
+  "stripe_account": "acct_1KQNRaQKbwHoSAII",
+  "packages": {
+    "seo_tier_1": {
+      "name": "SEO Buildout: Tier 1 — Foundation",
+      "short": "Tier 1",
+      "price": 49.99,
+      "category": "seo",
+      "page": "/seo/seo-buildout/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYoDKPGF1tZV2",
+      "stripe_price": "price_1UWThFQKbwHoSAIIPqS0frgP",
+      "payment_link_id": "plink_1UWThbQKbwHoSAIIvhaGZ6p7",
+      "payment_link": "https://buy.stripe.com/fZufZj6Z90BH4N15Uo5AQ01",
+      "intake": "seo"
+    },
+    "seo_tier_2": {
+      "name": "SEO Buildout: Tier 2 — Foundation + Content",
+      "short": "Tier 2",
+      "price": 99.99,
+      "category": "seo",
+      "page": "/seo/seo-buildout/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYoD210s1g0PN",
+      "stripe_price": "price_1UWThKQKbwHoSAII1NLoFmN8",
+      "payment_link_id": "plink_1UWThxQKbwHoSAII0SkXFfyB",
+      "payment_link": "https://buy.stripe.com/3cI7sNcjtgAFa7lciM5AQ03",
+      "intake": "seo"
+    },
+    "seo_tier_3": {
+      "name": "SEO Buildout: Tier 3 — Full Buildout",
+      "short": "Tier 3",
+      "price": 199.99,
+      "category": "seo",
+      "page": "/seo/seo-buildout/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYphXjAgUqYWy",
+      "stripe_price": "price_1UWThMQKbwHoSAIIO1kW6mEG",
+      "payment_link_id": "plink_1UWTi1QKbwHoSAIIRGSkHlFN",
+      "payment_link": "https://buy.stripe.com/28E7sN97h2JP5R51E85AQ04",
+      "intake": "seo"
+    },
+    "citations_basic": {
+      "name": "Local Citations: Basic — 50 Citations",
+      "short": "50 citations",
+      "price": 35,
+      "category": "citations",
+      "page": "/seo/local-citations/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYppZEhqdiw2s",
+      "stripe_price": "price_1UWThOQKbwHoSAIIxQ1a33IR",
+      "payment_link_id": "plink_1UWTi6QKbwHoSAIIW1lDkknK",
+      "payment_link": "https://buy.stripe.com/3cI28t83dfwB7Zd1E85AQ05",
+      "intake": "citations"
+    },
+    "citations_standard": {
+      "name": "Local Citations: Standard — 100 Citations",
+      "short": "100 citations",
+      "price": 55,
+      "category": "citations",
+      "page": "/seo/local-citations/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYpXQc3LF1sxE",
+      "stripe_price": "price_1UWThRQKbwHoSAII4jaMskjb",
+      "payment_link_id": "plink_1UWTi8QKbwHoSAII7diTOpLV",
+      "payment_link": "https://buy.stripe.com/3cI8wRerB7057Zd2Ic5AQ06",
+      "intake": "citations"
+    },
+    "citations_premium": {
+      "name": "Local Citations: Premium — 300 Citations",
+      "short": "300 citations",
+      "price": 160,
+      "category": "citations",
+      "page": "/seo/local-citations/",
+      "fiverr_cost": null,
+      "stripe_product": "prod_VXYpghSo1rfzMM",
+      "stripe_price": "price_1UWThTQKbwHoSAIIDnZysOpR",
+      "payment_link_id": "plink_1UWTiDQKbwHoSAIIitxMMrqH",
+      "payment_link": "https://buy.stripe.com/cNi7sN0ALachfrF2Ic5AQ07",
+      "intake": "citations"
+    }
+  }
+}

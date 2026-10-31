@@ -18,6 +18,34 @@ free directory of Georgia marketing agencies.
   `assets/icon-192.png`, `assets/icon-512.png`, `assets/og-image.png` (1200×630 social share image).
 - Don't add fake reviews, ratings, addresses, or stats.
 
+## Selling a package (Stripe "Pay now" buttons)
+
+All fixed-price packages live in **`data/packages.json`** (name, price, Stripe
+product/price IDs, Payment Link URL, optional `fiverr_cost`). Buttons are
+generated from it by **`python3 pay_buttons.py`**, which fills these markers
+in any HTML page:
+
+- `<!-- pay:seo_tier_1 --><!-- /pay -->`: full-width green "Pay now — $49.99" button
+- `<!-- payrow:citations_basic,citations_standard --><!-- /payrow -->`: compact row of pay chips
+
+It also writes `pay-links.js`, which `/thank-you/` uses to show what was bought.
+
+**To add a new (e.g. white-labeled Fiverr) service:**
+1. Pick a key (`logo_design_basic`) and price. Rule of thumb: Fiverr price × 1.2, then round to a
+   clean price (e.g. $40 gig → $48 or $49).
+2. In Stripe: create a Product + one-time Price, then a Payment Link with name +
+   phone collection, `payment_intent_data.statement_descriptor_suffix = "MINDFUL MKTG"`,
+   metadata `site=mindfulmarketingagency.net, package=<key>`, and after-completion redirect
+   `https://www.mindfulmarketingagency.net/thank-you/?package=<key>&session_id={CHECKOUT_SESSION_ID}`.
+3. Add the entry to `data/packages.json` (set `intake` and `fiverr_cost`).
+4. Put a `<!-- pay:<key> --><!-- /pay -->` marker on the service page (keep a "request via form"
+   button next to it), run `python3 pay_buttons.py`, then `python3 generate_sitemap.py`.
+
+After payment, buyers land on `/thank-you/` (noindex) and fill the intake form,
+which is saved to the Supabase `leads` table with `service = "Paid Order Intake"`,
+`tier = <package name>`, and `budget = "PAID via Stripe | <checkout session id>"`.
+Match it to the Stripe payment by email or session ID.
+
 ---
 
 # Directory notes

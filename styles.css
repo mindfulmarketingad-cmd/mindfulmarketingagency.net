@@ -637,3 +637,20 @@ img { max-width: 100%; display: block; }
 .static-agency-list { columns: 2 260px; padding-left: 1.1rem; }
 .static-agency-list li { margin: .2rem 0; }
 .own-cta p a:not(.btn), .section > p a:not(.btn), .section section > p a:not(.btn), .section section li a:not(.btn), .faq-answer a, .area-list a, .static-agency-list a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---- Pay now (Stripe Payment Links) — rendered by pay_buttons.py ---- */
+.pay-btn { display: block; text-align: center; width: 100%; padding: .85rem 1rem; border-radius: 999px; font-weight: 700; font-size: .98rem; background: #16A34A; color: #fff !important; text-decoration: none !important; border: 0; transition: transform .15s ease, background .2s ease; margin-top: auto; }
+.pay-btn:hover { background: #15803D; transform: translateY(-2px); }
+.pay-note { display: block; text-align: center; font-size: .75rem; color: var(--muted); margin: .35rem 0 .6rem; }
+.pricing-card .pricing-cta.pricing-cta-alt, .pricing-card.featured .pricing-cta.pricing-cta-alt { background: transparent; color: var(--blue); border-color: var(--line); font-size: .85rem; padding: .6rem 1rem; margin-top: 0; }
+.pricing-card .pricing-cta.pricing-cta-alt:hover { background: var(--blue-50, #EFF6FF); color: var(--blue); }
+.pkg-card .pay-btn { margin-top: auto; }
+.pkg-card .pkg-alt { margin-top: .2rem; font-size: .85rem; }
+.pay-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: .2rem 0 .8rem; }
+.pay-row-label { font-size: .8rem; font-weight: 600; color: var(--muted); width: 100%; }
+.pay-chip { display: inline-block; padding: .38rem .7rem; border-radius: 999px; background: #16A34A; color: #fff !important; font-size: .8rem; font-weight: 600; text-decoration: none !important; white-space: nowrap; }
+.pay-chip:hover { background: #15803D; }
+.intake-form .form-row { margin-bottom: 1rem; }
+.pkg-card .pay-row { margin-top: auto; }
+.pkg-card .pay-row + .btn, .pkg-card .pay-note + .btn { margin-top: 0; }
+.pkg-grid .pkg-card .pkg-price { font-size: 1.25rem; }
