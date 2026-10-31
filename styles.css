@@ -654,3 +654,4 @@ img { max-width: 100%; display: block; }
 .pkg-card .pay-row { margin-top: auto; }
 .pkg-card .pay-row + .btn, .pkg-card .pay-note + .btn { margin-top: 0; }
 .pkg-grid .pkg-card .pkg-price { font-size: 1.25rem; }
+.pkg-card .btn{white-space:normal;text-align:center;}

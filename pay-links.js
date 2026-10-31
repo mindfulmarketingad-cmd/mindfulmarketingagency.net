@@ -29,5 +29,120 @@ window.MMA_PACKAGES = {
     "name": "Local Citations: Premium — 300 Citations",
     "price": 160,
     "intake": "citations"
+  },
+  "backlinks_foundation": {
+    "name": "Authority Backlinks: Foundation — 100 Backlinks",
+    "price": 150,
+    "intake": "backlinks"
+  },
+  "backlinks_pillar": {
+    "name": "Authority Backlinks: Pillar — 200 Backlinks",
+    "price": 354,
+    "intake": "backlinks"
+  },
+  "backlinks_tower": {
+    "name": "Authority Backlinks: Tower — 300 Backlinks",
+    "price": 474,
+    "intake": "backlinks"
+  },
+  "social_starter_7": {
+    "name": "Social Media Starter: 7 Days — 2 Platforms",
+    "price": 54,
+    "intake": "social"
+  },
+  "social_starter_14": {
+    "name": "Social Media Starter: 14 Days — 3 Platforms",
+    "price": 132,
+    "intake": "social"
+  },
+  "social_starter_30": {
+    "name": "Social Media Starter: 30 Days — 4 Platforms",
+    "price": 300,
+    "intake": "social"
+  },
+  "social_pro_7": {
+    "name": "Social Media Pro: 7-Day Management — 1 Platform",
+    "price": 252,
+    "intake": "social"
+  },
+  "social_pro_30": {
+    "name": "Social Media Pro: 30 Days — 2 Platforms",
+    "price": 462,
+    "intake": "social"
+  },
+  "social_pro_30_5": {
+    "name": "Social Media Pro: 30 Days — 5 Platforms",
+    "price": 582,
+    "intake": "social"
+  },
+  "citation_boost_50": {
+    "name": "Citation Boost: 50 Citations",
+    "price": 6,
+    "intake": "citations"
+  },
+  "citation_boost_100": {
+    "name": "Citation Boost: 100 Citations",
+    "price": 12,
+    "intake": "citations"
+  },
+  "citation_boost_350": {
+    "name": "Citation Boost: 350 Citations",
+    "price": 42,
+    "intake": "citations"
+  },
+  "youtube_thumbnail": {
+    "name": "YouTube Thumbnail Design: 1 Thumbnail",
+    "price": 66,
+    "intake": "thumbnail"
+  },
+  "gbp_optimization": {
+    "name": "Google Business Profile Optimization",
+    "price": 60,
+    "intake": "gbp"
+  },
+  "gads_launch": {
+    "name": "Google Ads: Launch",
+    "price": 102,
+    "intake": "google_ads"
+  },
+  "gads_growth": {
+    "name": "Google Ads: Growth",
+    "price": 384,
+    "intake": "google_ads"
+  },
+  "gads_scale": {
+    "name": "Google Ads: Scale",
+    "price": 660,
+    "intake": "google_ads"
+  },
+  "fbads_starter": {
+    "name": "Facebook & Instagram Ads: Starter",
+    "price": 120,
+    "intake": "meta_ads"
+  },
+  "fbads_growth": {
+    "name": "Facebook & Instagram Ads: Growth",
+    "price": 204,
+    "intake": "meta_ads"
+  },
+  "fbads_pro": {
+    "name": "Facebook & Instagram Ads: Pro",
+    "price": 300,
+    "intake": "meta_ads"
+  },
+  "web_landing": {
+    "name": "Website Design: Landing Page",
+    "price": 216,
+    "intake": "website"
+  },
+  "web_business": {
+    "name": "Website Design: Business Site — 5 Pages",
+    "price": 480,
+    "intake": "website"
+  },
+  "web_store": {
+    "name": "Website Design: Website, Blog or Shop — 10 Pages",
+    "price": 840,
+    "intake": "website"
   }
 };
