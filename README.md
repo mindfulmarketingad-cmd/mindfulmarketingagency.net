@@ -69,6 +69,10 @@ All of these are idempotent (they replace their own `<!-- name:start/end -->` bl
 4. `python3 enhance_city_pages.py`
 5. `python3 brand_cta.py`
 6. `python3 generate_sitemap.py`
+7. `python3 harden_assets.py` (ALWAYS last, and after any edit to `styles.css`/`script.js`): adds
+   `?v=<content hash>` to every local CSS/JS reference so phones never pair new HTML with an old cached
+   stylesheet (`vercel.json` serves `?v=` files as immutable and un-versioned ones with must-revalidate),
+   and gives inline SVG icons explicit `width`/`height` so they can never render full-screen.
 
 Then check for broken internal links and orphans (every listing should be reachable from `/`).
 

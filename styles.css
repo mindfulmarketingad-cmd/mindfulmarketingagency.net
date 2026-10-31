@@ -978,3 +978,15 @@ h3, h4 { font-weight: 700; }
 .ty-steps li { display: grid; grid-template-columns: 34px 1fr; gap: .8rem; align-items: start; color: var(--ink-soft); }
 .ty-steps .n { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--grad-brand); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: .9rem; }
 .ty-steps a { color: var(--blue); text-decoration: underline; }
+
+/* ---------- Mobile hardening (iOS Safari) ---------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img, video { max-width: 100%; height: auto; }
+.hx-points, .promise-list, .ty-steps, .footer-nav, .footer-contact, .link-chips, .area-list, .svc-grid, .diff-grid, .commit-grid, .steps4 { list-style: none; }
+.hx-points li::marker, .promise-list li::marker, .ty-steps li::marker { content: ""; }
+.hx-points svg { flex: 0 0 18px; }
+.form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.form-group { min-width: 0; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: minmax(0, 1fr); } }
+.footer-contact a, .footer-brand a { overflow-wrap: anywhere; }
