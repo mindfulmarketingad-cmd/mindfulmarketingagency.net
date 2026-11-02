@@ -20,6 +20,7 @@ import re
 import textwrap
 
 from generate_directory import HEADER_NAV, FOOTER, esc, slugify
+from blog_posts_atlanta import ATLANTA_POSTS
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://www.mindfulmarketingagency.net"
@@ -1005,6 +1006,7 @@ BLOG_POSTS = [
     },
 ]
 
+BLOG_POSTS = ATLANTA_POSTS + BLOG_POSTS
 
 # ------------------------------------------------------------- image gen --
 
@@ -1092,13 +1094,15 @@ def blog_post_html(post):
     schemas = [
         {
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            "@type": "Article",
             "headline": post["title"],
             "description": post["description"],
             "image": f"{SITE}{img_url}",
-            "author": {"@type": "Organization", "name": "Georgia Marketing Agencies"},
-            "publisher": {"@type": "Organization", "name": "Georgia Marketing Agencies"},
+            "author": {"@type": "Organization", "name": "Mindful Marketing Agency", "url": f"{SITE}/"},
+            "publisher": {"@type": "Organization", "name": "Mindful Marketing Agency", "url": f"{SITE}/",
+                          "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/icon-512.png"}},
             "mainEntityOfPage": url,
+            **({"datePublished": post["date"], "dateModified": post["date"]} if post.get("date") else {}),
         },
         {
             "@context": "https://schema.org",
@@ -1295,6 +1299,32 @@ def main():
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(sitemap)
     print(f"added {added} new URLs to sitemap.xml")
+    inject_related_guides()
+
+
+# Service pages -> related guides (idempotent, marker-delimited).
+RELATED_GUIDES = {
+    "digital-marketing": ["digital-marketing-atlanta-small-business-guide", "local-seo-for-atlanta-small-businesses", "how-much-does-digital-marketing-cost"],
+    "content-marketing": ["seo-content-marketing-for-atlanta-businesses", "digital-marketing-atlanta-small-business-guide"],
+    "seo": ["local-seo-for-atlanta-small-businesses", "seo-content-marketing-for-atlanta-businesses", "local-seo-checklist-for-georgia-small-businesses"],
+    "seo/local-citations": ["local-seo-for-atlanta-small-businesses", "what-are-local-seo-citations", "how-to-build-local-citations-the-right-way"],
+    "google-business-profile": ["google-business-profile-tips-for-georgia-businesses", "local-seo-for-atlanta-small-businesses"],
+}
+
+
+def inject_related_guides():
+    titles = {p["slug"]: p["title"] for p in BLOG_POSTS}
+    for page, slugs in RELATED_GUIDES.items():
+        path = os.path.join(BASE, page, "index.html")
+        if not os.path.exists(path):
+            continue
+        s = open(path, encoding="utf-8").read()
+        s = re.sub(r"\n\s*<!-- bl:guides:start -->.*?<!-- bl:guides:end -->", "", s, flags=re.S)
+        items = "".join(f'<li><a href="/blog/{x}/">{esc(titles[x])}</a></li>' for x in slugs if x in titles)
+        block = (f'\n    <!-- bl:guides:start -->\n    <section class="section">\n      <h2>Related guides</h2>\n'
+                 f'      <ul class="link-chips">{items}</ul>\n    </section>\n    <!-- bl:guides:end -->')
+        s = re.sub(r"\n(\s*)</main>", block + r"\n\1</main>", s, count=1)
+        open(path, "w", encoding="utf-8").write(s)
 
 
 if __name__ == "__main__":
