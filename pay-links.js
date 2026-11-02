@@ -32,117 +32,129 @@ window.MMA_PACKAGES = {
   },
   "backlinks_foundation": {
     "name": "Authority Backlinks: Foundation — 100 Backlinks",
-    "price": 150,
+    "price": 259,
     "intake": "backlinks"
   },
   "backlinks_pillar": {
     "name": "Authority Backlinks: Pillar — 200 Backlinks",
-    "price": 354,
+    "price": 599,
     "intake": "backlinks"
   },
   "backlinks_tower": {
     "name": "Authority Backlinks: Tower — 300 Backlinks",
-    "price": 474,
+    "price": 799,
     "intake": "backlinks"
   },
   "social_starter_7": {
     "name": "Social Media Starter: 7 Days — 2 Platforms",
-    "price": 54,
+    "price": 99,
     "intake": "social"
   },
   "social_starter_14": {
     "name": "Social Media Starter: 14 Days — 3 Platforms",
-    "price": 132,
+    "price": 229,
     "intake": "social"
   },
   "social_starter_30": {
     "name": "Social Media Starter: 30 Days — 4 Platforms",
-    "price": 300,
+    "price": 509,
     "intake": "social"
   },
   "social_pro_7": {
     "name": "Social Media Pro: 7-Day Management — 1 Platform",
-    "price": 252,
+    "price": 429,
     "intake": "social"
   },
   "social_pro_30": {
     "name": "Social Media Pro: 30 Days — 2 Platforms",
-    "price": 462,
+    "price": 779,
     "intake": "social"
   },
   "social_pro_30_5": {
     "name": "Social Media Pro: 30 Days — 5 Platforms",
-    "price": 582,
+    "price": 979,
     "intake": "social"
   },
   "citation_boost_50": {
     "name": "Citation Boost: 50 Citations",
-    "price": 6,
+    "price": 19,
     "intake": "citations"
   },
   "citation_boost_100": {
     "name": "Citation Boost: 100 Citations",
-    "price": 12,
+    "price": 29,
     "intake": "citations"
   },
   "citation_boost_350": {
     "name": "Citation Boost: 350 Citations",
-    "price": 42,
+    "price": 79,
     "intake": "citations"
   },
   "youtube_thumbnail": {
     "name": "YouTube Thumbnail Design: 1 Thumbnail",
-    "price": 66,
+    "price": 119,
     "intake": "thumbnail"
   },
   "gbp_optimization": {
     "name": "Google Business Profile Optimization",
-    "price": 60,
+    "price": 109,
     "intake": "gbp"
   },
   "gads_launch": {
     "name": "Google Ads: Launch",
-    "price": 102,
+    "price": 179,
     "intake": "google_ads"
   },
   "gads_growth": {
     "name": "Google Ads: Growth",
-    "price": 384,
+    "price": 649,
     "intake": "google_ads"
   },
   "gads_scale": {
     "name": "Google Ads: Scale",
-    "price": 660,
+    "price": 1109,
     "intake": "google_ads"
   },
   "fbads_starter": {
     "name": "Facebook & Instagram Ads: Starter",
-    "price": 120,
+    "price": 209,
     "intake": "meta_ads"
   },
   "fbads_growth": {
     "name": "Facebook & Instagram Ads: Growth",
-    "price": 204,
+    "price": 349,
     "intake": "meta_ads"
   },
   "fbads_pro": {
     "name": "Facebook & Instagram Ads: Pro",
-    "price": 300,
+    "price": 509,
     "intake": "meta_ads"
   },
   "web_landing": {
     "name": "Website Design: Landing Page",
-    "price": 216,
+    "price": 369,
     "intake": "website"
   },
   "web_business": {
     "name": "Website Design: Business Site — 5 Pages",
-    "price": 480,
+    "price": 809,
     "intake": "website"
   },
   "web_store": {
     "name": "Website Design: Website, Blog or Shop — 10 Pages",
-    "price": 840,
+    "price": 1409,
     "intake": "website"
+  },
+  "plan_local_visibility": {
+    "name": "Local Visibility Plan (monthly)",
+    "price": 349,
+    "intake": "gbp",
+    "interval": "month"
+  },
+  "plan_social_starter": {
+    "name": "Social Starter Plan (monthly)",
+    "price": 249,
+    "intake": "social",
+    "interval": "month"
   }
 };

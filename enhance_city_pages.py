@@ -39,9 +39,9 @@ for slug, items in by_city.items():
         <h2>Need digital marketing in {html.escape(city)}? Work with us.</h2>
         <p>Mindful Marketing Agency is the Atlanta team behind this directory, and we work with {html.escape(city)} businesses directly. Flat-priced, done-for-you packages you can buy online — no long-term contracts:
         <a href="/seo/">SEO packages</a> from $49.99, <a href="/seo/local-citations/">local citations</a> from $35,
-        <a href="/google-business-profile/">Google Business Profile optimization</a> ($60), <a href="/social-media-marketing/">social media plans</a> from $54,
-        <a href="/google-ads-management/">Google Ads</a> from $102, <a href="/facebook-ads/">Facebook &amp; Instagram ads</a> from $120,
-        and <a href="/website-design/">website design</a> from $216.</p>
+        <a href="/google-business-profile/">Google Business Profile optimization</a> ($109), <a href="/social-media-marketing/">social media plans</a> from $99,
+        <a href="/google-ads-management/">Google Ads</a> from $179, <a href="/facebook-ads/">Facebook &amp; Instagram ads</a> from $209,
+        and <a href="/website-design/">website design</a> from $369.</p>
         <p style="margin-bottom:0;"><a class="btn btn-primary" href="/services/">See services &amp; pricing</a> <a class="btn btn-ghost" href="/digital-marketing/#apply">Get a free proposal</a></p>
       </div>
     </section>

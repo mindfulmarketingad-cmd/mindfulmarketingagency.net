@@ -78,278 +78,442 @@
     "backlinks_foundation": {
       "name": "Authority Backlinks: Foundation — 100 Backlinks",
       "short": "Foundation",
-      "price": 150,
+      "price": 259,
       "category": "backlinks",
       "page": "/backlinks/",
       "stripe_product": "prod_VXYuKweQa9DM2y",
-      "stripe_price": "price_1UWTmHQKbwHoSAIIbdJdQOBC",
-      "payment_link_id": "plink_1UWTnZQKbwHoSAIIjOxUUH28",
-      "payment_link": "https://buy.stripe.com/14A3cxbfpfwB6V91E85AQ08",
-      "intake": "backlinks"
+      "stripe_price": "price_1UXAZVQKbwHoSAIIV0pKVrs3",
+      "payment_link_id": "plink_1UXAaqQKbwHoSAIIp8s5mEnT",
+      "payment_link": "https://buy.stripe.com/dRm5kFabl98d0wLfuY5AQ0v",
+      "intake": "backlinks",
+      "previous": {
+        "price": 150,
+        "stripe_price": "price_1UWTmHQKbwHoSAIIbdJdQOBC",
+        "payment_link_id": "plink_1UWTnZQKbwHoSAIIjOxUUH28",
+        "payment_link": "https://buy.stripe.com/14A3cxbfpfwB6V91E85AQ08"
+      }
     },
     "backlinks_pillar": {
       "name": "Authority Backlinks: Pillar — 200 Backlinks",
       "short": "Pillar",
-      "price": 354,
+      "price": 599,
       "category": "backlinks",
       "page": "/backlinks/",
       "stripe_product": "prod_VXYuKcWxduc5uD",
-      "stripe_price": "price_1UWTmLQKbwHoSAIIeGq2ybS9",
-      "payment_link_id": "plink_1UWTndQKbwHoSAIIrNpvAJa4",
-      "payment_link": "https://buy.stripe.com/28E7sNfvF98ddjxeqU5AQ09",
-      "intake": "backlinks"
+      "stripe_price": "price_1UXAZgQKbwHoSAIIwBiFLADQ",
+      "payment_link_id": "plink_1UXAayQKbwHoSAII5TLgVoiW",
+      "payment_link": "https://buy.stripe.com/3cIbJ3ablgAFbbp2Ic5AQ0w",
+      "intake": "backlinks",
+      "previous": {
+        "price": 354,
+        "stripe_price": "price_1UWTmLQKbwHoSAIIeGq2ybS9",
+        "payment_link_id": "plink_1UWTndQKbwHoSAIIrNpvAJa4",
+        "payment_link": "https://buy.stripe.com/28E7sNfvF98ddjxeqU5AQ09"
+      }
     },
     "backlinks_tower": {
       "name": "Authority Backlinks: Tower — 300 Backlinks",
       "short": "Tower",
-      "price": 474,
+      "price": 799,
       "category": "backlinks",
       "page": "/backlinks/",
       "stripe_product": "prod_VXYuQvTuJHM0gq",
-      "stripe_price": "price_1UWTmMQKbwHoSAIIRa3iv5s1",
-      "payment_link_id": "plink_1UWTnhQKbwHoSAIInPzIv17n",
-      "payment_link": "https://buy.stripe.com/7sY7sNbfpckp4N1dmQ5AQ0a",
-      "intake": "backlinks"
+      "stripe_price": "price_1UXAZiQKbwHoSAII1fv5Yilj",
+      "payment_link_id": "plink_1UXAb1QKbwHoSAIIk861zXiF",
+      "payment_link": "https://buy.stripe.com/3cI28t5V598d0wLciM5AQ0x",
+      "intake": "backlinks",
+      "previous": {
+        "price": 474,
+        "stripe_price": "price_1UWTmMQKbwHoSAIIRa3iv5s1",
+        "payment_link_id": "plink_1UWTnhQKbwHoSAIInPzIv17n",
+        "payment_link": "https://buy.stripe.com/7sY7sNbfpckp4N1dmQ5AQ0a"
+      }
     },
     "social_starter_7": {
       "name": "Social Media Starter: 7 Days — 2 Platforms",
       "short": "Starter 7-day",
-      "price": 54,
+      "price": 99,
       "category": "social",
       "page": "/social-media-marketing/starter-plans/",
       "stripe_product": "prod_VXYuOOPDSuKZzn",
-      "stripe_price": "price_1UWTmOQKbwHoSAIIHPCtwcN5",
-      "payment_link_id": "plink_1UWTnlQKbwHoSAIIHLON8I9T",
-      "payment_link": "https://buy.stripe.com/bJe5kF0AL98ddjxbeI5AQ0b",
-      "intake": "social"
+      "stripe_price": "price_1UXAZkQKbwHoSAIIWzn6Br3G",
+      "payment_link_id": "plink_1UXAb6QKbwHoSAIIlRLwKNBn",
+      "payment_link": "https://buy.stripe.com/eVqbJ31EPacha7l6Ys5AQ0y",
+      "intake": "social",
+      "previous": {
+        "price": 54,
+        "stripe_price": "price_1UWTmOQKbwHoSAIIHPCtwcN5",
+        "payment_link_id": "plink_1UWTnlQKbwHoSAIIHLON8I9T",
+        "payment_link": "https://buy.stripe.com/bJe5kF0AL98ddjxbeI5AQ0b"
+      }
     },
     "social_starter_14": {
       "name": "Social Media Starter: 14 Days — 3 Platforms",
       "short": "Starter 14-day",
-      "price": 132,
+      "price": 229,
       "category": "social",
       "page": "/social-media-marketing/starter-plans/",
       "stripe_product": "prod_VXYuAeYuHaN2bq",
-      "stripe_price": "price_1UWTmRQKbwHoSAIITL9qMrhU",
-      "payment_link_id": "plink_1UWTnpQKbwHoSAIIADtMxHqd",
-      "payment_link": "https://buy.stripe.com/14AdRb2IT98d4N1beI5AQ0c",
-      "intake": "social"
+      "stripe_price": "price_1UXAZmQKbwHoSAIIT7ZHMBaN",
+      "payment_link_id": "plink_1UXAb9QKbwHoSAII69wlThia",
+      "payment_link": "https://buy.stripe.com/5kQ28tgzJbgl6V982w5AQ0z",
+      "intake": "social",
+      "previous": {
+        "price": 132,
+        "stripe_price": "price_1UWTmRQKbwHoSAIITL9qMrhU",
+        "payment_link_id": "plink_1UWTnpQKbwHoSAIIADtMxHqd",
+        "payment_link": "https://buy.stripe.com/14AdRb2IT98d4N1beI5AQ0c"
+      }
     },
     "social_starter_30": {
       "name": "Social Media Starter: 30 Days — 4 Platforms",
       "short": "Starter 30-day",
-      "price": 300,
+      "price": 509,
       "category": "social",
       "page": "/social-media-marketing/starter-plans/",
       "stripe_product": "prod_VXYuUzNhbvBTfD",
-      "stripe_price": "price_1UWTmUQKbwHoSAIIMavuE4WN",
-      "payment_link_id": "plink_1UWTntQKbwHoSAIIsiMt12XF",
-      "payment_link": "https://buy.stripe.com/bJe7sNcjt2JP3IXbeI5AQ0d",
-      "intake": "social"
+      "stripe_price": "price_1UXAZpQKbwHoSAIINbdwOIEB",
+      "payment_link_id": "plink_1UXAbFQKbwHoSAIIzUNwGqpG",
+      "payment_link": "https://buy.stripe.com/cNifZjerB0BH93h96A5AQ0A",
+      "intake": "social",
+      "previous": {
+        "price": 300,
+        "stripe_price": "price_1UWTmUQKbwHoSAIIMavuE4WN",
+        "payment_link_id": "plink_1UWTntQKbwHoSAIIsiMt12XF",
+        "payment_link": "https://buy.stripe.com/bJe7sNcjt2JP3IXbeI5AQ0d"
+      }
     },
     "social_pro_7": {
       "name": "Social Media Pro: 7-Day Management — 1 Platform",
       "short": "Pro 7-day",
-      "price": 252,
+      "price": 429,
       "category": "social",
       "page": "/social-media-marketing/pro-management/",
       "stripe_product": "prod_VXYudaSJYMzsw9",
-      "stripe_price": "price_1UWTmXQKbwHoSAIIiar6498e",
-      "payment_link_id": "plink_1UWTo5QKbwHoSAIIa6JyLuax",
-      "payment_link": "https://buy.stripe.com/28E28terB705bbp5Uo5AQ0e",
-      "intake": "social"
+      "stripe_price": "price_1UXAZuQKbwHoSAII6eQVAWC1",
+      "payment_link_id": "plink_1UXAbIQKbwHoSAIInNOyWL3q",
+      "payment_link": "https://buy.stripe.com/dRmbJ30ALckpdjxaaE5AQ0B",
+      "intake": "social",
+      "previous": {
+        "price": 252,
+        "stripe_price": "price_1UWTmXQKbwHoSAIIiar6498e",
+        "payment_link_id": "plink_1UWTo5QKbwHoSAIIa6JyLuax",
+        "payment_link": "https://buy.stripe.com/28E28terB705bbp5Uo5AQ0e"
+      }
     },
     "social_pro_30": {
       "name": "Social Media Pro: 30 Days — 2 Platforms",
       "short": "Pro 30-day",
-      "price": 462,
+      "price": 779,
       "category": "social",
       "page": "/social-media-marketing/pro-management/",
       "stripe_product": "prod_VXYuQefgXfhAZW",
-      "stripe_price": "price_1UWTmaQKbwHoSAIIc5JAbjwi",
-      "payment_link_id": "plink_1UWTo8QKbwHoSAIIT6e0hkMh",
-      "payment_link": "https://buy.stripe.com/eVqbJ30AL1FLdjx6Ys5AQ0f",
-      "intake": "social"
+      "stripe_price": "price_1UXAZuQKbwHoSAIIkqoAKJn6",
+      "payment_link_id": "plink_1UXAbMQKbwHoSAIIYXyd8o9Q",
+      "payment_link": "https://buy.stripe.com/8x2dRb83ddota7l2Ic5AQ0C",
+      "intake": "social",
+      "previous": {
+        "price": 462,
+        "stripe_price": "price_1UWTmaQKbwHoSAIIc5JAbjwi",
+        "payment_link_id": "plink_1UWTo8QKbwHoSAIIT6e0hkMh",
+        "payment_link": "https://buy.stripe.com/eVqbJ30AL1FLdjx6Ys5AQ0f"
+      }
     },
     "social_pro_30_5": {
       "name": "Social Media Pro: 30 Days — 5 Platforms",
       "short": "Pro 30-day, 5 platforms",
-      "price": 582,
+      "price": 979,
       "category": "social",
       "page": "/social-media-marketing/pro-management/",
       "stripe_product": "prod_VXYure1XbOor0G",
-      "stripe_price": "price_1UWTmgQKbwHoSAIIozpWVoMQ",
-      "payment_link_id": "plink_1UWToDQKbwHoSAIIhosNeq0v",
-      "payment_link": "https://buy.stripe.com/aFa7sN83dgAFbbpaaE5AQ0g",
-      "intake": "social"
+      "stripe_price": "price_1UXAZvQKbwHoSAIIBP9ON5i6",
+      "payment_link_id": "plink_1UXAbRQKbwHoSAIIaFNUsegL",
+      "payment_link": "https://buy.stripe.com/6oU28t83d5W14N196A5AQ0D",
+      "intake": "social",
+      "previous": {
+        "price": 582,
+        "stripe_price": "price_1UWTmgQKbwHoSAIIozpWVoMQ",
+        "payment_link_id": "plink_1UWToDQKbwHoSAIIhosNeq0v",
+        "payment_link": "https://buy.stripe.com/aFa7sN83dgAFbbpaaE5AQ0g"
+      }
     },
     "citation_boost_50": {
       "name": "Citation Boost: 50 Citations",
       "short": "Boost 50",
-      "price": 6,
+      "price": 19,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuBDKh5JwQfH",
-      "stripe_price": "price_1UWTmiQKbwHoSAIIsxORS5d3",
-      "payment_link_id": "plink_1UWToGQKbwHoSAIItZGXYeWh",
-      "payment_link": "https://buy.stripe.com/aFa4gB83d98ddjx6Ys5AQ0h",
-      "intake": "citations"
+      "stripe_price": "price_1UXAa0QKbwHoSAIIC9UDkfAF",
+      "payment_link_id": "plink_1UXAbdQKbwHoSAII2HIYyVK0",
+      "payment_link": "https://buy.stripe.com/00wdRb6Z92JP7Zd6Ys5AQ0E",
+      "intake": "citations",
+      "previous": {
+        "price": 6,
+        "stripe_price": "price_1UWTmiQKbwHoSAIIsxORS5d3",
+        "payment_link_id": "plink_1UWToGQKbwHoSAIItZGXYeWh",
+        "payment_link": "https://buy.stripe.com/aFa4gB83d98ddjx6Ys5AQ0h"
+      }
     },
     "citation_boost_100": {
       "name": "Citation Boost: 100 Citations",
       "short": "Boost 100",
-      "price": 12,
+      "price": 29,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuGmZAWCJg9z",
-      "stripe_price": "price_1UWTmlQKbwHoSAIINX8vfpy7",
-      "payment_link_id": "plink_1UWToKQKbwHoSAIIYY6xEqAd",
-      "payment_link": "https://buy.stripe.com/00wcN72ITacha7leqU5AQ0i",
-      "intake": "citations"
+      "stripe_price": "price_1UXAa2QKbwHoSAII0vWDn47e",
+      "payment_link_id": "plink_1UXAbjQKbwHoSAII9AqzuBq8",
+      "payment_link": "https://buy.stripe.com/fZudRbdnx1FLdjx96A5AQ0F",
+      "intake": "citations",
+      "previous": {
+        "price": 12,
+        "stripe_price": "price_1UWTmlQKbwHoSAIINX8vfpy7",
+        "payment_link_id": "plink_1UWToKQKbwHoSAIIYY6xEqAd",
+        "payment_link": "https://buy.stripe.com/00wcN72ITacha7leqU5AQ0i"
+      }
     },
     "citation_boost_350": {
       "name": "Citation Boost: 350 Citations",
       "short": "Boost 350",
-      "price": 42,
+      "price": 79,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuU8RZO0VdEG",
-      "stripe_price": "price_1UWTmnQKbwHoSAIIOdh8OHyx",
-      "payment_link_id": "plink_1UWToOQKbwHoSAIIfqk9s9P6",
-      "payment_link": "https://buy.stripe.com/7sYdRb6Z9849a7l96A5AQ0j",
-      "intake": "citations"
+      "stripe_price": "price_1UXAa4QKbwHoSAIIC4wO3peO",
+      "payment_link_id": "plink_1UXAblQKbwHoSAIIoLoMtM7L",
+      "payment_link": "https://buy.stripe.com/fZu7sNcjt5W1a7laaE5AQ0G",
+      "intake": "citations",
+      "previous": {
+        "price": 42,
+        "stripe_price": "price_1UWTmnQKbwHoSAIIOdh8OHyx",
+        "payment_link_id": "plink_1UWToOQKbwHoSAIIfqk9s9P6",
+        "payment_link": "https://buy.stripe.com/7sYdRb6Z9849a7l96A5AQ0j"
+      }
     },
     "youtube_thumbnail": {
       "name": "YouTube Thumbnail Design: 1 Thumbnail",
       "short": "1 thumbnail",
-      "price": 66,
+      "price": 119,
       "category": "thumbnail",
       "page": "/youtube-thumbnails/",
       "stripe_product": "prod_VXYu9Kq30LKExY",
-      "stripe_price": "price_1UWTmqQKbwHoSAII0ePiuSrk",
-      "payment_link_id": "plink_1UWTobQKbwHoSAIIjSWA9ACv",
-      "payment_link": "https://buy.stripe.com/eVq7sN6Z90BH0wL0A45AQ0k",
-      "intake": "thumbnail"
+      "stripe_price": "price_1UXAa6QKbwHoSAIIfUC3daAM",
+      "payment_link_id": "plink_1UXAbqQKbwHoSAIIkm8SGyqH",
+      "payment_link": "https://buy.stripe.com/00waEZ4R1achbbpfuY5AQ0H",
+      "intake": "thumbnail",
+      "previous": {
+        "price": 66,
+        "stripe_price": "price_1UWTmqQKbwHoSAII0ePiuSrk",
+        "payment_link_id": "plink_1UWTobQKbwHoSAIIjSWA9ACv",
+        "payment_link": "https://buy.stripe.com/eVq7sN6Z90BH0wL0A45AQ0k"
+      }
     },
     "gbp_optimization": {
       "name": "Google Business Profile Optimization",
       "short": "Optimization",
-      "price": 60,
+      "price": 109,
       "category": "gbp",
       "page": "/google-business-profile/",
       "stripe_product": "prod_VXYuqdJbeACkyy",
-      "stripe_price": "price_1UWTmtQKbwHoSAII1l7jDzm9",
-      "payment_link_id": "plink_1UWTofQKbwHoSAIIpYXBFLsh",
-      "payment_link": "https://buy.stripe.com/14A3cx97h7051AP6Ys5AQ0l",
-      "intake": "gbp"
+      "stripe_price": "price_1UXAa8QKbwHoSAIICBNRshRZ",
+      "payment_link_id": "plink_1UXAbtQKbwHoSAII2hHErrks",
+      "payment_link": "https://buy.stripe.com/28E00l1EP705a7l3Mg5AQ0I",
+      "intake": "gbp",
+      "previous": {
+        "price": 60,
+        "stripe_price": "price_1UWTmtQKbwHoSAII1l7jDzm9",
+        "payment_link_id": "plink_1UWTofQKbwHoSAIIpYXBFLsh",
+        "payment_link": "https://buy.stripe.com/14A3cx97h7051AP6Ys5AQ0l"
+      }
     },
     "gads_launch": {
       "name": "Google Ads: Launch",
       "short": "Launch",
-      "price": 102,
+      "price": 179,
       "category": "google_ads",
       "page": "/google-ads-management/",
       "stripe_product": "prod_VXYued3dsuix7J",
-      "stripe_price": "price_1UWTmuQKbwHoSAIIdCsvyGgi",
-      "payment_link_id": "plink_1UWTojQKbwHoSAII1vChkiy5",
-      "payment_link": "https://buy.stripe.com/28E6oJ97hbgl1APaaE5AQ0m",
-      "intake": "google_ads"
+      "stripe_price": "price_1UXAaAQKbwHoSAIIzxOimM8G",
+      "payment_link_id": "plink_1UXAbzQKbwHoSAIIYpTbbwjU",
+      "payment_link": "https://buy.stripe.com/cNifZj6Z9ckp1APgz25AQ0J",
+      "intake": "google_ads",
+      "previous": {
+        "price": 102,
+        "stripe_price": "price_1UWTmuQKbwHoSAIIdCsvyGgi",
+        "payment_link_id": "plink_1UWTojQKbwHoSAII1vChkiy5",
+        "payment_link": "https://buy.stripe.com/28E6oJ97hbgl1APaaE5AQ0m"
+      }
     },
     "gads_growth": {
       "name": "Google Ads: Growth",
       "short": "Growth",
-      "price": 384,
+      "price": 649,
       "category": "google_ads",
       "page": "/google-ads-management/",
       "stripe_product": "prod_VXYu1DN3cFNn4T",
-      "stripe_price": "price_1UWTmxQKbwHoSAIIu4DcdoLR",
-      "payment_link_id": "plink_1UWTonQKbwHoSAIIXkZmzLAx",
-      "payment_link": "https://buy.stripe.com/dRmeVfgzJ1FLbbpgz25AQ0n",
-      "intake": "google_ads"
+      "stripe_price": "price_1UXAaCQKbwHoSAII3b7rTGkg",
+      "payment_link_id": "plink_1UXAc2QKbwHoSAIIqs5ECAFl",
+      "payment_link": "https://buy.stripe.com/cNi7sN83ddota7l1E85AQ0K",
+      "intake": "google_ads",
+      "previous": {
+        "price": 384,
+        "stripe_price": "price_1UWTmxQKbwHoSAIIu4DcdoLR",
+        "payment_link_id": "plink_1UWTonQKbwHoSAIIXkZmzLAx",
+        "payment_link": "https://buy.stripe.com/dRmeVfgzJ1FLbbpgz25AQ0n"
+      }
     },
     "gads_scale": {
       "name": "Google Ads: Scale",
       "short": "Scale",
-      "price": 660,
+      "price": 1109,
       "category": "google_ads",
       "page": "/google-ads-management/",
       "stripe_product": "prod_VXYuK3yNHXFknD",
-      "stripe_price": "price_1UWTn2QKbwHoSAIIXki4bVFe",
-      "payment_link_id": "plink_1UWTorQKbwHoSAIIiIkTnCtE",
-      "payment_link": "https://buy.stripe.com/4gMcN7cjt3NT0wLaaE5AQ0o",
-      "intake": "google_ads"
+      "stripe_price": "price_1UXAaEQKbwHoSAIIzz3QsO1A",
+      "payment_link_id": "plink_1UXAc5QKbwHoSAIISrxXhiLM",
+      "payment_link": "https://buy.stripe.com/8x200l1EPach4N1fuY5AQ0L",
+      "intake": "google_ads",
+      "previous": {
+        "price": 660,
+        "stripe_price": "price_1UWTn2QKbwHoSAIIXki4bVFe",
+        "payment_link_id": "plink_1UWTorQKbwHoSAIIiIkTnCtE",
+        "payment_link": "https://buy.stripe.com/4gMcN7cjt3NT0wLaaE5AQ0o"
+      }
     },
     "fbads_starter": {
       "name": "Facebook & Instagram Ads: Starter",
       "short": "Starter",
-      "price": 120,
+      "price": 209,
       "category": "meta_ads",
       "page": "/facebook-ads/",
       "stripe_product": "prod_VXYuACHJb5CEO5",
-      "stripe_price": "price_1UWTn4QKbwHoSAIIFvxabSsR",
-      "payment_link_id": "plink_1UWTovQKbwHoSAIIAvJPrpSA",
-      "payment_link": "https://buy.stripe.com/4gMaEZdnx7052ET3Mg5AQ0p",
-      "intake": "meta_ads"
+      "stripe_price": "price_1UXAaJQKbwHoSAIIl7j1Ynef",
+      "payment_link_id": "plink_1UXAcHQKbwHoSAIIBHpzxY1B",
+      "payment_link": "https://buy.stripe.com/4gM9AV6Z95W13IX5Uo5AQ0M",
+      "intake": "meta_ads",
+      "previous": {
+        "price": 120,
+        "stripe_price": "price_1UWTn4QKbwHoSAIIFvxabSsR",
+        "payment_link_id": "plink_1UWTovQKbwHoSAIIAvJPrpSA",
+        "payment_link": "https://buy.stripe.com/4gMaEZdnx7052ET3Mg5AQ0p"
+      }
     },
     "fbads_growth": {
       "name": "Facebook & Instagram Ads: Growth",
       "short": "Growth",
-      "price": 204,
+      "price": 349,
       "category": "meta_ads",
       "page": "/facebook-ads/",
       "stripe_product": "prod_VXYuLe3OjQ5zwa",
-      "stripe_price": "price_1UWTn7QKbwHoSAIIfGiXhz2h",
-      "payment_link_id": "plink_1UWTp6QKbwHoSAIIrzYuuTQD",
-      "payment_link": "https://buy.stripe.com/aFafZj1EP4RX3IXgz25AQ0q",
-      "intake": "meta_ads"
+      "stripe_price": "price_1UXAaLQKbwHoSAIIRY1ujJhr",
+      "payment_link_id": "plink_1UXAcLQKbwHoSAIIfPD0z5ew",
+      "payment_link": "https://buy.stripe.com/3cIcN74R10BHenB1E85AQ0N",
+      "intake": "meta_ads",
+      "previous": {
+        "price": 204,
+        "stripe_price": "price_1UWTn7QKbwHoSAIIfGiXhz2h",
+        "payment_link_id": "plink_1UWTp6QKbwHoSAIIrzYuuTQD",
+        "payment_link": "https://buy.stripe.com/aFafZj1EP4RX3IXgz25AQ0q"
+      }
     },
     "fbads_pro": {
       "name": "Facebook & Instagram Ads: Pro",
       "short": "Pro",
-      "price": 300,
+      "price": 509,
       "category": "meta_ads",
       "page": "/facebook-ads/",
       "stripe_product": "prod_VXYvI0RLq1bbUM",
-      "stripe_price": "price_1UWTnAQKbwHoSAIIRSPLCgXm",
-      "payment_link_id": "plink_1UWTpAQKbwHoSAIIcigaytJt",
-      "payment_link": "https://buy.stripe.com/6oU7sNdnx3NT5R5dmQ5AQ0r",
-      "intake": "meta_ads"
+      "stripe_price": "price_1UXAaNQKbwHoSAIIsqiyPEg8",
+      "payment_link_id": "plink_1UXAcPQKbwHoSAIIdJMteCrK",
+      "payment_link": "https://buy.stripe.com/fZu9AVabldotenB0A45AQ0O",
+      "intake": "meta_ads",
+      "previous": {
+        "price": 300,
+        "stripe_price": "price_1UWTnAQKbwHoSAIIRSPLCgXm",
+        "payment_link_id": "plink_1UWTpAQKbwHoSAIIcigaytJt",
+        "payment_link": "https://buy.stripe.com/6oU7sNdnx3NT5R5dmQ5AQ0r"
+      }
     },
     "web_landing": {
       "name": "Website Design: Landing Page",
       "short": "Landing page",
-      "price": 216,
+      "price": 369,
       "category": "website",
       "page": "/website-design/",
       "stripe_product": "prod_VXYv9D4rlkCrZc",
-      "stripe_price": "price_1UWTnCQKbwHoSAIIhJeEjOgm",
-      "payment_link_id": "plink_1UWTpEQKbwHoSAIIyH7yaAHW",
-      "payment_link": "https://buy.stripe.com/7sY14p2IT1FL3IX0A45AQ0s",
-      "intake": "website"
+      "stripe_price": "price_1UXAaRQKbwHoSAIIkHCo01Ca",
+      "payment_link_id": "plink_1UXAcUQKbwHoSAIIGFUCsEWx",
+      "payment_link": "https://buy.stripe.com/eVq3cx3MXesxa7l82w5AQ0P",
+      "intake": "website",
+      "previous": {
+        "price": 216,
+        "stripe_price": "price_1UWTnCQKbwHoSAIIhJeEjOgm",
+        "payment_link_id": "plink_1UWTpEQKbwHoSAIIyH7yaAHW",
+        "payment_link": "https://buy.stripe.com/7sY14p2IT1FL3IX0A45AQ0s"
+      }
     },
     "web_business": {
       "name": "Website Design: Business Site — 5 Pages",
       "short": "Business site",
-      "price": 480,
+      "price": 809,
       "category": "website",
       "page": "/website-design/",
       "stripe_product": "prod_VXYvBOkdmLI3v8",
-      "stripe_price": "price_1UWTnEQKbwHoSAII3DfHqxGW",
-      "payment_link_id": "plink_1UWTpIQKbwHoSAII2j4GuvZR",
-      "payment_link": "https://buy.stripe.com/00waEZ6Z9dotfrFaaE5AQ0t",
-      "intake": "website"
+      "stripe_price": "price_1UXAaSQKbwHoSAIIg8GHtks1",
+      "payment_link_id": "plink_1UXAcYQKbwHoSAIIwqFSodgI",
+      "payment_link": "https://buy.stripe.com/9B614p5V55W10wLdmQ5AQ0Q",
+      "intake": "website",
+      "previous": {
+        "price": 480,
+        "stripe_price": "price_1UWTnEQKbwHoSAII3DfHqxGW",
+        "payment_link_id": "plink_1UWTpIQKbwHoSAII2j4GuvZR",
+        "payment_link": "https://buy.stripe.com/00waEZ6Z9dotfrFaaE5AQ0t"
+      }
     },
     "web_store": {
       "name": "Website Design: Website, Blog or Shop — 10 Pages",
       "short": "Website/blog/shop",
-      "price": 840,
+      "price": 1409,
       "category": "website",
       "page": "/website-design/",
       "stripe_product": "prod_VXYvNTL7s4MLb5",
-      "stripe_price": "price_1UWTnHQKbwHoSAIIdp76r0wu",
-      "payment_link_id": "plink_1UWTpMQKbwHoSAIIrz1HtHQ6",
-      "payment_link": "https://buy.stripe.com/dRm00l83dgAF0wL6Ys5AQ0u",
-      "intake": "website"
+      "stripe_price": "price_1UXAaUQKbwHoSAIIh0aQVo1o",
+      "payment_link_id": "plink_1UXAccQKbwHoSAII5yBPAWiE",
+      "payment_link": "https://buy.stripe.com/cNicN7fvF5W17ZdaaE5AQ0R",
+      "intake": "website",
+      "previous": {
+        "price": 840,
+        "stripe_price": "price_1UWTnHQKbwHoSAIIdp76r0wu",
+        "payment_link_id": "plink_1UWTpMQKbwHoSAIIrz1HtHQ6",
+        "payment_link": "https://buy.stripe.com/dRm00l83dgAF0wL6Ys5AQ0u"
+      }
+    },
+    "plan_local_visibility": {
+      "name": "Local Visibility Plan (monthly)",
+      "short": "Local Visibility",
+      "price": 349,
+      "interval": "month",
+      "category": "plans",
+      "page": "/monthly-plans/",
+      "stripe_product": "prod_VYH8f26Ld7XzvM",
+      "stripe_price": "price_1UXAaYQKbwHoSAII29m631yw",
+      "payment_link_id": "plink_1UXAchQKbwHoSAII2l83BHWu",
+      "payment_link": "https://buy.stripe.com/cNi4gB4R1849djxbeI5AQ0S",
+      "intake": "gbp"
+    },
+    "plan_social_starter": {
+      "name": "Social Starter Plan (monthly)",
+      "short": "Social Starter",
+      "price": 249,
+      "interval": "month",
+      "category": "plans",
+      "page": "/monthly-plans/",
+      "stripe_product": "prod_VYH8xRjr0Rsmkw",
+      "stripe_price": "price_1UXAaZQKbwHoSAIIp2ZQzOsO",
+      "payment_link_id": "plink_1UXAckQKbwHoSAIICD6LA67u",
+      "payment_link": "https://buy.stripe.com/28EaEZ5V5esx7Zd0A45AQ0T",
+      "intake": "social"
     }
   }
 }

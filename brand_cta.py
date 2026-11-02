@@ -20,9 +20,9 @@ def cta(heading):
         <h2>{heading}</h2>
         <p>Mindful Marketing Agency is the Atlanta team behind this directory. We sell flat-priced, done-for-you marketing you can buy online — no contracts:
         <a href="/seo/">SEO packages</a> from $49.99, <a href="/seo/local-citations/">local citations</a> from $35,
-        <a href="/google-business-profile/">Google Business Profile optimization</a> ($60), <a href="/social-media-marketing/">social media plans</a> from $54,
-        <a href="/google-ads-management/">Google Ads</a> from $102, <a href="/facebook-ads/">Facebook &amp; Instagram ads</a> from $120,
-        <a href="/backlinks/">backlinks</a> from $150, and <a href="/website-design/">website design</a> from $216.</p>
+        <a href="/google-business-profile/">Google Business Profile optimization</a> ($109), <a href="/social-media-marketing/">social media plans</a> from $99,
+        <a href="/google-ads-management/">Google Ads</a> from $179, <a href="/facebook-ads/">Facebook &amp; Instagram ads</a> from $209,
+        <a href="/backlinks/">backlinks</a> from $259, and <a href="/website-design/">website design</a> from $369.</p>
         <p style="margin-bottom:0;"><a class="btn btn-primary" href="/services/">See all services &amp; pricing</a> <a class="btn btn-ghost" href="/digital-marketing/#apply">Get a free proposal</a></p>
       </div>
     </section>

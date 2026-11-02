@@ -254,6 +254,7 @@ HEADER_NAV = '''  <header class="site-header" id="top">
             <li><a href="/website-design/">Website Design</a></li>
             <li><a href="/youtube-thumbnails/">YouTube Thumbnails</a></li>
             <li><a href="/content-marketing/">Content Marketing</a></li>
+            <li><a href="/monthly-plans/">Monthly Plans</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a href="/services/">All Services &amp; Pricing →</a></li>
           </ul>
