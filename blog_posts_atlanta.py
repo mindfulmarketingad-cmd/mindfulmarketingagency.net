@@ -3,6 +3,118 @@ Imported by generate_blog.py and prepended to BLOG_POSTS so they lead the /blog/
 
 ATLANTA_POSTS = [
     {
+        "slug": "atlanta-digital-marketing-agency-pricing",
+        "title": "Atlanta Digital Marketing Agency Pricing: What to Expect in 2026",
+        "category": "Atlanta",
+        "read_minutes": 9,
+        "date": "2026-11-03",
+        "description": "What Atlanta digital marketing agencies typically charge in 2026 for local SEO, Google Business Profile, ads management, social media, and websites, plus how pricing models work and the red flags to watch for.",
+        "excerpt": "Agency pricing in Atlanta is all over the map. Here are the typical ranges for each service, the pricing models you'll run into, and how to tell a fair quote from a bad one.",
+        "intro": """
+          <p>Ask five Atlanta digital marketing agencies for a quote and you can get five very different numbers for what
+          sounds like the same work. Most of that spread is real: agencies differ in how much strategy, reporting, and
+          senior time they put in. Some of it isn't: vague scopes, long contracts, and add-ons that should have been
+          included.</p>
+          <p>This guide gives the typical price ranges small businesses are quoted for common services, explains the
+          pricing models behind them, and shows what our own flat prices are, so you have a reference point. The ranges
+          are typical, not guarantees. Your quote depends on your industry, competition, and how much you need done.</p>
+        """,
+        "sections": [
+            ("The Three Pricing Models You'll See", """
+              <ul>
+                <li><strong>Monthly retainer.</strong> A fixed fee each month for ongoing work like SEO, social media, or ads
+                management. Good for work that compounds. Ask what's delivered each month, and whether you can cancel
+                month-to-month.</li>
+                <li><strong>Project or package pricing.</strong> A flat price for a defined deliverable, like a website,
+                a Google Business Profile setup, or a batch of citations. Easiest to compare, because the scope is written
+                down.</li>
+                <li><strong>Percentage of ad spend.</strong> Common for Google Ads and Meta ads management, often around
+                10&ndash;20% of monthly spend, usually with a monthly minimum.</li>
+              </ul>
+              <p>Hourly billing exists too, typically for consulting or one-off fixes, but it's less common for ongoing
+              small-business marketing.</p>
+            """),
+            ("Typical Price Ranges by Service", """
+              <p>These are ranges small businesses are commonly quoted. Smaller and newer agencies tend to sit at the low
+              end, and larger firms with dedicated strategists at the high end.</p>
+              <ul>
+                <li><strong>Google Business Profile optimization:</strong> about $100&ndash;$500 one-time. Ongoing profile
+                management is often bundled into local SEO retainers.</li>
+                <li><strong>Local SEO:</strong> often $300&ndash;$2,500 per month, depending on how many locations and how
+                competitive the category is. Plumbers, lawyers, and med spas in metro Atlanta sit toward the higher end.</li>
+                <li><strong>Citation building:</strong> usually priced per batch, from tens of dollars for a small top-up to
+                a few hundred for a full cleanup.</li>
+                <li><strong>Social media management:</strong> roughly $300&ndash;$2,000+ per month, mostly driven by the
+                number of platforms, posts per month, and whether video is included.</li>
+                <li><strong>Google Ads or Facebook &amp; Instagram ads management:</strong> setup fees of a few hundred
+                dollars are common, then either a flat monthly fee or a percentage of spend. This is on top of the ad
+                budget you pay the platform.</li>
+                <li><strong>Small-business websites:</strong> a few hundred dollars for a single landing page, and roughly
+                $1,000&ndash;$10,000+ for a multi-page custom site, depending on features like booking or ecommerce.</li>
+              </ul>
+              <p>For a deeper breakdown by channel, see <a href="/blog/how-much-does-digital-marketing-cost/">how much
+              digital marketing costs</a>.</p>
+            """),
+            ("What Drives the Price Up (or Down)", """
+              <ul>
+                <li><strong>Competition.</strong> Ranking a roofer in Marietta takes more work than ranking a niche specialty
+                shop.</li>
+                <li><strong>Scope.</strong> Number of locations, platforms, pages, and campaigns.</li>
+                <li><strong>Who does the work.</strong> Senior strategists cost more than a templated process. Both can be
+                fine if the deliverables are clear.</li>
+                <li><strong>Reporting and meetings.</strong> Weekly calls and custom dashboards add cost. A short monthly
+                report is enough for most small businesses.</li>
+                <li><strong>Contract length.</strong> Some agencies discount 6&ndash;12 month commitments. Make sure the
+                discount is worth losing the ability to leave.</li>
+              </ul>
+            """),
+            ("Red Flags in an Agency Quote", """
+              <ul>
+                <li>Guaranteed #1 rankings or a guaranteed number of leads. Nobody controls Google.</li>
+                <li>No written list of what you get each month.</li>
+                <li>Long contracts with early-termination fees for basic services.</li>
+                <li>The agency owns your Google Business Profile, ad account, or domain instead of you.</li>
+                <li>Reviews or case studies that you can't verify.</li>
+              </ul>
+              <p>More on vetting agencies in <a href="/blog/how-to-choose-a-marketing-agency-in-georgia/">how to choose a
+              marketing agency in Georgia</a>.</p>
+            """),
+            ("Our Prices, for Reference", """
+              <p>We publish flat prices so you don't have to ask. Everything is month-to-month or one-time, with no
+              contracts:</p>
+              <ul>
+                <li><a href="/monthly-plans/">Monthly plans</a>: Local Visibility at $349/mo (Google Business Profile
+                upkeep, posts, and citations) and Social Starter at $249/mo (14 designed posts per month on up to 3
+                platforms).</li>
+                <li><a href="/google-business-profile/">Google Business Profile optimization</a>: $109 one-time.</li>
+                <li><a href="/seo/local-citations/">Local citations</a>: from $35.</li>
+                <li><a href="/google-ads-management/">Google Ads</a> and <a href="/facebook-ads/">Facebook &amp;
+                Instagram ads</a>: from $179 and $209.</li>
+                <li><a href="/website-design/">Website design</a>: from $369 for a landing page.</li>
+              </ul>
+              <p>You can see everything on our <a href="/services/">services and pricing</a> page.</p>
+            """),
+            ("How to Budget If You're Just Starting", """
+              <p>If you're a small Atlanta business with a modest budget, put money in this order: a complete Google
+              Business Profile, a fast and clear website, consistent citations, then ongoing local SEO or social. Paid ads
+              come after those basics, because ads send people to your profile and site. Our guide to
+              <a href="/blog/how-to-build-a-marketing-budget-for-a-small-business/">building a marketing budget</a> walks
+              through the math.</p>
+            """),
+        ],
+        "faqs": [
+            ("How much does a digital marketing agency cost per month in Atlanta?", "Small businesses are commonly quoted from a few hundred dollars to a few thousand per month, depending on the services and competition. Focused plans like local SEO upkeep or social posting sit at the lower end; multi-channel management with ads sits higher."),
+            ("Is ad spend included in agency fees?", "Usually not. Management fees pay the agency, and the ad budget is paid to Google or Meta separately. Always ask which one a quote covers."),
+            ("Should I sign a long-term contract?", "Only if the discount is meaningful and the deliverables are written down. Month-to-month terms keep the agency accountable."),
+        ],
+        "cta": {
+            "heading": "Want flat, published prices?",
+            "text": "See our monthly plans for Atlanta small businesses: Local Visibility at $349/mo and Social Starter at $249/mo, cancel anytime.",
+            "href": "/monthly-plans/",
+            "label": "See monthly plans",
+        },
+    },
+    {
         "slug": "digital-marketing-atlanta-small-business-guide",
         "title": "Digital Marketing in Atlanta: A Practical Guide for Small Businesses",
         "category": "Atlanta",

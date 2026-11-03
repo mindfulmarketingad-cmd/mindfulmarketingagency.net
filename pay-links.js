@@ -52,7 +52,7 @@ window.MMA_PACKAGES = {
   },
   "social_starter_14": {
     "name": "Social Media Starter: 14 Days — 3 Platforms",
-    "price": 229,
+    "price": 279,
     "intake": "social"
   },
   "social_starter_30": {
@@ -77,17 +77,17 @@ window.MMA_PACKAGES = {
   },
   "citation_boost_50": {
     "name": "Citation Boost: 50 Citations",
-    "price": 19,
+    "price": 39,
     "intake": "citations"
   },
   "citation_boost_100": {
     "name": "Citation Boost: 100 Citations",
-    "price": 29,
+    "price": 59,
     "intake": "citations"
   },
   "citation_boost_350": {
     "name": "Citation Boost: 350 Citations",
-    "price": 79,
+    "price": 179,
     "intake": "citations"
   },
   "youtube_thumbnail": {
