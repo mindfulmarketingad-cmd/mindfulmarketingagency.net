@@ -150,19 +150,19 @@
     "social_starter_14": {
       "name": "Social Media Starter: 14 Days — 3 Platforms",
       "short": "Starter 14-day",
-      "price": 229,
+      "price": 279,
       "category": "social",
       "page": "/social-media-marketing/starter-plans/",
       "stripe_product": "prod_VXYuAeYuHaN2bq",
-      "stripe_price": "price_1UXAZmQKbwHoSAIIT7ZHMBaN",
-      "payment_link_id": "plink_1UXAb9QKbwHoSAII69wlThia",
-      "payment_link": "https://buy.stripe.com/5kQ28tgzJbgl6V982w5AQ0z",
+      "stripe_price": "price_1UXnU5QKbwHoSAIIChfHpJrJ",
+      "payment_link_id": "plink_1UXnUPQKbwHoSAIIJUoyrBBq",
+      "payment_link": "https://buy.stripe.com/fZu5kF97h7057ZdeqU5AQ0X",
       "intake": "social",
       "previous": {
-        "price": 132,
-        "stripe_price": "price_1UWTmRQKbwHoSAIITL9qMrhU",
-        "payment_link_id": "plink_1UWTnpQKbwHoSAIIADtMxHqd",
-        "payment_link": "https://buy.stripe.com/14AdRb2IT98d4N1beI5AQ0c"
+        "price": 229,
+        "stripe_price": "price_1UXAZmQKbwHoSAIIT7ZHMBaN",
+        "payment_link_id": "plink_1UXAb9QKbwHoSAII69wlThia",
+        "payment_link": "https://buy.stripe.com/5kQ28tgzJbgl6V982w5AQ0z"
       }
     },
     "social_starter_30": {
@@ -240,55 +240,55 @@
     "citation_boost_50": {
       "name": "Citation Boost: 50 Citations",
       "short": "Boost 50",
-      "price": 19,
+      "price": 39,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuBDKh5JwQfH",
-      "stripe_price": "price_1UXAa0QKbwHoSAIIC9UDkfAF",
-      "payment_link_id": "plink_1UXAbdQKbwHoSAII2HIYyVK0",
-      "payment_link": "https://buy.stripe.com/00wdRb6Z92JP7Zd6Ys5AQ0E",
+      "stripe_price": "price_1UXnU0QKbwHoSAIIEgz8x7PP",
+      "payment_link_id": "plink_1UXnUDQKbwHoSAIIMIvgkJOX",
+      "payment_link": "https://buy.stripe.com/7sY14p4R1dot2ETciM5AQ0U",
       "intake": "citations",
       "previous": {
-        "price": 6,
-        "stripe_price": "price_1UWTmiQKbwHoSAIIsxORS5d3",
-        "payment_link_id": "plink_1UWToGQKbwHoSAIItZGXYeWh",
-        "payment_link": "https://buy.stripe.com/aFa4gB83d98ddjx6Ys5AQ0h"
+        "price": 19,
+        "stripe_price": "price_1UXAa0QKbwHoSAIIC9UDkfAF",
+        "payment_link_id": "plink_1UXAbdQKbwHoSAII2HIYyVK0",
+        "payment_link": "https://buy.stripe.com/00wdRb6Z92JP7Zd6Ys5AQ0E"
       }
     },
     "citation_boost_100": {
       "name": "Citation Boost: 100 Citations",
       "short": "Boost 100",
-      "price": 29,
+      "price": 59,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuGmZAWCJg9z",
-      "stripe_price": "price_1UXAa2QKbwHoSAII0vWDn47e",
-      "payment_link_id": "plink_1UXAbjQKbwHoSAII9AqzuBq8",
-      "payment_link": "https://buy.stripe.com/fZudRbdnx1FLdjx96A5AQ0F",
+      "stripe_price": "price_1UXnU1QKbwHoSAIIGwcER57a",
+      "payment_link_id": "plink_1UXnUHQKbwHoSAIIdFWGYWa4",
+      "payment_link": "https://buy.stripe.com/3cI00lfvF849frFbeI5AQ0V",
       "intake": "citations",
       "previous": {
-        "price": 12,
-        "stripe_price": "price_1UWTmlQKbwHoSAIINX8vfpy7",
-        "payment_link_id": "plink_1UWToKQKbwHoSAIIYY6xEqAd",
-        "payment_link": "https://buy.stripe.com/00wcN72ITacha7leqU5AQ0i"
+        "price": 29,
+        "stripe_price": "price_1UXAa2QKbwHoSAII0vWDn47e",
+        "payment_link_id": "plink_1UXAbjQKbwHoSAII9AqzuBq8",
+        "payment_link": "https://buy.stripe.com/fZudRbdnx1FLdjx96A5AQ0F"
       }
     },
     "citation_boost_350": {
       "name": "Citation Boost: 350 Citations",
       "short": "Boost 350",
-      "price": 79,
+      "price": 179,
       "category": "citations",
       "page": "/seo/local-citations/",
       "stripe_product": "prod_VXYuU8RZO0VdEG",
-      "stripe_price": "price_1UXAa4QKbwHoSAIIC4wO3peO",
-      "payment_link_id": "plink_1UXAblQKbwHoSAIIoLoMtM7L",
-      "payment_link": "https://buy.stripe.com/fZu7sNcjt5W1a7laaE5AQ0G",
+      "stripe_price": "price_1UXnU3QKbwHoSAII9QokIwW6",
+      "payment_link_id": "plink_1UXnULQKbwHoSAIIPAownU6Z",
+      "payment_link": "https://buy.stripe.com/9B63cx1EPesx2ET82w5AQ0W",
       "intake": "citations",
       "previous": {
-        "price": 42,
-        "stripe_price": "price_1UWTmnQKbwHoSAIIOdh8OHyx",
-        "payment_link_id": "plink_1UWToOQKbwHoSAIIfqk9s9P6",
-        "payment_link": "https://buy.stripe.com/7sYdRb6Z9849a7l96A5AQ0j"
+        "price": 79,
+        "stripe_price": "price_1UXAa4QKbwHoSAIIC4wO3peO",
+        "payment_link_id": "plink_1UXAblQKbwHoSAIIoLoMtM7L",
+        "payment_link": "https://buy.stripe.com/fZu7sNcjt5W1a7laaE5AQ0G"
       }
     },
     "youtube_thumbnail": {

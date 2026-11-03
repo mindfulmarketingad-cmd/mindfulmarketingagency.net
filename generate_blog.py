@@ -1304,10 +1304,11 @@ def main():
 
 # Service pages -> related guides (idempotent, marker-delimited).
 RELATED_GUIDES = {
-    "digital-marketing": ["digital-marketing-atlanta-small-business-guide", "local-seo-for-atlanta-small-businesses", "how-much-does-digital-marketing-cost"],
+    "digital-marketing": ["atlanta-digital-marketing-agency-pricing", "digital-marketing-atlanta-small-business-guide", "local-seo-for-atlanta-small-businesses", "how-much-does-digital-marketing-cost"],
     "content-marketing": ["seo-content-marketing-for-atlanta-businesses", "digital-marketing-atlanta-small-business-guide"],
     "seo": ["local-seo-for-atlanta-small-businesses", "seo-content-marketing-for-atlanta-businesses", "local-seo-checklist-for-georgia-small-businesses"],
     "seo/local-citations": ["local-seo-for-atlanta-small-businesses", "what-are-local-seo-citations", "how-to-build-local-citations-the-right-way"],
+    "monthly-plans": ["atlanta-digital-marketing-agency-pricing", "how-much-does-digital-marketing-cost"],
     "google-business-profile": ["google-business-profile-tips-for-georgia-businesses", "local-seo-for-atlanta-small-businesses"],
 }
 
