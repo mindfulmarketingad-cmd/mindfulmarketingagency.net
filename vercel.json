@@ -3,6 +3,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/privacy",
+      "destination": "/privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy-policy/",
+      "permanent": true
+    },
+    {
       "source": "/services/seo",
       "destination": "/seo/",
       "permanent": true
@@ -134,6 +144,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/ads.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
         }
       ]
     }
